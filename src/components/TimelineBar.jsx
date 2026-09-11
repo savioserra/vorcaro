@@ -6,14 +6,14 @@ export function fmtMonth(ym) {
   return `${MES[m - 1]} ${y}`;
 }
 
-export function TimelineBar({ months, index, onSeek, playing, onTogglePlay, onJumpEnd, peopleCount, edgeCount }) {
-  const cursor = months[index];
+export function TimelineBar({ stops, index, onSeek, playing, onTogglePlay, onJumpEnd, peopleCount, edgeCount }) {
+  const cursor = stops[index];
   const years = [];
-  months.forEach((m, i) => {
+  stops.forEach((m, i) => {
     const y = m.slice(0, 4);
     if (!years.length || years[years.length - 1].y !== y) years.push({ y, i });
   });
-  const pct = (i) => (i / (months.length - 1)) * 100;
+  const pct = (i) => (i / (stops.length - 1)) * 100;
 
   return (
     <motion.footer
@@ -45,17 +45,28 @@ export function TimelineBar({ months, index, onSeek, playing, onTogglePlay, onJu
         <input
           type="range"
           min={0}
-          max={months.length - 1}
+          max={stops.length - 1}
+          step={1}
           value={index}
           onChange={(e) => onSeek(Number(e.target.value))}
-          aria-label="Linha do tempo do caso"
+          aria-label="Linha do tempo do caso (pontos de fatos)"
+          aria-valuetext={fmtMonth(cursor)}
           className="w-full accent-zinc-300"
         />
-        <div className="pointer-events-none absolute inset-x-0 top-[22px] h-3">
+        <div className="pointer-events-none absolute inset-x-0 top-[18px] h-4">
+          {stops.map((s, i) => (
+            <span
+              key={s}
+              className={`absolute top-0 h-1.5 w-1.5 -translate-x-1/2 rounded-full transition-colors duration-200 ${
+                i <= index ? "bg-zinc-200" : "bg-zinc-700"
+              }`}
+              style={{ left: `${pct(i)}%` }}
+            />
+          ))}
           {years.map(({ y, i }) => (
             <span
               key={y}
-              className="absolute -translate-x-1/2 font-mono text-[9px] text-zinc-600"
+              className="absolute top-2.5 -translate-x-1/2 font-mono text-[9px] text-zinc-600"
               style={{ left: `${pct(i)}%` }}
             >
               {y}

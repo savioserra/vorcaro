@@ -78,16 +78,16 @@ export function App() {
   });
 
   /* linha do tempo */
-  const [cursorIdx, setCursorIdx] = useState(TIMELINE.months.length - 1);
+  const [cursorIdx, setCursorIdx] = useState(TIMELINE.stops.length - 1);
   const [playing, setPlaying] = useState(false);
-  const cursor = TIMELINE.months[cursorIdx];
-  const timelineEngaged = cursorIdx < TIMELINE.months.length - 1;
+  const cursor = TIMELINE.stops[cursorIdx];
+  const timelineEngaged = cursorIdx < TIMELINE.stops.length - 1;
 
   useEffect(() => {
     if (!playing) return;
     const t = setInterval(() => {
       setCursorIdx((i) => {
-        if (i >= TIMELINE.months.length - 1) {
+        if (i >= TIMELINE.stops.length - 1) {
           setPlaying(false);
           return i;
         }
@@ -535,7 +535,7 @@ export function App() {
       </div>
 
       <TimelineBar
-        months={TIMELINE.months}
+        stops={TIMELINE.stops}
         index={cursorIdx}
         onSeek={(i) => {
           setPlaying(false);
@@ -543,12 +543,12 @@ export function App() {
         }}
         playing={playing}
         onTogglePlay={() => {
-          if (!playing && cursorIdx >= TIMELINE.months.length - 1) setCursorIdx(0);
+          if (!playing && cursorIdx >= TIMELINE.stops.length - 1) setCursorIdx(0);
           setPlaying((v) => !v);
         }}
         onJumpEnd={() => {
           setPlaying(false);
-          setCursorIdx(TIMELINE.months.length - 1);
+          setCursorIdx(TIMELINE.stops.length - 1);
         }}
         peopleCount={displayNodes.length}
         edgeCount={displayEdges.length}

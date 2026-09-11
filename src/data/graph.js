@@ -830,19 +830,12 @@ export function linkToEdge(l, i, positions) {
   };
 }
 
-/** Limites do eixo do tempo (YYYY-MM): início = primeiro fato documentado (aresta). */
+/** Limites do eixo do tempo (YYYY-MM): pontos de encaixe = datas de fatos documentados. */
 export const TIMELINE = (() => {
   const whens = LINKS.map((l) => l.when).filter(Boolean).sort();
   const sinces = PEOPLE.map((p) => p.since).filter(Boolean);
-  const min = whens[0] || sinces[0] || "2020-10";
-  const max = [...whens, ...sinces].sort().pop() || "2026-09";
-  const months = [];
-  let [y, m] = min.split("-").map(Number);
-  const [ey, em] = max.split("-").map(Number);
-  while (y < ey || (y === ey && m <= em)) {
-    months.push(`${y}-${String(m).padStart(2, "0")}`);
-    m += 1;
-    if (m > 12) { m = 1; y += 1; }
-  }
-  return { min, max, months };
+  const stops = [...new Set(whens)];
+  const min = stops[0] || sinces[0] || "2020-10";
+  const max = stops[stops.length - 1] || "2026-09";
+  return { min, max, stops };
 })();
