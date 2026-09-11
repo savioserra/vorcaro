@@ -1,9 +1,10 @@
-import { Handle, Position } from "@xyflow/react";
+import { Handle, Position, type HandleType, type Position as XYPosition } from "@xyflow/react";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { GROUPS } from "../data/graph.js";
+import type { Person } from "../types";
+import { GROUPS } from "../data/graph";
 
-const SIDES = [
+const SIDES: [XYPosition, HandleType, string][] = [
   [Position.Top, "target", "t-in"],
   [Position.Top, "source", "t-out"],
   [Position.Right, "source", "r-out"],
@@ -14,7 +15,7 @@ const SIDES = [
   [Position.Left, "source", "l-out"],
 ];
 
-export function PersonNode({ data, selected }) {
+export function PersonNode({ data, selected }: { data: Person; selected?: boolean }) {
   const g = GROUPS[data.group] || GROUPS.finance;
   const [broken, setBroken] = useState(false);
   const showPhoto = data.photo && !broken;

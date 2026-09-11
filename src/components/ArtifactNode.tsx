@@ -1,8 +1,9 @@
-import { Handle, Position } from "@xyflow/react";
+import { Handle, Position, type HandleType, type Position as XYPosition } from "@xyflow/react";
 import { motion } from "motion/react";
-import { GROUPS } from "../data/graph.js";
+import type { Person } from "../types";
+import { GROUPS } from "../data/graph";
 
-const SIDES = [
+const SIDES: [XYPosition, HandleType, string][] = [
   [Position.Top, "target", "t-in"],
   [Position.Top, "source", "t-out"],
   [Position.Right, "source", "r-out"],
@@ -14,7 +15,7 @@ const SIDES = [
 ];
 
 /** Nó de "objeto" (ex.: filme) — visual distinto das pessoas. */
-export function ArtifactNode({ data, selected }) {
+export function ArtifactNode({ data, selected }: { data: Person; selected?: boolean }) {
   const g = GROUPS[data.group] || GROUPS.finance;
   return (
     <motion.div

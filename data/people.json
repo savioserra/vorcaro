@@ -1,0 +1,531 @@
+[
+  {
+    "id": "daniel-vorcaro",
+    "since": "2016-01",
+    "name": "Daniel Vorcaro",
+    "role": "Ex-controlador do Banco Master",
+    "group": "finance",
+    "status": "Preso preventivamente (2026)",
+    "initials": "DV",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Daniel_Vorcaro_-_2024_(cropped).jpg/500px-Daniel_Vorcaro_-_2024_(cropped).jpg",
+    "born": "6 out 1983 · Belo Horizonte",
+    "bio": "Acionista majoritário e presidente do Banco Master até a liquidação extrajudicial pelo BC (18/11/2025). Figura central da Operação Compliance Zero: preso em 17/11/2025 em Guarulhos, solto com cautelares em 28/11, re-preso por ordem do STF em 4/3/2026. Financiou a cinebiografia de Jair Bolsonaro, “Dark Horse”, com ao menos US$ 10 mi (R$ 61 mi+) enviados a um fundo nos EUA — repasses hoje no centro da apuração contra Flávio Bolsonaro. Em 8/9/2026, a CVM o condenou por unanimidade no caso Brazil Realty FII — multa pessoal de R$ 20 mi; o banco foi sancionado em R$ 12,5 bi, segundo Metrópoles. A PF aponta que ele sabia da operação e teria planejado a fuga um dia antes da 1ª prisão.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/daniel-vorcaro-3b150664"
+      }
+    ],
+    "notes": "A defesa nega a tese de fraude; não há condenação criminal transitada em julgado.",
+    "x": 380,
+    "y": 280
+  },
+  {
+    "id": "nikolas-ferreira",
+    "since": "2020-01",
+    "name": "Nikolas Ferreira",
+    "role": "Deputado federal PL–MG",
+    "group": "politics",
+    "status": "No cargo · citado em vazamentos",
+    "initials": "NF",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Nikolas_Ferreira_in_2023_(cropped).jpg/500px-Nikolas_Ferreira_in_2023_(cropped).jpg",
+    "born": "30 mai 1996 · Belo Horizonte",
+    "bio": "Deputado mais votado do Brasil em 2022. Entrou no caso Master via material apreendido do celular de Vorcaro: áudio de mar/2025 pedindo ajuda ao banqueiro e alegação de que ele teria bancado voos da campanha 2022. Admite os contatos e os voos; nega ter recebido dinheiro ou se encontrado com Vorcaro. Em 8–10/9/2026, divulgou suposto relatório da PF — considerado falso e criado com IA.",
+    "contacts": [
+      {
+        "label": "E-mail (Câmara)",
+        "url": "mailto:dep.nikolasferreira@camara.leg.br",
+        "text": "dep.nikolasferreira@camara.leg.br"
+      },
+      {
+        "label": "Telefone",
+        "text": "(61) 3215-5743"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/nikolasferreiradm/"
+      },
+      {
+        "label": "X",
+        "url": "https://x.com/nikolas_dm"
+      },
+      {
+        "label": "Câmara",
+        "url": "https://www.camara.leg.br/deputados/209787"
+      }
+    ],
+    "x": 1200,
+    "y": 320
+  },
+  {
+    "id": "andre-valadao",
+    "since": "2024-06",
+    "name": "André Valadão",
+    "role": "Pastor · Lagoinha / Diante do Trono",
+    "group": "church",
+    "status": "Confirmou a apresentação",
+    "initials": "AV",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Andre_Machado_Valad%C3%A3o_do_Diante_do_Trono_(cropped).jpg/500px-Andre_Machado_Valad%C3%A3o_do_Diante_do_Trono_(cropped).jpg",
+    "bio": "Confirmou publicamente que levou a queixa de Vorcaro a Nikolas Ferreira e apresentou os dois, após crítica de Nikolas a evento patrocinado pelo Master. Nega qualquer envolvimento com o banco.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/André_Valadão"
+      }
+    ],
+    "x": 900,
+    "y": 340
+  },
+  {
+    "id": "marcio-valadao",
+    "since": "2025-11",
+    "name": "Márcio Valadão",
+    "role": "Pastor fundador da Lagoinha",
+    "group": "church",
+    "status": "Amigo pessoal de Vorcaro",
+    "initials": "MV",
+    "bio": "Pastor fundador da Lagoinha e pai de André. Segundo a InfoMoney, é amigo pessoal de Vorcaro, que frequentava a igreja — porta de entrada do banqueiro na política evangélica.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Márcio_Valadão"
+      }
+    ],
+    "x": 900,
+    "y": 140
+  },
+  {
+    "id": "guilherme-batista",
+    "since": "2022-10",
+    "name": "Guilherme Batista",
+    "role": "Pastor · Lagoinha",
+    "group": "church",
+    "status": "Citado na pauta dos voos",
+    "initials": "GB",
+    "bio": "Co-liderou com Nikolas a caravana “Juventude pelo Brasil” (2022), que percorreu capitais no jato ligado a Vorcaro — origem das alegações de voos bancados.",
+    "x": 900,
+    "y": 540
+  },
+  {
+    "id": "henrique-vorcaro",
+    "since": "2026-01",
+    "name": "Henrique Vorcaro",
+    "role": "Pai · fundador da Multipar",
+    "group": "family",
+    "status": "Preso (6ª fase, mai/2026)",
+    "initials": "HV",
+    "bio": "Pai de Daniel e fundador do grupo construtor Multipar. Preso em 14/5/2026 na 6ª fase da Compliance Zero; a PF aponta que ele demandava e pagava serviços de núcleos de coação e vazamento de informações.",
+    "contacts": [
+      {
+        "label": "G1 · quem é Henrique",
+        "url": "https://g1.globo.com/mg/minas-gerais/noticia/2026/05/14/quem-e-henrique-vorcaro-pai-de-daniel-vorcaro-do-banco-master.ghtml"
+      }
+    ],
+    "x": 80,
+    "y": 220
+  },
+  {
+    "id": "natalia-vorcaro",
+    "since": "2026-01",
+    "name": "Natalia Vorcaro Zettel",
+    "role": "Irmã · pastora",
+    "group": "family",
+    "status": "Alvo de buscas (2ª fase)",
+    "initials": "NV",
+    "bio": "Irmã de Daniel, pastora de filial da Lagoinha em BH. Os endereços dela figuraram entre os alvos de busca da 2ª fase (14/1/2026), junto com pai e cunhado.",
+    "x": 80,
+    "y": 420
+  },
+  {
+    "id": "fabiano-zettel",
+    "since": "2026-01",
+    "name": "Fabiano Zettel",
+    "role": "Cunhado · advogado, fundo Moriah",
+    "group": "family",
+    "status": "Alvo de buscas (2ª fase)",
+    "initials": "FZ",
+    "bio": "Marido de Natalia; advogado e pastor, responsável pelo fundo Moriah. Também foi alvo de buscas na 2ª fase da operação.",
+    "x": 80,
+    "y": 560
+  },
+  {
+    "id": "fabiola-macedo",
+    "since": "2026-03",
+    "name": "Fabíola de Almeida Macedo",
+    "role": "Esposa · sócia da Viking",
+    "group": "family",
+    "status": "Viking sob cerco judicial",
+    "initials": "FM",
+    "bio": "Esposa de Daniel (InfoMoney) e, segundo registros societários, sócia da Viking Participações — holding dona dos jatos que a liquidante do banco tenta bloquear judicialmente, frente patrimonial do caso.",
+    "contacts": [
+      {
+        "label": "Registro CNPJ Viking",
+        "url": "https://maiscnpj.com.br/cnpj/07875796000175-viking-participacoes-ltda"
+      }
+    ],
+    "x": 80,
+    "y": 700
+  },
+  {
+    "id": "martha-graeff",
+    "since": "2026-03",
+    "name": "Martha Graeff",
+    "role": "Influenciadora · ex-noiva",
+    "group": "personal",
+    "status": "Citada em tese de ocultação",
+    "initials": "MG",
+    "bio": "Reportagem do Estadão (com material da CPMI/Receita) aponta repasse de mais de R$ 520 mi a ela via trust nos EUA, incluindo mansão em Bay Point (Miami) comprada por US$ 86,5 mi — peça da tese de ocultação de patrimônio. A defesa dela nega receber bens ou constituir trust para Vorcaro.",
+    "contacts": [
+      {
+        "label": "O Globo · o relato dela",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/04/09/martha-graeff-saiba-quem-e-a-ex-noiva-de-vorcaro-que-diz-ter-sido-arrastada-para-um-lamacal.ghtml"
+      }
+    ],
+    "x": 380,
+    "y": 40
+  },
+  {
+    "id": "thiago-faria",
+    "since": "2025-03",
+    "name": "Thiago Rodrigues de Faria",
+    "role": "Advogado · ex-assessor de Nikolas",
+    "group": "legal",
+    "status": "Citado no áudio (mar/2025)",
+    "initials": "TF",
+    "bio": "O “advogado, irmão” que Nikolas encaminhou a Vorcaro para destravar um ativo minerário. Nikolas diz que o negócio morreu após a repercussão do Master; nenhuma irregularidade foi apontada na conversa.",
+    "x": 1200,
+    "y": 560
+  },
+  {
+    "id": "flavio-carneiro",
+    "since": "2024-04",
+    "name": "Flávio Carneiro",
+    "role": "Empresário · destinatário do chat",
+    "group": "finance",
+    "status": "Citado em material da PF",
+    "initials": "FC",
+    "bio": "Recebeu, em abr/2024, as mensagens em que Vorcaro afirma ter bancado “todos os voos” de Nikolas e sugere expor o deputado; Carneiro pedia que Nikolas parasse de atacar.",
+    "x": 700,
+    "y": 80
+  },
+  {
+    "id": "michel-temer",
+    "since": "2024-12",
+    "name": "Michel Temer",
+    "role": "Ex-presidente · assessoria (reportado)",
+    "group": "legal",
+    "status": "Atuou na tentativa BRB",
+    "initials": "MT",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Michel_Temer_(foto_oficial)_(cropped_2).jpg/500px-Michel_Temer_(foto_oficial)_(cropped_2).jpg",
+    "bio": "Sob pressão do BC na tentativa de venda do Master ao BRB (2024–25), Vorcaro recrutou Temer para atuar em favor de seus interesses, segundo reportagens compiladas pela Wikipédia.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Michel_Temer"
+      }
+    ],
+    "x": 600,
+    "y": 280
+  },
+  {
+    "id": "ricardo-lewandowski",
+    "since": "2024-12",
+    "name": "Ricardo Lewandowski",
+    "role": "Ex-presidente do STF · consultor",
+    "group": "legal",
+    "status": "Consultor no episódio BRB",
+    "initials": "RL",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ricardo_Lewandowski_2011.jpg/500px-Ricardo_Lewandowski_2011.jpg",
+    "bio": "Atuou como consultor de Vorcaro na tentativa de venda do Master ao BRB, conforme apontado em reportagens compiladas pela Wikipédia.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Ricardo_Lewandowski"
+      }
+    ],
+    "x": 600,
+    "y": 430
+  },
+  {
+    "id": "roberto-campos-neto",
+    "since": "2024-12",
+    "name": "Roberto Campos Neto",
+    "role": "Presidente do BC à época",
+    "group": "legal",
+    "status": "Reunião de emergência (dez/2024)",
+    "initials": "RC",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Roberto_Campos_Neto_(cropped).jpg/500px-Roberto_Campos_Neto_(cropped).jpg",
+    "bio": "Convocou Vorcaro a reunião de emergência em dez/2024 e exigiu aporte de capital à medida que o rombo de liquidez do Master crescia (piauí). O BC depois vetou a venda ao BRB (set/2025) e decretou a liquidação (18/11/2025).",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Roberto_Campos_Neto"
+      }
+    ],
+    "x": 600,
+    "y": 820
+  },
+  {
+    "id": "ciro-nogueira",
+    "since": "2024-08",
+    "name": "Ciro Nogueira",
+    "role": "Senador PP–PI",
+    "group": "politics",
+    "status": "Autor da “emenda Master”",
+    "initials": "CN",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Senador_Ciro_Nogueira_foto_oficial_2.jpg/500px-Senador_Ciro_Nogueira_foto_oficial_2.jpg",
+    "bio": "Vorcaro compareceu ao casamento da filha dele (Angra dos Reis, 3/8/2024) — a bordo de iate, segundo a Bloomberg. Dez dias depois, o senador apresentou a proposta apelidada de “emenda Master”, conforme documentos da CPMI do INSS.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Ciro_Nogueira_Lima_Filho"
+      }
+    ],
+    "x": 600,
+    "y": 160
+  },
+  {
+    "id": "nelson-tanure",
+    "since": "2021-12",
+    "name": "Nelson Tanure",
+    "role": "Empresário · sócio de Vorcaro",
+    "group": "finance",
+    "status": "Alvo de buscas (2ª fase)",
+    "initials": "NT",
+    "bio": "Sócio de Vorcaro em takeovers (Alliar etc.). Foi localizado pela PF no Galeão durante as buscas da 2ª fase (14/1/2026); investigadores também apuraram possível vazamento sobre a operação.",
+    "x": 400,
+    "y": 860
+  },
+  {
+    "id": "alexandre-de-moraes",
+    "since": "2025-11",
+    "name": "Alexandre de Moraes",
+    "role": "Ministro do STF",
+    "group": "stf",
+    "status": "Mensagens atribuídas a ele (contestado)",
+    "initials": "AM",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Ministro_Alexandre_de_Moraes_como_presidente_do_TSE.jpg/500px-Ministro_Alexandre_de_Moraes_como_presidente_do_TSE.jpg",
+    "bio": "Segundo a PF, Vorcaro enviou ao menos 28 mensagens a um número atribuído a ele na semana da 1ª prisão; Moraes teria respondido com 4 mensagens de visualização única no próprio dia da prisão (17/11/2025). A atribuição é contestada pelo ministro. A oposição pediu a sua prisão; o episódio abriu a crise ética-institucional no STF.",
+    "contacts": [
+      {
+        "label": "G1 · 28 mensagens",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/01/pf-aponta-que-vorcaro-mandou-mensagens-a-telefone-atribuido-a-moraes-na-semana-em-que-foi-preso.ghtml"
+      },
+      {
+        "label": "Wikipédia · caso no STF",
+        "url": "https://pt.wikipedia.org/wiki/Caso_Master_no_Supremo_Tribunal_Federal"
+      }
+    ],
+    "x": 950,
+    "y": 760
+  },
+  {
+    "id": "andre-mendonca",
+    "since": "2026-03",
+    "name": "André Mendonça",
+    "role": "Ministro do STF · relator do caso",
+    "group": "stf",
+    "status": "Relator · no centro da crise",
+    "initials": "AM2",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Ministro_Andr%C3%A9_Mendon%C3%A7a_em_outubro_de_2025_(3x4).jpg/500px-Ministro_Andr%C3%A9_Mendon%C3%A7a_em_outubro_de_2025_(3x4).jpg",
+    "bio": "Relator da Compliance Zero no STF. Decretou a segunda prisão de Vorcaro (4/3/2026), autorizou suas transferências de cela e, em 8–9/9/2026, determinou a quebra de sigilo do relatório da PF sobre as mensagens com Moraes — ato que deflagrou a crise institucional. Ex-ministro da Justiça e ex-AGU no governo Bolsonaro; pastor presbiteriano.",
+    "contacts": [
+      {
+        "label": "CNN · 10 revelações",
+        "url": "https://www.cnnbrasil.com.br/politica/caso-banco-master-veja-10-revelacoes-apos-nova-prisao-de-vorcaro/"
+      },
+      {
+        "label": "Wikipédia · caso no STF",
+        "url": "https://pt.wikipedia.org/wiki/Caso_Master_no_Supremo_Tribunal_Federal"
+      }
+    ],
+    "x": 1100,
+    "y": 760
+  },
+  {
+    "id": "dias-toffoli",
+    "since": "2025-12",
+    "name": "Dias Toffoli",
+    "role": "Ministro do STF",
+    "group": "stf",
+    "status": "Sigilo ao pedido da defesa (dez/2025)",
+    "initials": "DT",
+    "bio": "Em 2/12/2025 determinou sigilo máximo sobre o pedido apresentado pela defesa de Vorcaro no STF, conforme registro da Wikipédia com fontes.",
+    "contacts": [
+      {
+        "label": "Wikipédia · Vorcaro",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ],
+    "x": 1250,
+    "y": 620
+  },
+  {
+    "id": "edson-fachin",
+    "since": "2026-09",
+    "name": "Edson Fachin",
+    "role": "Ministro do STF · presidente da Corte",
+    "group": "stf",
+    "status": "Prazo de 24h sobre sigilo (set/2026)",
+    "initials": "EF",
+    "bio": "Presidente do STF. Em 9/9/2026 deu 24 horas para que Mendonça retirasse o sigilo total imposto à operação Compliance Zero e cancelou a sessão plenária da semana em meio à crise.",
+    "contacts": [
+      {
+        "label": "Exame · prazo de 24h",
+        "url": "https://exame.com/brasil/fachin-da-24h-para-que-mendonca-retire-sigilo-total-da-operacao-compliance-zero/"
+      }
+    ],
+    "x": 1400,
+    "y": 700
+  },
+  {
+    "id": "gilmar-mendes",
+    "since": "2026-09",
+    "name": "Gilmar Mendes",
+    "role": "Ministro do STF",
+    "group": "stf",
+    "status": "Proposta de reforma regimental",
+    "initials": "GM",
+    "bio": "Propôs ao presidente Fachin (3/9) e formalizou (5/9) mudança no regimento para proibir delegados da PF — e militares — de trabalharem em gabinetes de ministros do STF, no bojo da crise do caso Master.",
+    "contacts": [
+      {
+        "label": "G1 · proposta",
+        "url": "https://g1.globo.com/politica/blog/valdo-cruz/post/2026/09/03/gilmar-propoe-a-fachin-proibir-delegados-da-pf-como-funcionarios-de-gabinetes-de-ministros-do-stf.ghtml"
+      },
+      {
+        "label": "O Globo · regimento",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/05/em-meio-a-crise-do-caso-master-gilmar-mendes-propoe-mudar-regimento-do-stf-para-retirar-delegados-da-pf-e-militares-de-gabinetes-do-supremo.ghtml"
+      }
+    ],
+    "x": 1550,
+    "y": 560
+  },
+  {
+    "id": "andrei-rodrigues",
+    "since": "2026-09",
+    "name": "Andrei Rodrigues",
+    "role": "Diretor-geral da Polícia Federal",
+    "group": "legal",
+    "status": "Afastado por Mendonça (set/2026)",
+    "initials": "AR",
+    "bio": "Diretor-geral da PF durante a Compliance Zero. Foi afastado por Mendonça em meio à crise deflagrada pelo vazamento do relatório sobre as mensagens Moraes–Vorcaro, segundo a CNN.",
+    "contacts": [
+      {
+        "label": "CNN · crise no STF",
+        "url": "https://www.cnnbrasil.com.br/politica/relacao-moraes-vorcaro-mendonca-afasta-andrei-tudo-sobre-a-crise-no-stf/"
+      }
+    ],
+    "x": 1100,
+    "y": 920
+  },
+  {
+    "id": "jair-bolsonaro",
+    "since": "2022-10",
+    "name": "Jair Bolsonaro",
+    "role": "Ex-presidente",
+    "group": "politics",
+    "status": "Beneficiário da caravana 2022",
+    "initials": "JB",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jair_Bolsonaro_em_24_de_abril_de_2019_(1)_(cropped).jpg/500px-Jair_Bolsonaro_em_24_de_abril_de_2019_(1)_(cropped).jpg",
+    "bio": "A caravana “Juventude pelo Brasil”, feita no jato ligado a Vorcaro, percorreu capitais do Nordeste para impulsionar a sua reeleição no 2º turno de 2022 — elo indireto entre o banqueiro e o núcleo bolsonarista que o caso expôs.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Jair_Bolsonaro"
+      }
+    ],
+    "x": 1450,
+    "y": 120
+  },
+  {
+    "id": "eduardo-bolsonaro",
+    "since": "2020-10",
+    "name": "Eduardo Bolsonaro",
+    "role": "Deputado federal",
+    "group": "politics",
+    "status": "Apoiador inicial de Nikolas",
+    "initials": "EB",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Eduardo_Bolsonaro_by_Gage_Skidmore.jpg/500px-Eduardo_Bolsonaro_by_Gage_Skidmore.jpg",
+    "bio": "Apoiou publicamente a candidatura de Nikolas a vereador de BH em 2020 (O Globo/Sonár). Parte da rede bolsonarista com a qual Vorcaro se aproximou, segundo o Estadão. Segundo a PF, orientou Vorcaro sobre como gerir os recursos do financiamento de “Dark Horse”, enviados a fundo no Texas.",
+    "contacts": [
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Eduardo_Bolsonaro"
+      }
+    ],
+    "x": 1650,
+    "y": 200
+  },
+  {
+    "id": "flavio-bolsonaro",
+    "since": "2025-01",
+    "name": "Flávio Bolsonaro",
+    "role": "Senador PL–RJ · pré-candidato",
+    "group": "politics",
+    "status": "Sob investigação (corrupção/lavagem)",
+    "initials": "FB",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Foto_oficial_do_senador_Fl%25C3%25A1vio_Bolsonaro_(v._AgSen)_(3x4).jpg/500px-Foto_oficial_do_senador_Fl%25C3%25A1vio_Bolsonaro_(v._AgSen)_(3x4).jpg",
+    "bio": "Filho mais velho de Jair. Segundo o Intercept (mai/2026), pediu a Vorcaro US$ 24 mi (R$ 134 mi) para financiar “Dark Horse” e cobrou parcelas atrasadas — 8 dias após uma cobrança, veio novo repasse (Coaf). Mendonça autorizou investigação contra ele por corrupção, lavagem de dinheiro e evasão de divisas; a PF apura o caso.",
+    "contacts": [
+      {
+        "label": "G1 · 5 pontos do Dark Horse",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/11/flavio-bolsonaro-e-investigado-5-pontos-que-a-pf-quer-esclarecer-sobre-o-financiamento-de-dark-horse.ghtml"
+      },
+      {
+        "label": "BBC · o que ele precisa explicar",
+        "url": "https://www.bbc.com/portuguese/articles/cy9zvqle2r0o"
+      }
+    ],
+    "x": 1500,
+    "y": 40
+  },
+  {
+    "id": "mineiro",
+    "since": "2025-01",
+    "name": "Antônio Carlos Freixo Júnior (“Mineiro”)",
+    "role": "Operador financeiro · Entre Investimentos",
+    "group": "finance",
+    "status": "Delação homologada (9/9/2026)",
+    "initials": "MI",
+    "bio": "Operador de Vorcaro à frente da Entre Investimentos. Na delação homologada por Mendonça, detalhou US$ 12,333 mi em 7 transferências (jan–set/2025) para o fundo do filme “Dark Horse”, além de malas de dinheiro vivo e repasses nas Bahamas.",
+    "contacts": [
+      {
+        "label": "G1 · o que se sabe da delação",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/09/recursos-para-dark-horse-malas-para-dinheiro-vivo-e-repasses-nas-bahamas-o-que-se-sabe-da-delacao-de-empresario-ligado-a-vorcaro.ghtml"
+      },
+      {
+        "label": "Poder360 · homologação",
+        "url": "https://www.poder360.com.br/poder-justica/dark-horse-mendonca-homologa-delacao-sobre-repasses-de-vorcaro/"
+      }
+    ],
+    "x": 700,
+    "y": 620
+  },
+  {
+    "id": "dark-horse",
+    "since": "2025-01",
+    "name": "Dark Horse (filme)",
+    "role": "Cinebiografia de Jair Bolsonaro",
+    "group": "movie",
+    "kind": "movie",
+    "status": "Objeto de investigação",
+    "initials": "DH",
+    "bio": "Cinebiografia de Jair Bolsonaro (com Jim Caviezel no elenco). Recebeu ao menos US$ 10 mi (R$ 61 mi+) de Vorcaro via fundo Havengate Development (Texas/EUA); o Coaf registra nova parcela de US$ 1,67 mi em 16/9/2025. A PF suspeita da finalidade real da operação — projeção de bilheteria de até R$ 100 mi — e investiga corrupção, lavagem e evasão de divisas.",
+    "contacts": [
+      {
+        "label": "G1 · o que se sabe do filme",
+        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/05/13/dark-horse-o-que-se-sabe-sobre-cinebiografia-de-bolsonaro-para-a-qual-flavio-bolsonaro-pediu-dinheiro-a-vorcaro.ghtml"
+      },
+      {
+        "label": "Intercept · planilha e recibo",
+        "url": "https://www.intercept.com.br/2026/06/09/planilha-comprovante-bancario-vorcaro-dinheiro-eua-ar-dark-horse/"
+      }
+    ],
+    "x": 1350,
+    "y": 40
+  }
+]

@@ -1,11 +1,18 @@
 import { motion } from "motion/react";
-import { localPdf } from "../data/evidence.js";
-import { RELATIONS } from "../data/graph.js";
+import type { Edge } from "@xyflow/react";
+import type { EdgeData, Person } from "../types";
+import { localPdf } from "../data/evidence";
+import { RELATIONS } from "../data/graph";
 
-export function EdgeCard({ edge, peopleById, onFocus, onClose }) {
+export function EdgeCard({ edge, peopleById, onFocus, onClose }: {
+  edge: Edge<EdgeData>;
+  peopleById: Record<string, Person>;
+  onFocus: (id: string) => void;
+  onClose: () => void;
+}) {
   if (!edge) return null;
-  const d = edge.data || {};
-  const meta = RELATIONS[d.kind] || RELATIONS.business;
+  const d: Partial<EdgeData> = edge.data || {};
+  const meta = RELATIONS[d.kind as keyof typeof RELATIONS] || RELATIONS.business;
   const from = peopleById[edge.source];
   const to = peopleById[edge.target];
 
@@ -46,11 +53,11 @@ export function EdgeCard({ edge, peopleById, onFocus, onClose }) {
         {d.why || "Sem explicação registrada — conexão criada manualmente no mapa."}
       </p>
 
-      {d.evidence?.length > 0 && (
+      {(d.evidence?.length ?? 0) > 0 && (
         <div className="mt-3">
           <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Evidências</div>
           <div className="flex flex-wrap gap-1.5">
-            {d.evidence.map((ev) => {
+            {(d.evidence ?? []).map((ev) => {
               const local = localPdf(ev.url);
               return (
                 <span

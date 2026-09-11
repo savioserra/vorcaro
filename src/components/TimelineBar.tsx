@@ -1,19 +1,28 @@
 import { motion, AnimatePresence } from "motion/react";
 
 const MES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
-export function fmtMonth(ym) {
+export function fmtMonth(ym: string) {
   const [y, m] = ym.split("-").map(Number);
   return `${MES[m - 1]} ${y}`;
 }
 
-export function TimelineBar({ stops, index, onSeek, playing, onTogglePlay, onJumpEnd, peopleCount, edgeCount }) {
+export function TimelineBar({ stops, index, onSeek, playing, onTogglePlay, onJumpEnd, peopleCount, edgeCount }: {
+  stops: string[];
+  index: number;
+  onSeek: (i: number) => void;
+  playing: boolean;
+  onTogglePlay: () => void;
+  onJumpEnd: () => void;
+  peopleCount: number;
+  edgeCount: number;
+}) {
   const cursor = stops[index];
-  const years = [];
+  const years: { y: string; i: number }[] = [];
   stops.forEach((m, i) => {
     const y = m.slice(0, 4);
     if (!years.length || years[years.length - 1].y !== y) years.push({ y, i });
   });
-  const pct = (i) => (i / (stops.length - 1)) * 100;
+  const pct = (i: number) => (i / (stops.length - 1)) * 100;
 
   return (
     <motion.footer

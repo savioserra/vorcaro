@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ReactFlow, Background, Controls, MiniMap, useEdgesState, useNodesState } from "@xyflow/react";
-import { forceSimulation, forceLink, forceManyBody, forceCollide, forceX, forceY } from "d3-force";
+import { ReactFlow, Background, Controls, MiniMap, useEdgesState, useNodesState, type Edge, type Node, type ReactFlowInstance } from "@xyflow/react";
+import { forceSimulation, forceLink, forceManyBody, forceCollide, forceX, forceY, type SimulationNodeDatum } from "d3-force";
 import { motion, AnimatePresence } from "motion/react";
 import {
   PEOPLE,
@@ -10,12 +10,17 @@ import {
   personToNode,
   linkToEdge,
   TIMELINE,
-} from "./data/graph.js";
-import { PersonNode } from "./components/PersonNode.jsx";
-import { ArtifactNode } from "./components/ArtifactNode.jsx";
-import { Inspector } from "./components/Inspector.jsx";
-import { EdgeCard } from "./components/EdgeCard.jsx";
-import { TimelineBar } from "./components/TimelineBar.jsx";
+} from "./data/graph";
+import { PersonNode } from "./components/PersonNode";
+import { ArtifactNode } from "./components/ArtifactNode";
+import { Inspector } from "./components/Inspector";
+import { EdgeCard } from "./components/EdgeCard";
+import { TimelineBar } from "./components/TimelineBar";
+
+import type { EdgeData, GroupKey, Person, RelationKey } from "./types";
+
+type FlowNode = Node<Person>;
+type FlowEdge = Edge<EdgeData>;
 
 const nodeTypes = { person: PersonNode, artifact: ArtifactNode };
 
@@ -24,30 +29,38 @@ const nodeTypes = { person: PersonNode, artifact: ArtifactNode };
 const GROUP_ORDER = ["finance", "politics", "church", "stf", "family", "legal", "personal", "movie"];
 const CENTER = { x: 950, y: 470 };
 
-function groupCenter(group) {
+function groupCenter(group: string) {
   const i = GROUP_ORDER.indexOf(group);
   const angle = (i / GROUP_ORDER.length) * Math.PI * 2 - Math.PI / 2;
   return { x: CENTER.x + Math.cos(angle) * 500, y: CENTER.y + Math.sin(angle) * 350 };
 }
 
-function runForceLayout(nodes) {
-  const simNodes = nodes.map((n) => ({ id: n.id, x: n.position.x, y: n.position.y, group: n.data.group }));
+function runForceLayout(nodes: FlowNode[]) {
+  type SimNode = SimulationNodeDatum & { id: string; group: string; x: number; y: number };
+  const simNodes: SimNode[] = nodes.map((n) => ({
+    id: n.id,
+    x: n.position.x,
+    y: n.position.y,
+    group: String(n.data.group),
+  }));
+  type SimPos = Record<string, { x: number; y: number }>;
   const simLinks = LINKS.map((l) => ({ source: l.source, target: l.target }));
-  const sim = forceSimulation(simNodes)
-    .force("link", forceLink(simLinks).id((d) => d.id).distance(150).strength(0.06))
+  const sim = forceSimulation<SimNode>(simNodes)
+    .force("link", forceLink<SimNode, { source: string; target: string }>(simLinks).id((d) => d.id).distance(150).strength(0.06))
     .force("charge", forceManyBody().strength(-950))
     .force("collide", forceCollide().radius(115).iterations(2))
-    .force("x", forceX((d) => groupCenter(d.group).x).strength(0.055))
-    .force("y", forceY((d) => groupCenter(d.group).y).strength(0.055))
+    .force("x", forceX<SimNode>((d) => groupCenter(d.group).x).strength(0.055))
+    .force("y", forceY<SimNode>((d) => groupCenter(d.group).y).strength(0.055))
     .stop();
   for (let i = 0; i < 420; i++) sim.tick();
-  const pos = Object.fromEntries(simNodes.map((n) => [n.id, { x: n.x, y: n.y }]));
-  return nodes.map((n) => ({ ...n, position: pos[n.id] }));
+  const pos: SimPos = {};
+  for (const n of simNodes) pos[n.id] = { x: n.x ?? 0, y: n.y ?? 0 };
+  return nodes.map((n) => ({ ...n, position: pos[n.id] ?? n.position }));
 }
 
 export function App() {
-  const flowRef = useRef(null);
-  const searchRef = useRef(null);
+  const flowRef = useRef<ReactFlowInstance<FlowNode, FlowEdge> | null>(null);
+  const searchRef = useRef<HTMLInputElement | null>(null);
   const isDesktop = useIsDesktop();
 
   const seedNodes = useMemo(() => runForceLayout(PEOPLE.map(personToNode)), []);
@@ -57,16 +70,16 @@ export function App() {
     return LINKS.map((l, i) => linkToEdge(l, i, pos));
   }, [seedNodes]);
 
-  const [nodes, , onNodesChange] = useNodesState(seedNodes);
-  const [edges, , onEdgesChange] = useEdgesState(seedEdges);
+  const [nodes, , onNodesChange] = useNodesState<FlowNode>(seedNodes);
+  const [edges, , onEdgesChange] = useEdgesState<FlowEdge>(seedEdges);
 
-  const [selectedId, setSelectedId] = useState(null);
-  const [hoveredId, setHoveredId] = useState(null);
-  const [selectedEdgeId, setSelectedEdgeId] = useState(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [selectedEdgeId, setSelectedEdgeId] = useState<string | null>(null);
   const [alwaysShow, setAlwaysShow] = useState(false);
   const [query, setQuery] = useState("");
-  const [hiddenKinds, setHiddenKinds] = useState({});
-  const [hiddenGroups, setHiddenGroups] = useState({});
+  const [hiddenKinds, setHiddenKinds] = useState<Record<string, boolean>>({});
+  const [hiddenGroups, setHiddenGroups] = useState<Record<string, boolean>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(() => {
@@ -107,7 +120,7 @@ export function App() {
   }
 
   const peopleById = useMemo(() => {
-    const map = {};
+    const map: Record<string, Person> = {};
     for (const n of nodes) map[n.id] = n.data;
     return map;
   }, [nodes]);
@@ -131,10 +144,10 @@ export function App() {
     () =>
       edges.filter(
         (e) =>
-          !hiddenKinds[e.data?.kind] &&
+          !hiddenKinds[e.data?.kind ?? ""] &&
           groupIdSet.has(e.source) &&
           groupIdSet.has(e.target) &&
-          (e.data.when || TIMELINE.min) <= cursor
+          (e.data?.when || TIMELINE.min) <= cursor
       ),
     [edges, hiddenKinds, groupIdSet, cursor]
   );
@@ -172,11 +185,12 @@ export function App() {
       const isActive = activeId && (e.source === activeId || e.target === activeId);
       const isPinned = selectedEdgeId === e.id;
       let opacity = alwaysShow || timelineEngaged ? 0.5 : 0.09;
-      let strokeWidth = e.style?.strokeWidth || 1.4;
+      const baseWidth = typeof e.style?.strokeWidth === "number" ? e.style.strokeWidth : 1.4;
+      let strokeWidth: number = baseWidth;
       let label;
       if (isActive || isPinned || timelineEngaged) {
         opacity = 1;
-        strokeWidth = (e.style?.strokeWidth || 1.4) + (isPinned ? 1.2 : 0.8);
+        strokeWidth = baseWidth + (isPinned ? 1.2 : 0.8);
         label = e.data?.label;
       }
       return {
@@ -193,7 +207,7 @@ export function App() {
   /* ---------- interações (somente leitura/navegação) ---------- */
 
   const onNodeClick = useCallback(
-    (_, node) => {
+    (_: unknown, node: FlowNode) => {
       setSelectedId(node.id);
       setSelectedEdgeId(null);
       if (!isDesktop) setInspectorOpen(true);
@@ -201,10 +215,10 @@ export function App() {
     [isDesktop]
   );
 
-  const onEdgeClick = useCallback((_, edge) => setSelectedEdgeId((cur) => (cur === edge.id ? null : edge.id)), []);
+  const onEdgeClick = useCallback((_: unknown, edge: FlowEdge) => setSelectedEdgeId((cur) => (cur === edge.id ? null : edge.id)), []);
 
   const fitPerson = useCallback(
-    (id) => {
+    (id: string) => {
       setSelectedId(id);
       const n = nodes.find((x) => x.id === id);
       if (n && flowRef.current) {
@@ -215,7 +229,7 @@ export function App() {
   );
 
   const traceEdge = useCallback(
-    (edgeId) => {
+    (edgeId: string) => {
       setSelectedEdgeId(edgeId);
       const e = edges.find((x) => x.id === edgeId);
       if (e && flowRef.current) {
@@ -240,10 +254,10 @@ export function App() {
       .filter((p) => !q || `${p.name} ${p.role} ${p.bio || ""}`.toLowerCase().includes(q));
   }, [groupVisibleNodes, query]);
 
-  function toggleKind(k) {
+  function toggleKind(k: string) {
     setHiddenKinds((h) => ({ ...h, [k]: !h[k] }));
   }
-  function toggleGroup(g) {
+  function toggleGroup(g: string) {
     setHiddenGroups((h) => ({ ...h, [g]: !h[g] }));
   }
 
@@ -255,7 +269,7 @@ export function App() {
 
   /* teclado: "/" busca · Esc fecha em camadas */
   useEffect(() => {
-    function onKey(e) {
+    function onKey(e: KeyboardEvent) {
       const tag = document.activeElement?.tagName;
       const typing = tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT";
       if (e.key === "/" && !typing) {
@@ -266,7 +280,7 @@ export function App() {
       if (e.key === "Escape") {
         if (showIntro) return finishIntro();
         if (selectedEdgeId) return setSelectedEdgeId(null);
-        if (typing) return document.activeElement?.blur?.();
+        if (typing) return (document.activeElement as HTMLElement | null)?.blur();
         if (selectedId) return setSelectedId(null);
         setHoveredId(null);
       }
@@ -300,7 +314,7 @@ export function App() {
             ref={searchRef}
             value={query}
             onInput={(e) => setQuery(e.currentTarget.value)}
-            onKeyDown={(e) => {
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
               if (e.key === "Enter" && filteredList[0]) {
                 fitPerson(filteredList[0].id);
                 e.currentTarget.blur();
@@ -465,11 +479,11 @@ export function App() {
             onNodeClick={onNodeClick}
             onEdgeClick={onEdgeClick}
             onPaneClick={() => setSelectedEdgeId(null)}
-            onNodeMouseEnter={(_, node) => setHoveredId(node.id)}
+            onNodeMouseEnter={(_: unknown, node: FlowNode) => setHoveredId(node.id)}
             onNodeMouseLeave={() => setHoveredId(null)}
             nodeTypes={nodeTypes}
             onInit={(inst) => {
-              flowRef.current = inst;
+              flowRef.current = inst as ReactFlowInstance<FlowNode, FlowEdge>;
             }}
             fitView
             fitViewOptions={{ padding: 0.15 }}
@@ -490,7 +504,10 @@ export function App() {
               position="bottom-right"
               pannable
               zoomable
-              nodeColor={(n) => (GROUPS[n.data?.group] || GROUPS.finance).ring}
+              nodeColor={(n) => {
+                const g = (n.data as Person | undefined)?.group;
+                return (GROUPS[g as GroupKey] || GROUPS.finance).ring;
+              }}
               maskColor="rgba(0,0,0,.55)"
             />
           </ReactFlow>
@@ -537,7 +554,7 @@ export function App() {
       <TimelineBar
         stops={TIMELINE.stops}
         index={cursorIdx}
-        onSeek={(i) => {
+        onSeek={(i: number) => {
           setPlaying(false);
           setCursorIdx(i);
         }}
@@ -614,7 +631,7 @@ function useIsDesktop() {
   );
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
-    const fn = (e) => setIsDesktop(e.matches);
+    const fn = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
     mq.addEventListener?.("change", fn);
     return () => mq.removeEventListener?.("change", fn);
   }, []);

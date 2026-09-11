@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
-    "build": "vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0 --port 4173",
-    "evidence": "node scripts/build-evidence.mjs"
+    "evidence": "node scripts/build-evidence.mjs",
+    "validate": "node scripts/validate-data.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@xyflow/react": "^12.8.4",
@@ -18,9 +20,13 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.13",
+    "@types/d3-force": "^3.0.10",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^5.2.0",
     "pdfkit": "^0.20.2",
     "tailwindcss": "^4.1.13",
+    "typescript": "^7.0.2",
     "vite": "^7.1.5"
   },
   "allowScripts": {

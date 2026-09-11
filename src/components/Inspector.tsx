@@ -1,8 +1,17 @@
 import { motion } from "motion/react";
-import { localPdf } from "../data/evidence.js";
-import { GROUPS, RELATIONS } from "../data/graph.js";
+import type { Edge } from "@xyflow/react";
+import type { EdgeData, Person } from "../types";
+import { localPdf } from "../data/evidence";
+import { GROUPS, RELATIONS } from "../data/graph";
 
-export function Inspector({ person, edges, peopleById, onFocus, onTrace, onClose }) {
+export function Inspector({ person, edges, peopleById, onFocus, onTrace, onClose }: {
+  person: Person | null;
+  edges: Edge<EdgeData>[];
+  peopleById: Record<string, Person>;
+  onFocus: (id: string) => void;
+  onTrace?: (edgeId: string) => void;
+  onClose: () => void;
+}) {
   if (!person) {
     return (
       <aside className="flex h-full w-[340px] shrink-0 flex-col border-l border-zinc-800 bg-zinc-950/80 p-5 text-sm text-zinc-500">
@@ -64,11 +73,11 @@ export function Inspector({ person, edges, peopleById, onFocus, onTrace, onClose
         {person.bio && <p className="leading-relaxed text-zinc-300">{person.bio}</p>}
         {person.notes && <p className="text-xs italic text-zinc-500">{person.notes}</p>}
 
-        {person.contacts?.length > 0 && (
+        {(person.contacts?.length ?? 0) > 0 && (
           <section>
             <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Contatos públicos</h3>
             <ul className="space-y-1">
-              {person.contacts.map((c) => (
+              {(person.contacts ?? []).map((c) => (
                 <li key={c.label + (c.text || c.url)} className="flex gap-2">
                   <span className="w-24 shrink-0 font-mono text-[10px] uppercase text-zinc-500">{c.label}</span>
                   {c.url ? (
@@ -91,7 +100,7 @@ export function Inspector({ person, edges, peopleById, onFocus, onTrace, onClose
           <ul className="space-y-2">
             {related.map((r) => {
               const kind = r.edge.data?.kind;
-              const color = (RELATIONS[kind] || RELATIONS.business).color;
+              const color = (RELATIONS[kind as keyof typeof RELATIONS] || RELATIONS.business).color;
               const evs = r.edge.data?.evidence || [];
               return (
                 <li key={r.edge.id}>
@@ -101,7 +110,7 @@ export function Inspector({ person, edges, peopleById, onFocus, onTrace, onClose
                       <span className="min-w-0 flex-1 truncate text-zinc-200">{r.other.name}</span>
                       <span className="shrink-0 font-mono text-[9px] uppercase text-zinc-600">{r.dir}</span>
                       <span className="max-w-[104px] shrink-0 truncate font-mono text-[10px] text-zinc-500">
-                        {r.edge.data?.label || kind}
+                        {r.edge.data?.label || (kind as string)}
                       </span>
                       <span className="shrink-0 text-zinc-600 marker:hidden">▾</span>
                     </summary>
