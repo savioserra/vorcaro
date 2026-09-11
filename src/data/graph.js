@@ -830,14 +830,12 @@ export function linkToEdge(l, i, positions) {
   };
 }
 
-/** Limites do eixo do tempo (YYYY-MM), derivados dos fatos. */
+/** Limites do eixo do tempo (YYYY-MM): início = primeiro fato documentado (aresta). */
 export const TIMELINE = (() => {
-  const vals = [
-    ...PEOPLE.map((p) => p.since).filter(Boolean),
-    ...LINKS.map((l) => l.when).filter(Boolean),
-  ].sort();
-  const min = vals[0] || "2016-01";
-  const max = vals[vals.length - 1] || "2026-09";
+  const whens = LINKS.map((l) => l.when).filter(Boolean).sort();
+  const sinces = PEOPLE.map((p) => p.since).filter(Boolean);
+  const min = whens[0] || sinces[0] || "2020-10";
+  const max = [...whens, ...sinces].sort().pop() || "2026-09";
   const months = [];
   let [y, m] = min.split("-").map(Number);
   const [ey, em] = max.split("-").map(Number);
