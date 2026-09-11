@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+.react-flow {
+  --xy-background-color: transparent;
+  background: transparent !important;
+}
+
+.react-flow__node {
+  font-family: var(--font-sans);
+}
+
+.react-flow__attribution {
+  background: rgba(24, 24, 27, 0.7) !important;
+  color: #a1a1aa !important;
+  font-size: 9px !important;
+}
+
+.react-flow__controls {
+  box-shadow: none !important;
+  border: 1px solid rgb(63 63 70) !important;
+  overflow: hidden;
+  border-radius: 12px !important;
+}
+
+.react-flow__controls-button {
+  background: rgb(24 24 27) !important;
+  border-bottom: 1px solid rgb(63 63 70) !important;
+  fill: #e4e4e7 !important;
+}
+
+.react-flow__controls-button:hover {
+  background: rgb(39 39 42) !important;
+}
+
+.react-flow__minimap {
+  background: rgb(24 24 27 / 0.92) !important;
+  border: 1px solid rgb(63 63 70) !important;
+  border-radius: 12px !important;
+}
+
+.react-flow__edge-textbg {
+  fill: rgb(24 24 27);
+}
+
+.react-flow__edge-text {
+  fill: #d4d4d8;
+  font-size: 10px;
+  font-family: var(--font-mono);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 8px;
+}
+
+/* somente leitura: handles nunca interativos */
+.react-flow__handle {
+  pointer-events: none !important;
+}
+
+.react-flow__edge {
+  cursor: pointer;
+}
+
+.react-flow__edge-path {
+  transition: stroke-opacity 0.25s ease, stroke-width 0.15s ease;
+}
+
+:focus-visible {
+  outline: 2px solid #71717a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

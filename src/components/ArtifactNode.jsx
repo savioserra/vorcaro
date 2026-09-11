@@ -1,0 +1,51 @@
+import { Handle, Position } from "@xyflow/react";
+import { motion } from "motion/react";
+import { GROUPS } from "../data/graph.js";
+
+const SIDES = [
+  [Position.Top, "target", "t-in"],
+  [Position.Top, "source", "t-out"],
+  [Position.Right, "source", "r-out"],
+  [Position.Right, "target", "r-in"],
+  [Position.Bottom, "source", "b-out"],
+  [Position.Bottom, "target", "b-in"],
+  [Position.Left, "target", "l-in"],
+  [Position.Left, "source", "l-out"],
+];
+
+/** Nó de "objeto" (ex.: filme) — visual distinto das pessoas. */
+export function ArtifactNode({ data, selected }) {
+  const g = GROUPS[data.group] || GROUPS.finance;
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85, y: 10 }}
+      animate={{ opacity: data.dimmed ? 0.22 : 1, scale: 1, y: 0 }}
+      transition={{ type: "spring", stiffness: 260, damping: 24 }}
+      className={`relative w-[188px] rounded-[22px] border border-dashed bg-zinc-900/70 px-3 pb-3 pt-8 shadow-xl shadow-black/40 backdrop-blur-sm ${
+        selected || data.highlighted ? "border-teal-400/70 ring-2 ring-teal-400/25" : "border-teal-700/60"
+      } ${data.dimmed ? "saturate-0" : ""}`}
+      style={data.highlighted ? { borderColor: "#2dd4bf" } : undefined}
+    >
+      {SIDES.map(([pos, type, id]) => (
+        <Handle
+          key={id}
+          id={id}
+          type={type}
+          position={pos}
+          isConnectable={false}
+          className="!h-2 !w-2 !border-teal-700 !opacity-0 transition-opacity duration-200 group-hover:!opacity-60"
+        />
+      ))}
+      <div className="text-center">
+        <div className="text-lg leading-none">🎬</div>
+        <div className="mt-1.5 text-[13px] font-semibold leading-tight text-teal-200">{data.name}</div>
+        <div className="mt-1 line-clamp-2 text-[11px] leading-snug text-zinc-400">{data.role}</div>
+        {data.status && (
+          <div className="mt-2 inline-block rounded-full bg-teal-500/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wide text-teal-300">
+            {data.status}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}

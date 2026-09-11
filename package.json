@@ -1,0 +1,29 @@
+{
+  "name": "vorcaro",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "evidence": "node scripts/build-evidence.mjs"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.8.4",
+    "d3-force": "^3.0.0",
+    "motion": "^13.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@vitejs/plugin-react": "^5.2.0",
+    "pdfkit": "^0.20.2",
+    "tailwindcss": "^4.1.13",
+    "vite": "^7.1.5"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
