@@ -123,30 +123,32 @@ export function App() {
   edgesRef.current = edges;
 
   const connected = useCallback((id: string) => {
-    const s = new Set<string>([id]);
+    const MAX_DEPTH = 3;
+    const dist = new Map<string, number>([[id, 0]]);
     const out: Record<string, string[]> = {};
     const inc: Record<string, string[]> = {};
     for (const e of edgesRef.current) {
       (out[e.source] ??= []).push(e.target);
       (inc[e.target] ??= []).push(e.source);
     }
-    const queue = [...s];
+    const queue: [string, number][] = [[id, 0]];
     while (queue.length) {
-      const cur = queue.shift() as string;
+      const [cur, d] = queue.shift() as [string, number];
+      if (d >= MAX_DEPTH) continue;
       for (const t of out[cur] || []) {
-        if (!s.has(t)) {
-          s.add(t);
-          queue.push(t);
+        if (!dist.has(t)) {
+          dist.set(t, d + 1);
+          queue.push([t, d + 1]);
         }
       }
       for (const src of inc[cur] || []) {
-        if (!s.has(src)) {
-          s.add(src);
-          queue.push(src);
+        if (!dist.has(src)) {
+          dist.set(src, d + 1);
+          queue.push([src, d + 1]);
         }
       }
     }
-    return s;
+    return new Set(dist.keys());
   }, []);
 
   const board = useCreateBoard(connected);
