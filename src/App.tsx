@@ -3,13 +3,18 @@ import { ReactFlow, Background, Controls, MiniMap, useEdgesState, useNodesState,
 import { forceSimulation, forceLink, forceManyBody, forceCollide, forceX, forceY, type SimulationNodeDatum } from "d3-force";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  PEOPLE,
-  LINKS,
-  GROUPS,
-  RELATIONS,
-  personToNode,
-  linkToEdge,
+  ENTITIES,
+  FACTS,
+  entityToNode,
+  factToEdges,
+  chooseHandles,
   TIMELINE,
+  monthOf,
+  groupStyle,
+  categoryStyle,
+  type EdgeData,
+  type Entity,
+  type Fact,
 } from "./data/graph";
 import { PersonNode } from "./components/PersonNode";
 import { ArtifactNode } from "./components/ArtifactNode";
@@ -17,23 +22,25 @@ import { Inspector } from "./components/Inspector";
 import { EdgeCard } from "./components/EdgeCard";
 import { TimelineBar } from "./components/TimelineBar";
 
-import type { EdgeData, GroupKey, Person, RelationKey } from "./types";
-
-type FlowNode = Node<Person>;
+type FlowNode = Node<Entity>;
 type FlowEdge = Edge<EdgeData>;
 
 const nodeTypes = { person: PersonNode, artifact: ArtifactNode };
 
 /* ---------- layout orgânico ---------- */
 
-const GROUP_ORDER = ["finance", "politics", "church", "stf", "family", "legal", "personal", "movie"];
+const KNOWN_GROUPS = ["finance", "politics", "church", "stf", "family", "legal", "personal", "movie"];
 const CENTER = { x: 950, y: 470 };
 
 function groupCenter(group: string) {
-  const i = GROUP_ORDER.indexOf(group);
-  const angle = (i / GROUP_ORDER.length) * Math.PI * 2 - Math.PI / 2;
+  const i = Math.max(0, KNOWN_GROUPS.indexOf(group));
+  const angle = (i / Math.max(GROUP_ORDER.length, 1)) * Math.PI * 2 - Math.PI / 2;
   return { x: CENTER.x + Math.cos(angle) * 500, y: CENTER.y + Math.sin(angle) * 350 };
 }
+
+const GROUP_ORDER = [...KNOWN_GROUPS, ...[...new Set(ENTITIES.map((e) => e.group))]
+  .filter((g) => !KNOWN_GROUPS.includes(g))
+  .sort()];
 
 function runForceLayout(nodes: FlowNode[]) {
   type SimNode = SimulationNodeDatum & { id: string; group: string; x: number; y: number };
@@ -43,17 +50,25 @@ function runForceLayout(nodes: FlowNode[]) {
     y: n.position.y,
     group: String(n.data.group),
   }));
-  type SimPos = Record<string, { x: number; y: number }>;
-  const simLinks = LINKS.map((l) => ({ source: l.source, target: l.target }));
+  const simLinks = FACTS.filter((f) => f.entities.length >= 2).map((f) => ({
+    source: f.entities[0],
+    target: f.entities[1],
+  }));
   const sim = forceSimulation<SimNode>(simNodes)
-    .force("link", forceLink<SimNode, { source: string; target: string }>(simLinks).id((d) => d.id).distance(150).strength(0.06))
+    .force(
+      "link",
+      forceLink<SimNode, { source: string; target: string }>(simLinks)
+        .id((d) => d.id)
+        .distance(150)
+        .strength(0.06)
+    )
     .force("charge", forceManyBody().strength(-950))
     .force("collide", forceCollide().radius(115).iterations(2))
     .force("x", forceX<SimNode>((d) => groupCenter(d.group).x).strength(0.055))
     .force("y", forceY<SimNode>((d) => groupCenter(d.group).y).strength(0.055))
     .stop();
   for (let i = 0; i < 420; i++) sim.tick();
-  const pos: SimPos = {};
+  const pos: Record<string, { x: number; y: number }> = {};
   for (const n of simNodes) pos[n.id] = { x: n.x ?? 0, y: n.y ?? 0 };
   return nodes.map((n) => ({ ...n, position: pos[n.id] ?? n.position }));
 }
@@ -63,11 +78,11 @@ export function App() {
   const searchRef = useRef<HTMLInputElement | null>(null);
   const isDesktop = useIsDesktop();
 
-  const seedNodes = useMemo(() => runForceLayout(PEOPLE.map(personToNode)), []);
+  const seedNodes = useMemo(() => runForceLayout(ENTITIES.map(entityToNode)), []);
 
   const seedEdges = useMemo(() => {
     const pos = Object.fromEntries(seedNodes.map((n) => [n.id, n.position]));
-    return LINKS.map((l, i) => linkToEdge(l, i, pos));
+    return FACTS.flatMap((f) => factToEdges(f, pos));
   }, [seedNodes]);
 
   const [nodes, , onNodesChange] = useNodesState<FlowNode>(seedNodes);
@@ -78,10 +93,11 @@ export function App() {
   const [selectedEdgeId, setSelectedEdgeId] = useState<string | null>(null);
   const [alwaysShow, setAlwaysShow] = useState(false);
   const [query, setQuery] = useState("");
-  const [hiddenKinds, setHiddenKinds] = useState<Record<string, boolean>>({});
+  const [hiddenCategories, setHiddenCategories] = useState<Record<string, boolean>>({});
   const [hiddenGroups, setHiddenGroups] = useState<Record<string, boolean>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
+
   /* linha do tempo */
   const [cursorIdx, setCursorIdx] = useState(TIMELINE.stops.length - 1);
   const [playing, setPlaying] = useState(false);
@@ -98,41 +114,42 @@ export function App() {
         }
         return i + 1;
       });
-    }, 320);
+    }, 420);
     return () => clearInterval(t);
   }, [playing]);
 
-  const peopleById = useMemo(() => {
-    const map: Record<string, Person> = {};
+  const entityById = useMemo(() => {
+    const map: Record<string, Entity> = {};
     for (const n of nodes) map[n.id] = n.data;
     return map;
   }, [nodes]);
 
-  const selected = selectedId ? peopleById[selectedId] : null;
+  const selected = selectedId ? entityById[selectedId] : null;
   const activeId = hoveredId || selectedId;
 
-  /* nós visíveis: linha do tempo + filtro de grupo */
+  /* nós visíveis: linha do tempo (primeiro fato da entidade) + filtro de grupo */
   const timeVisibleNodes = useMemo(
-    () => nodes.filter((n) => (n.data.since || TIMELINE.min) <= cursor),
+    () => nodes.filter((n) => (TIMELINE.firstMonth[n.id] || TIMELINE.min) <= cursor),
     [nodes, cursor]
   );
   const groupVisibleNodes = useMemo(
-    () => timeVisibleNodes.filter((n) => !hiddenGroups[n.data?.group]),
+    () => timeVisibleNodes.filter((n) => !hiddenGroups[n.data.group]),
     [timeVisibleNodes, hiddenGroups]
   );
   const groupIdSet = useMemo(() => new Set(groupVisibleNodes.map((n) => n.id)), [groupVisibleNodes]);
 
-  /* arestas visíveis: tipo + endpoints + momento */
+  /* arestas visíveis: categoria + endpoints + momento */
   const baseEdges = useMemo(
     () =>
       edges.filter(
         (e) =>
-          !hiddenKinds[e.data?.kind ?? ""] &&
+          !!e.data?.fact &&
+          !hiddenCategories[e.data.fact.category] &&
           groupIdSet.has(e.source) &&
           groupIdSet.has(e.target) &&
-          (e.data?.when || TIMELINE.min) <= cursor
+          monthOf(e.data.fact.timestamp) <= cursor
       ),
-    [edges, hiddenKinds, groupIdSet, cursor]
+    [edges, hiddenCategories, groupIdSet, cursor]
   );
 
   /* nó ativo: vizinhos diretos + todos os descendentes (segue a direção das arestas) */
@@ -186,7 +203,7 @@ export function App() {
       if (isActive || isPinned || timelineEngaged) {
         opacity = 1;
         strokeWidth = baseWidth + (isPinned ? 1.2 : 0.8);
-        label = e.data?.label;
+        label = e.data?.fact.title;
       }
       return {
         ...e,
@@ -249,18 +266,30 @@ export function App() {
       .filter((p) => !q || `${p.name} ${p.role} ${p.bio || ""}`.toLowerCase().includes(q));
   }, [groupVisibleNodes, query]);
 
-  function toggleKind(k: string) {
-    setHiddenKinds((h) => ({ ...h, [k]: !h[k] }));
+  function toggleCategory(c: string) {
+    setHiddenCategories((h) => ({ ...h, [c]: !h[c] }));
   }
   function toggleGroup(g: string) {
     setHiddenGroups((h) => ({ ...h, [g]: !h[g] }));
   }
 
-  const filtersDirty = Object.values(hiddenKinds).some(Boolean) || Object.values(hiddenGroups).some(Boolean);
+  const filtersDirty =
+    Object.values(hiddenCategories).some(Boolean) || Object.values(hiddenGroups).some(Boolean);
   function clearFilters() {
-    setHiddenKinds({});
+    setHiddenCategories({});
     setHiddenGroups({});
   }
+
+  /* categorias e grupos presentes nos dados (derivados) */
+  const categories = useMemo(() => [...new Set(FACTS.map((f) => f.category))], []);
+  const groups = useMemo(() => {
+    const set = new Set(ENTITIES.map((e) => e.group));
+    return [...set].sort((a, b) => {
+      const ia = KNOWN_GROUPS.indexOf(a);
+      const ib = KNOWN_GROUPS.indexOf(b);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib) || a.localeCompare(b);
+    });
+  }, []);
 
   /* teclado: "/" busca · Esc fecha em camadas */
   useEffect(() => {
@@ -348,7 +377,7 @@ export function App() {
             </div>
             <div className="flex-1 overflow-y-auto p-2">
               {filteredList.map((p) => {
-                const g = GROUPS[p.group] || GROUPS.finance;
+                const g = groupStyle(p.group);
                 return (
                   <button
                     key={p.id}
@@ -385,8 +414,9 @@ export function App() {
             <div className="border-t border-zinc-800 p-3">
               <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Grupos</div>
               <div className="mb-3 flex flex-wrap gap-1">
-                {Object.entries(GROUPS).map(([g, v]) => {
-                  const total = nodes.filter((n) => n.data?.group === g).length;
+                {groups.map((g) => {
+                  const style = groupStyle(g);
+                  const total = nodes.filter((n) => n.data.group === g).length;
                   if (!total) return null;
                   const off = hiddenGroups[g];
                   return (
@@ -398,9 +428,9 @@ export function App() {
                       className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
                         off ? "border-zinc-800 text-zinc-600 line-through" : ""
                       }`}
-                      style={!off ? { borderColor: v.ring, color: v.ring } : undefined}
+                      style={!off ? { borderColor: style.ring, color: style.ring } : undefined}
                     >
-                      {v.label} · {total}
+                      {style.label} · {total}
                     </button>
                   );
                 })}
@@ -421,20 +451,24 @@ export function App() {
                 </button>
               </div>
               <div className="flex flex-wrap gap-1">
-                {Object.entries(RELATIONS).map(([k, v]) => (
-                  <button
-                    key={k}
-                    type="button"
-                    onClick={() => toggleKind(k)}
-                    aria-pressed={!hiddenKinds[k]}
-                    className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                      hiddenKinds[k] ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
-                    }`}
-                    style={!hiddenKinds[k] ? { borderColor: v.color, color: v.color } : undefined}
-                  >
-                    {v.label}
-                  </button>
-                ))}
+                {categories.map((c) => {
+                  const style = categoryStyle(c);
+                  const off = hiddenCategories[c];
+                  return (
+                    <button
+                      key={c}
+                      type="button"
+                      onClick={() => toggleCategory(c)}
+                      aria-pressed={!off}
+                      className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+                        off ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
+                      }`}
+                      style={!off ? { borderColor: style.color, color: style.color } : undefined}
+                    >
+                      {style.label}
+                    </button>
+                  );
+                })}
               </div>
               {filtersDirty && (
                 <button
@@ -470,10 +504,14 @@ export function App() {
             edges={displayEdges}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
-            onNodeClick={onNodeClick}
-            onEdgeClick={onEdgeClick}
+            onNodeClick={(_, node) => {
+              setSelectedId(node.id);
+              setSelectedEdgeId(null);
+              if (!isDesktop) setInspectorOpen(true);
+            }}
+            onEdgeClick={(_, edge) => setSelectedEdgeId((cur) => (cur === edge.id ? null : edge.id))}
             onPaneClick={() => setSelectedEdgeId(null)}
-            onNodeMouseEnter={(_: unknown, node: FlowNode) => setHoveredId(node.id)}
+            onNodeMouseEnter={(_, node) => setHoveredId(node.id)}
             onNodeMouseLeave={() => setHoveredId(null)}
             nodeTypes={nodeTypes}
             onInit={(inst) => {
@@ -498,10 +536,7 @@ export function App() {
               position="bottom-right"
               pannable
               zoomable
-              nodeColor={(n) => {
-                const g = (n.data as Person | undefined)?.group;
-                return (GROUPS[g as GroupKey] || GROUPS.finance).ring;
-              }}
+              nodeColor={(n) => groupStyle((n.data as Entity | undefined)?.group || "finance").ring}
               maskColor="rgba(0,0,0,.55)"
             />
           </ReactFlow>
@@ -514,7 +549,7 @@ export function App() {
             {selectedEdge && (
               <EdgeCard
                 edge={selectedEdge}
-                peopleById={peopleById}
+                entityById={entityById}
                 onFocus={fitPerson}
                 onClose={() => setSelectedEdgeId(null)}
               />
@@ -530,9 +565,9 @@ export function App() {
             aria-label="Inspetor da pessoa"
           >
             <Inspector
-              person={selected}
-              edges={edges}
-              peopleById={peopleById}
+              entity={selected}
+              facts={FACTS}
+              entityById={entityById}
               onFocus={fitPerson}
               onTrace={traceEdge}
               onClose={() => {
@@ -563,7 +598,6 @@ export function App() {
         peopleCount={displayNodes.length}
         edgeCount={displayEdges.length}
       />
-
     </div>
   );
 }

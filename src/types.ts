@@ -1,25 +1,5 @@
-export type GroupKey =
-  | "finance"
-  | "politics"
-  | "church"
-  | "stf"
-  | "family"
-  | "legal"
-  | "personal"
-  | "movie";
-
-export type RelationKey =
-  | "family"
-  | "personal"
-  | "church"
-  | "politics"
-  | "business"
-  | "campaign"
-  | "legal"
-  | "investigation"
-  | "intro"
-  | "stf"
-  | "movie";
+/** Mês (YYYY-MM) ou data ISO (YYYY-MM-DD) — a timeline deriva o mês. */
+export type Timestamp = string;
 
 export interface Evidence {
   label: string;
@@ -32,19 +12,20 @@ export interface Contact {
   text?: string;
 }
 
-/** Mês em YYYY-MM. */
-export type YearMonth = string;
+/** Tipo aberto: "person" vira nó de pessoa; qualquer outro vira nó-objeto. */
+export type EntityType = string;
 
-export interface Person {
+export interface Entity {
   [key: string]: unknown;
   id: string;
   name: string;
+  type: EntityType;
   role: string;
-  group: GroupKey;
+  /** Chave aberta — estilos em GROUP_STYLES (com fallback). */
+  group: string;
   status: string;
   initials: string;
-  /** Primeiro fato relevante — entrada no mapa. */
-  since: YearMonth;
+  /** Primeiro fato relevante — derivado de facts.json, não declarar aqui. */
   photo?: string;
   born?: string;
   bio?: string;
@@ -52,28 +33,26 @@ export interface Person {
   notes?: string;
   x?: number;
   y?: number;
-  /** "movie"|"org" → nó-objeto (ArtifactNode). */
-  kind?: "movie" | "org";
 }
 
-export interface GraphLink {
-  source: string;
-  target: string;
-  kind: RelationKey;
-  label: string;
-  /** Mês do fato documentado. */
-  when: YearMonth;
-  why: string;
+/** Categoria aberta — rótulo/cor em CATEGORY_STYLES (com fallback). */
+export type FactCategory = string;
+
+export interface Fact {
+  [key: string]: unknown;
+  id: string;
+  category: FactCategory;
+  timestamp: Timestamp;
+  /** Rótulo curto (exibido na aresta). */
+  title: string;
+  /** Explicação com datas/valores — o "porquê". */
+  description: string;
+  /** Ids de entidades envolvidas; ≥2 gera aresta (primeira → demais). */
+  entities: string[];
   evidence: Evidence[];
-  custom?: boolean;
-  id?: string;
 }
 
 export interface EdgeData {
   [key: string]: unknown;
-  kind: RelationKey;
-  label: string;
-  why?: string;
-  evidence?: Evidence[];
-  custom?: boolean;
+  fact: Fact;
 }

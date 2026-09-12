@@ -1,0 +1,1036 @@
+[
+  {
+    "id": "daniel-vorcaro__henrique-vorcaro",
+    "category": "family",
+    "timestamp": "2026-01",
+    "title": "pai · preso",
+    "description": "Henrique é pai de Daniel e fundador da Multipar. Preso em 14/5/2026 (6ª fase da Compliance Zero); a PF aponta que ele demandava e pagava serviços de núcleos de coação e vazamento. R$ 2,245 bilhões foram ocultados por Daniel em conta em nome do pai (via gestora Reag) e bloqueados pela Justiça em 14/1/2026, na 2ª fase da operação.",
+    "entities": [
+      "daniel-vorcaro",
+      "henrique-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · quem é Henrique Vorcaro",
+        "url": "https://g1.globo.com/mg/minas-gerais/noticia/2026/05/14/quem-e-henrique-vorcaro-pai-de-daniel-vorcaro-do-banco-master.ghtml"
+      },
+      {
+        "label": "Wikipédia · fases e bloqueios",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__natalia-vorcaro",
+    "category": "family",
+    "timestamp": "2026-01",
+    "title": "irmã · alvo de buscas",
+    "description": "Natalia é irmã de Daniel e pastora de filial da Lagoinha. Os endereços dela foram alvo de buscas na 2ª fase da operação (14/1/2026), que atingiu pai, irmã e cunhado do banqueiro.",
+    "entities": [
+      "daniel-vorcaro",
+      "natalia-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "Wikipédia · 2ª fase",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      },
+      {
+        "label": "InfoMoney · família",
+        "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
+      }
+    ]
+  },
+  {
+    "id": "natalia-vorcaro__fabiano-zettel",
+    "category": "family",
+    "timestamp": "2026-01",
+    "title": "esposos",
+    "description": "Zettel é marido de Natalia — advogado-pastor à frente do fundo Moriah. Também foi alvo das buscas da 2ª fase da Compliance Zero, junto com a mulher e o sogro.",
+    "entities": [
+      "natalia-vorcaro",
+      "fabiano-zettel"
+    ],
+    "evidence": [
+      {
+        "label": "InfoMoney · família",
+        "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
+      },
+      {
+        "label": "Wikipédia · 2ª fase",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "henrique-vorcaro__natalia-vorcaro",
+    "category": "family",
+    "timestamp": "2026-01",
+    "title": "pai e filha",
+    "description": "Pai e filha do mesmo núcleo familiar; ambos viraram alvos da operação (prisão dele na 6ª fase, buscas na casa dela na 2ª).",
+    "entities": [
+      "henrique-vorcaro",
+      "natalia-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · prisão de Henrique",
+        "url": "https://g1.globo.com/mg/minas-gerais/noticia/2026/05/14/quem-e-henrique-vorcaro-pai-de-daniel-vorcaro-do-banco-master.ghtml"
+      },
+      {
+        "label": "Wikipédia · 2ª fase",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__fabiola-macedo",
+    "category": "family",
+    "timestamp": "2026-03",
+    "title": "esposa · sócia da Viking",
+    "description": "Fabíola é esposa de Daniel e, pelos registros societários, sócia da Viking Participações — holding dona dos jatos particulares que a liquidante do banco pediu em juízo para bloquear, frente patrimonial da investigação.",
+    "entities": [
+      "daniel-vorcaro",
+      "fabiola-macedo"
+    ],
+    "evidence": [
+      {
+        "label": "Metrópoles · jatos da Viking na Justiça",
+        "url": "https://www.metropoles.com/sao-paulo/firma-jatos-vorcaro"
+      },
+      {
+        "label": "Registro CNPJ Viking",
+        "url": "https://maiscnpj.com.br/cnpj/07875796000175-viking-participacoes-ltda"
+      },
+      {
+        "label": "InfoMoney · esposa",
+        "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__martha-graeff",
+    "category": "personal",
+    "timestamp": "2026-03",
+    "title": "trust nos EUA (negado)",
+    "description": "O Estadão apontou, com material da CPMI/Receita, repasse de mais de R$ 520 mi a Graeff via trust nos EUA — incluindo mansão em Bay Point (Miami) por US$ 86,5 mi, um Rolls-Royce Cullinan e outros veículos — como parte da tese de ocultação de patrimônio. A defesa dela nega que ela tenha recebido bens ou constituído trust para Vorcaro.",
+    "entities": [
+      "daniel-vorcaro",
+      "martha-graeff"
+    ],
+    "evidence": [
+      {
+        "label": "Wikipédia · repasses",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      },
+      {
+        "label": "Metrópoles · negativa da defesa",
+        "url": "https://www.metropoles.com/brasil/martha-graeff-ex-de-vorcaro-nega-ter-ocultado-bens-do-banqueiro-nos-eua"
+      },
+      {
+        "label": "O Globo · relato dela",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/04/09/martha-graeff-saiba-quem-e-a-ex-noiva-de-vorcaro-que-diz-ter-sido-arrastada-para-um-lamacal.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__nelson-tanure",
+    "category": "business",
+    "timestamp": "2021-12",
+    "title": "sócios · alvo de buscas",
+    "description": "Tanure foi parceiro de Vorcaro em takeovers (Alliar e outros). Na 2ª fase (14/1/2026) foi localizado pela PF no Galeão durante as buscas; apurou-se também possível vazamento sobre a operação após o cunhado de Vorcaro ser encontrado em Guarulhos.",
+    "entities": [
+      "daniel-vorcaro",
+      "nelson-tanure"
+    ],
+    "evidence": [
+      {
+        "label": "Brazil Journal · sociedades",
+        "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho/"
+      },
+      {
+        "label": "Wikipédia · 2ª fase",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__michel-temer",
+    "category": "legal",
+    "timestamp": "2024-12",
+    "title": "assessoria na tentativa BRB",
+    "description": "Com o BC exigindo capital e a venda do Master ao BRB em negociação (2024–25), Vorcaro recrutou o ex-presidente Temer para atuar em favor de seus interesses. O BC vetou a operação em set/2025.",
+    "entities": [
+      "daniel-vorcaro",
+      "michel-temer"
+    ],
+    "evidence": [
+      {
+        "label": "Wikipédia · investigações",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__ricardo-lewandowski",
+    "category": "legal",
+    "timestamp": "2024-12",
+    "title": "consultor no episódio BRB",
+    "description": "O ex-presidente do STF Lewandowski atuou como consultor de Vorcaro durante a tentativa de venda do Master ao BRB — parte do escudo jurídico-político montado com a aproximação dos reguladores.",
+    "entities": [
+      "daniel-vorcaro",
+      "ricardo-lewandowski"
+    ],
+    "evidence": [
+      {
+        "label": "Wikipédia · investigações",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__roberto-campos-neto",
+    "category": "legal",
+    "timestamp": "2024-12",
+    "title": "aperto do BC · dez/2024",
+    "description": "Em dez/2024 o presidente do BC convocou Vorcaro a reunião de emergência e exigiu aporte de capital diante do rombo de liquidez. Meses depois o BC vetou a venda ao BRB (set/2025) e decretou a liquidação extrajudicial (18/11/2025).",
+    "entities": [
+      "daniel-vorcaro",
+      "roberto-campos-neto"
+    ],
+    "evidence": [
+      {
+        "label": "piauí · Alta tensão",
+        "url": "https://piaui.uol.com.br/revista/217/alta-tensao-banco-master/"
+      },
+      {
+        "label": "Wikipédia",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__ciro-nogueira",
+    "category": "politics",
+    "timestamp": "2024-08",
+    "title": "“emenda Master”",
+    "description": "Vorcaro compareceu ao casamento da filha do senador em Angra dos Reis (3/8/2024) — a bordo de iate, segundo a Bloomberg. Documentos da CPMI do INSS mostram que dez dias depois Nogueira apresentou a proposta batizada de “emenda Master”. Ambos negam irregularidade; a relação é peça do tabuleiro político do caso.",
+    "entities": [
+      "daniel-vorcaro",
+      "ciro-nogueira"
+    ],
+    "evidence": [
+      {
+        "label": "Bloomberg · dossiê do caso",
+        "url": "https://www.bloomberg.com/graphics/2026-banco-master-fraud-case/"
+      },
+      {
+        "label": "Wikipédia · CPMI",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__flavio-carneiro",
+    "category": "investigation",
+    "timestamp": "2024-04",
+    "title": "“banquei todos os voos”",
+    "description": "Em abr/2024, Vorcaro escreveu ao empresário Flávio Carneiro: “Esse Nikolas eu banquei todos os voos dele”, e sugeriu expor o deputado; Carneiro pedia que fizesse Nikolas parar de atacar. O diálogo saiu de material apreendido pela PF (ICL Notícias; confirmado por O Globo e EM).",
+    "entities": [
+      "daniel-vorcaro",
+      "flavio-carneiro"
+    ],
+    "evidence": [
+      {
+        "label": "EM.com · o chat",
+        "url": "https://www.em.com.br/politica/2026/09/7492959-vorcaro-diz-ter-bancado-todos-os-voos-de-nikolas-ferreira.html"
+      },
+      {
+        "label": "G1 · áudios",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/03/nikolas-ferreira-confirma-pedido-a-daniel-vorcaro-em-favor-de-ex-assessor-e-diz-que-nao-houve-irregularidade.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__andre-valadao",
+    "category": "church",
+    "timestamp": "2025-11",
+    "title": "órbita Lagoinha",
+    "description": "Os dois circulam na órbita da Lagoinha — rede que ligou Vorcaro à política evangélica. Valadão confirmou que repassou a queixa do banqueiro a Nikolas e fez a ponte entre os dois; nega qualquer envolvimento com o Master.",
+    "entities": [
+      "daniel-vorcaro",
+      "andre-valadao"
+    ],
+    "evidence": [
+      {
+        "label": "O Globo · Valadão confirma",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/04/andre-valadao-confirma-que-aproximou-nikolas-de-vorcaro-mas-nega-envolvimento-com-banco-master.ghtml"
+      },
+      {
+        "label": "G1 · vínculos com a Lagoinha",
+        "url": "https://g1.globo.com/mg/minas-gerais/noticia/2025/11/19/antes-de-virar-banqueiro-daniel-vorcaro-apresentou-programa-de-musica-gospel-de-igreja-de-bh.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__marcio-valadao",
+    "category": "church",
+    "timestamp": "2025-11",
+    "title": "amizade pessoal",
+    "description": "InfoMoney: sem ser religioso, Vorcaro frequentava a Lagoinha e é amigo pessoal do pastor Márcio Valadão — relação que enraizou o banqueiro na rede política da igreja.",
+    "entities": [
+      "daniel-vorcaro",
+      "marcio-valadao"
+    ],
+    "evidence": [
+      {
+        "label": "InfoMoney · perfil",
+        "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
+      }
+    ]
+  },
+  {
+    "id": "marcio-valadao__andre-valadao",
+    "category": "family",
+    "timestamp": "2024-06",
+    "title": "pai e filho",
+    "description": "André é filho de Márcio Valadão; os dois são figuras centrais da Lagoinha e do Diante do Trono, em Belo Horizonte — a igreja no cruzamento entre Vorcaro e Nikolas.",
+    "entities": [
+      "marcio-valadao",
+      "andre-valadao"
+    ],
+    "evidence": [
+      {
+        "label": "Wikipédia · André Valadão",
+        "url": "https://pt.wikipedia.org/wiki/André_Valadão"
+      }
+    ]
+  },
+  {
+    "id": "andre-valadao__nikolas-ferreira",
+    "category": "intro",
+    "timestamp": "2024-06",
+    "title": "fez a apresentação",
+    "description": "Após Nikolas criticar evento patrocinado pelo Master em Londres (2024), Valadão repassou a queixa de Vorcaro e colocou o deputado em contato direto com o banqueiro — confirmação dele próprio ao O Globo (4/9/2026), negando envolvimento com o banco.",
+    "entities": [
+      "andre-valadao",
+      "nikolas-ferreira"
+    ],
+    "evidence": [
+      {
+        "label": "O Globo · 4 set 2026",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/04/andre-valadao-confirma-que-aproximou-nikolas-de-vorcaro-mas-nega-envolvimento-com-banco-master.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "nikolas-ferreira__daniel-vorcaro",
+    "category": "investigation",
+    "timestamp": "2022-10",
+    "title": "áudio mar/2025 · voos · doc. falso",
+    "description": "Material do celular de Vorcaro (vazado pelo ICL; confirmado por G1/O Globo) mostra áudio de 30/3/2025 em que Nikolas chama o banqueiro de “Dani”, diz querer “mais proximidade” e pede ajuda para liberar um ativo minerário de um ex-assessor. Em chats de abr/2024, Vorcaro afirma ter bancado “todos os voos” de Nikolas. Entre 3 e 10/9/2026 circulou — e Nikolas republicou — suposto relatório da PF dizendo não ver crime nas conversas; o documento era falso, criado com IA (marca d'água da OpenAI), e o deputado admitiu e apagou o post. Ele admite os contatos e os voos; nega encontro e recebimento de dinheiro.",
+    "entities": [
+      "nikolas-ferreira",
+      "daniel-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · pedidos confirmados",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/03/nikolas-ferreira-confirma-pedido-a-daniel-vorcaro-em-favor-de-ex-assessor-e-diz-que-nao-houve-irregularidade.ghtml"
+      },
+      {
+        "label": "O Globo · áudios",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/03/nikolas-pediu-ajuda-a-vorcaro-e-disse-querer-mais-proximidade-mostram-audios-obtidos-pela-pf.ghtml"
+      },
+      {
+        "label": "G1 · doc. falso é fake (10/9)",
+        "url": "https://g1.globo.com/fato-ou-fake/noticia/2026/09/10/e-fake-foto-de-relatorio-da-pf-dizendo-nao-ver-crime-em-conversas-de-nikolas-ferreira-com-vorcaro-imagem-foi-criada-com-ia.ghtml"
+      },
+      {
+        "label": "UOL Comprova · desinformação",
+        "url": "https://noticias.uol.com.br/comprova/ultimas-noticias/2026/09/08/desinformacao-falso-ia-documento-pf-nikolas-ferreira-vorcaro.ghtm"
+      },
+      {
+        "label": "O Tempo · admite voos",
+        "url": "https://www.otempo.com.br/politica/2026/9/3/nikolas-ferreira-admite-voos-bancados-por-vorcaro-mas-nega-relacao-pessoal-em-resposta-a-vazamento"
+      }
+    ]
+  },
+  {
+    "id": "nikolas-ferreira__guilherme-batista",
+    "category": "campaign",
+    "timestamp": "2022-10",
+    "title": "co-líderes da caravana",
+    "description": "A caravana “Juventude pelo Brasil”, pelo 2º turno de 2022, foi liderada por Nikolas com o pastor da Lagoinha Guilherme Batista — o tour no centro das alegações de voos bancados por Vorcaro.",
+    "entities": [
+      "nikolas-ferreira",
+      "guilherme-batista"
+    ],
+    "evidence": [
+      {
+        "label": "Revista Fórum · caravana",
+        "url": "https://revistaforum.com.br/politica/vorcaro-mensagem-bancado-voos-nikolas-ferreira/"
+      },
+      {
+        "label": "G1 · áudios e caravana",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/03/nikolas-ferreira-confirma-pedido-a-daniel-vorcaro-em-favor-de-ex-assessor-e-diz-que-nao-houve-irregularidade.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "guilherme-batista__daniel-vorcaro",
+    "category": "campaign",
+    "timestamp": "2022-10",
+    "title": "jato ligado a Vorcaro",
+    "description": "A caravana percorreu nove capitais do Nordeste (20–28/10/2022) em jato ligado a Vorcaro; a coluna de Malu Gaspar (O Globo) registrou uso da aeronave também em Minas Gerais naquele mês. Nikolas diz que só depois soube de quem era o avião.",
+    "entities": [
+      "guilherme-batista",
+      "daniel-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · áudios e caravana",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/03/nikolas-ferreira-confirma-pedido-a-daniel-vorcaro-em-favor-de-ex-assessor-e-diz-que-nao-houve-irregularidade.ghtml"
+      },
+      {
+        "label": "O Globo · uso do jato",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/03/nikolas-pediu-ajuda-a-vorcaro-e-disse-querer-mais-proximidade-mostram-audios-obtidos-pela-pf.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "nikolas-ferreira__thiago-faria",
+    "category": "legal",
+    "timestamp": "2025-03",
+    "title": "“meu advogado, irmão”",
+    "description": "No áudio vazado, Nikolas apresenta Thiago como amigo próximo e advogado (“meu advogado, enfim, irmão meu”) e repassa o contato a Vorcaro. A Veja identifica Thiago Rodrigues de Faria como ex-assessor de gabinete do deputado.",
+    "entities": [
+      "nikolas-ferreira",
+      "thiago-faria"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · ex-assessor",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/03/nikolas-ferreira-confirma-pedido-a-daniel-vorcaro-em-favor-de-ex-assessor-e-diz-que-nao-houve-irregularidade.ghtml"
+      },
+      {
+        "label": "Veja · ativo minerário",
+        "url": "https://veja.abril.com.br/coluna/faria-lima-news/o-que-nikolas-ferreira-pediu-a-daniel-vorcaro-do-banco-master/"
+      }
+    ]
+  },
+  {
+    "id": "thiago-faria__daniel-vorcaro",
+    "category": "intro",
+    "timestamp": "2025-03",
+    "title": "pedido de ativo minerário",
+    "description": "A apresentação buscava a ajuda de Vorcaro para liberar um ativo de minério ligado a Faria (contato repassado em 30/3/2025; encontro em Brasília sugerido para 1/4). Nikolas diz que o negócio morreu com a repercussão negativa do Master; nenhuma irregularidade foi apontada na conversa.",
+    "entities": [
+      "thiago-faria",
+      "daniel-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "Veja",
+        "url": "https://veja.abril.com.br/coluna/faria-lima-news/o-que-nikolas-ferreira-pediu-a-daniel-vorcaro-do-banco-master/"
+      },
+      {
+        "label": "UOL",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/03/nikolas-ferreira-audio-daniel-vorcaro.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__alexandre-de-moraes",
+    "category": "investigation",
+    "timestamp": "2025-11",
+    "title": "28 mensagens · atribuição contestada",
+    "description": "A PF aponta que Vorcaro enviou ao menos 28 mensagens a um número atribuído a Moraes na semana da 1ª prisão — incluindo “Estamos juntos sempre. Você sabe que tenho gratidão da minha vida a você” (14/11/2025). Moraes teria mandado 4 mensagens de visualização única no próprio dia da prisão. A atribuição é contestada; a oposição pediu a prisão do ministro e o episódio deflagrou crise ética no STF.",
+    "entities": [
+      "daniel-vorcaro",
+      "alexandre-de-moraes"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · 28 mensagens",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/01/pf-aponta-que-vorcaro-mandou-mensagens-a-telefone-atribuido-a-moraes-na-semana-em-que-foi-preso.ghtml"
+      },
+      {
+        "label": "Metrópoles · 4 msgs autodestrutivas",
+        "url": "https://www.metropoles.com/colunas/andreza-matais/moraes-mandou-mensagens-vorcaro-autodestrutivas-dia-prisao"
+      },
+      {
+        "label": "Estadão · oposição pede prisão",
+        "url": "https://www.estadao.com.br/politica/oposicao-pede-prisao-de-moraes-e-cresce-pressao-por-etica-no-stf-apos-mensagens-vazadas-com-vorcaro/"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__andre-mendonca",
+    "category": "investigation",
+    "timestamp": "2026-03",
+    "title": "prisão decretada · relator",
+    "description": "Mendonça é o relator da Compliance Zero no STF: decretou a segunda prisão preventiva de Vorcaro (4/3/2026), autorizou suas transferências de cela e em 1/9/2026 retirou o sigilo do relatório da PF que expôs as mensagens com Moraes — estopim da crise institucional e do afastamento do diretor-geral da PF.",
+    "entities": [
+      "daniel-vorcaro",
+      "andre-mendonca"
+    ],
+    "evidence": [
+      {
+        "label": "CNN · 10 revelações",
+        "url": "https://www.cnnbrasil.com.br/politica/caso-banco-master-veja-10-revelacoes-apos-nova-prisao-de-vorcaro/"
+      },
+      {
+        "label": "Wikipédia · caso no STF",
+        "url": "https://pt.wikipedia.org/wiki/Caso_Master_no_Supremo_Tribunal_Federal"
+      },
+      {
+        "label": "Poder360 · decisão na íntegra",
+        "url": "https://www.poder360.com.br/poder-justica/leia-a-integra-da-decisao-de-mendonca-que-determinou-a-prisao-de-vorcaro/"
+      },
+      {
+        "label": "UOL · retirada de sigilo (1/9)",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/01/mendonca-retira-sigilo-de-inquerito-e-expoe-relacao-entre-moraes-e-vorcaro.htm"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__dias-toffoli",
+    "category": "legal",
+    "timestamp": "2025-12",
+    "title": "sigilo ao pedido da defesa",
+    "description": "Em 2/12/2025, o ministro Toffoli determinou sigilo máximo sobre o pedido apresentado pela defesa de Vorcaro no STF, conforme registro da Wikipédia com fontes jornalísticas.",
+    "entities": [
+      "daniel-vorcaro",
+      "dias-toffoli"
+    ],
+    "evidence": [
+      {
+        "label": "Wikipédia · Vorcaro",
+        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
+      }
+    ]
+  },
+  {
+    "id": "andre-mendonca__edson-fachin",
+    "category": "stf",
+    "timestamp": "2026-09",
+    "title": "prazo de 24h sobre sigilo",
+    "description": "Mendonça imposto sigilo total à operação; em 9/9/2026 o presidente do STF, Fachin, deu 24 horas para que o relator retirasse a medida e cancelou a sessão plenária da semana em meio à crise deflagrada pelo caso Master.",
+    "entities": [
+      "andre-mendonca",
+      "edson-fachin"
+    ],
+    "evidence": [
+      {
+        "label": "Exame · Fachin dá 24h",
+        "url": "https://exame.com/brasil/fachin-da-24h-para-que-mendonca-retire-sigilo-total-da-operacao-compliance-zero/"
+      }
+    ]
+  },
+  {
+    "id": "andre-mendonca__alexandre-de-moraes",
+    "category": "stf",
+    "timestamp": "2026-09",
+    "title": "quebra de sigilo expôs mensagens",
+    "description": "A quebra de sigilo do relatório da PF, determinada pelo relator Mendonça, expôs as mensagens atribuídas a Moraes e Vorcaro e colocou os dois ministros em lados opostos da crise; a oposição pediu a prisão de Moraes e cresceu a pressão por um debate ético no STF.",
+    "entities": [
+      "andre-mendonca",
+      "alexandre-de-moraes"
+    ],
+    "evidence": [
+      {
+        "label": "CNN · crise no STF",
+        "url": "https://www.cnnbrasil.com.br/politica/relacao-moraes-vorcaro-mendonca-afasta-andrei-tudo-sobre-a-crise-no-stf/"
+      },
+      {
+        "label": "Estadão · pressão por ética",
+        "url": "https://www.estadao.com.br/politica/oposicao-pede-prisao-de-moraes-e-cresce-pressao-por-etica-no-stf-apos-mensagens-vazadas-com-vorcaro/"
+      }
+    ]
+  },
+  {
+    "id": "gilmar-mendes__edson-fachin",
+    "category": "stf",
+    "timestamp": "2026-09",
+    "title": "reforma regimental",
+    "description": "No bojo da crise do Master, Gilmar levou a Fachin (3/9) e formalizou depois (5/9) proposta de mudar o regimento do STF para proibir delegados da PF — e militares — de trabalharem em gabinetes de ministros da Corte.",
+    "entities": [
+      "gilmar-mendes",
+      "edson-fachin"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · proposta a Fachin",
+        "url": "https://g1.globo.com/politica/blog/valdo-cruz/post/2026/09/03/gilmar-propoe-a-fachin-proibir-delegados-da-pf-como-funcionarios-de-gabinetes-de-ministros-do-stf.ghtml"
+      },
+      {
+        "label": "O Globo · regimento",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/05/em-meio-a-crise-do-caso-master-gilmar-mendes-propoe-mudar-regimento-do-stf-para-retirar-delegados-da-pf-e-militares-de-gabinetes-do-supremo.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "andre-mendonca__andrei-rodrigues",
+    "category": "investigation",
+    "timestamp": "2026-09",
+    "title": "afastamento do diretor-geral",
+    "description": "Para conter a crise após o vazamento do relatório sobre Moraes, Mendonça afastou o diretor-geral da PF, Andrei Rodrigues (set/2026) — movimento inédito que escancarou o atrito entre o STF e a corporação durante o caso Master.",
+    "entities": [
+      "andre-mendonca",
+      "andrei-rodrigues"
+    ],
+    "evidence": [
+      {
+        "label": "CNN · Mendonça afasta Andrei",
+        "url": "https://www.cnnbrasil.com.br/politica/relacao-moraes-vorcaro-mendonca-afasta-andrei-tudo-sobre-a-crise-no-stf/"
+      }
+    ]
+  },
+  {
+    "id": "jair-bolsonaro__nikolas-ferreira",
+    "category": "politics",
+    "timestamp": "2022-10",
+    "title": "reeleição 2022 · caravana",
+    "description": "Nikolas é um dos nomes bolsonaristas mais votados da Câmara e fez a caravana “Juventude pelo Brasil” pelo 2º turno de 2022 — a que usou o jato ligado a Vorcaro para percorrer regiões onde Lula venceu no 1º turno. Bolsonaro foi convidado ao casamento do deputado (2023).",
+    "entities": [
+      "jair-bolsonaro",
+      "nikolas-ferreira"
+    ],
+    "evidence": [
+      {
+        "label": "O Globo · perfil 2022",
+        "url": "https://oglobo.globo.com/politica/eleicoes-2022/noticia/2022/10/saiba-quem-e-nikolas-ferreira-o-bolsonarista-mineiro-de-26-anos-que-foi-deputado-federal-mais-votado-do-pais.ghtml"
+      },
+      {
+        "label": "G1 · áudios e caravana",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/03/nikolas-ferreira-confirma-pedido-a-daniel-vorcaro-em-favor-de-ex-assessor-e-diz-que-nao-houve-irregularidade.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "eduardo-bolsonaro__nikolas-ferreira",
+    "category": "politics",
+    "timestamp": "2020-10",
+    "title": "apoiador inicial (2020)",
+    "description": "Eduardo Bolsonaro apoiou publicamente a candidatura de Nikolas a vereador de Belo Horizonte em 2020 (O Globo/Sonár) — início da trajetória de Nikolas na rede bolsonarista que o caso Master expôs.",
+    "entities": [
+      "eduardo-bolsonaro",
+      "nikolas-ferreira"
+    ],
+    "evidence": [
+      {
+        "label": "O Globo · Sonár (2020)",
+        "url": "https://blogs.oglobo.globo.com/sonar-a-escuta-das-redes/post/conheca-o-youtuber-que-ganhou-o-apoio-de-eduardo-bolsonaro-em-belo-horizonte.html"
+      }
+    ]
+  },
+  {
+    "id": "flavio-bolsonaro__daniel-vorcaro",
+    "category": "investigation",
+    "timestamp": "2026-05",
+    "title": "pediu US$ 24 mi (R$ 134 mi)",
+    "description": "Segundo o Intercept Brasil (mai/2026), o senador negociou com Vorcaro o financiamento de “Dark Horse” e chegou a pedir US$ 24 milhões. Áudios e mensagens registraram a negociação e cobranças de parcelas atrasadas — 8 dias após uma cobrança, veio novo repasse, segundo o Coaf. Mendonça autorizou investigação contra Flávio por corrupção, lavagem de dinheiro e evasão de divisas.",
+    "entities": [
+      "flavio-bolsonaro",
+      "daniel-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "Intercept · planilha e recibo",
+        "url": "https://www.intercept.com.br/2026/06/09/planilha-comprovante-bancario-vorcaro-dinheiro-eua-ar-dark-horse/"
+      },
+      {
+        "label": "BBC · o que ele precisa explicar",
+        "url": "https://www.bbc.com/portuguese/articles/cy9zvqle2r0o"
+      },
+      {
+        "label": "G1 · PF investiga Flávio (11/9)",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/11/flavio-bolsonaro-e-investigado-5-pontos-que-a-pf-quer-esclarecer-sobre-o-financiamento-de-dark-horse.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__dark-horse",
+    "category": "investigation",
+    "timestamp": "2025-01",
+    "title": "financiou ~US$ 10 mi (R$ 61 mi+)",
+    "description": "Comprovantes e diálogos do celular de Vorcaro registram envio de ao menos US$ 10 milhões ao fundo Havengate Development (Texas/EUA), sob a justificativa de patrocinar “Dark Horse”. O Coaf registra nova parcela de US$ 1,67 mi em 16/9/2025 — oito dias após Flávio cobrar pagamentos atrasados — elevando o total conhecido a cerca de R$ 65 milhões. Investigadores rejeitam a tese de “patrocínio” e apuram a finalidade real da operação.",
+    "entities": [
+      "daniel-vorcaro",
+      "dark-horse"
+    ],
+    "evidence": [
+      {
+        "label": "Poder360 · R$ 65 mi ao filme",
+        "url": "https://www.poder360.com.br/poder-justica/filme-dark-horse-recebeu-r-65-milhoes-de-daniel-vorcaro/"
+      },
+      {
+        "label": "Valor · Coaf aponta mais repasses",
+        "url": "https://valor.globo.com/politica/noticia/2026/09/01/vorcaro-repassou-ao-filme-sobre-bolsonaro-mais-do-que-o-admitido-por-flavio-indica-coaf.ghtml"
+      },
+      {
+        "label": "O Globo · suspeita sobre finalidade (11/9)",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/11/projecao-de-renda-da-bilheteria-de-dark-horse-de-ate-r-100-milhoes-fez-pf-levantar-suspeita-sobre-finalidade-de-operacao.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "flavio-bolsonaro__dark-horse",
+    "category": "movie",
+    "timestamp": "2025-01",
+    "title": "negociou o patrocínio",
+    "description": "Flávio foi o interlocutor da produção com Vorcaro: pediu os recursos, acompanhou parcelas e defendeu publicamente o filme. A PF investiga se houve vantagem indevida envolvendo agente público (o senador, pré-candidato) e o banqueiro — investigadores rechaçam o rótulo de patrocínio.",
+    "entities": [
+      "flavio-bolsonaro",
+      "dark-horse"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · investigadores rechaçam “patrocínio”",
+        "url": "https://g1.globo.com/politica/blog/andreia-sadi/post/2026/08/29/dark-horse-flavio-bolsonaro-filme-vorcaro.ghtml"
+      },
+      {
+        "label": "G1 · o que se sabe do filme",
+        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/05/13/dark-horse-o-que-se-sabe-sobre-cinebiografia-de-bolsonaro-para-a-qual-flavio-bolsonaro-pediu-dinheiro-a-vorcaro.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "eduardo-bolsonaro__daniel-vorcaro",
+    "category": "investigation",
+    "timestamp": "2026-09",
+    "title": "orientou gestão dos recursos (PF)",
+    "description": "A PF apurou que Eduardo Bolsonaro orientou Vorcaro sobre como os recursos do financiamento de “Dark Horse” deveriam ser geridos — as remessas foram feitas a um fundo de investimento sediado no Texas (EUA).",
+    "entities": [
+      "eduardo-bolsonaro",
+      "daniel-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "MidiaMax · PF aponta orientação",
+        "url": "https://midiamax.com.br/brasil/2026/eduardo-bolsonaro-orientou-vorcaro-repasses-financiamento-dark-horse-diz-pf/"
+      }
+    ]
+  },
+  {
+    "id": "mineiro__daniel-vorcaro",
+    "category": "investigation",
+    "timestamp": "2025-01",
+    "title": "operador financeiro · delator",
+    "description": "Dono da Entre Investimentos, “Mineiro” diz ter sido o responsável pelos repasses a mando de Vorcaro: US$ 12,333 milhões em 7 transferências (jan–set/2025). Na delação homologada por Mendonça (9/9/2026), descreveu também malas de dinheiro vivo e repasses nas Bahamas — pode esclarecer valores totais, origem e destino real do dinheiro.",
+    "entities": [
+      "mineiro",
+      "daniel-vorcaro"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · o que se sabe da delação",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/09/recursos-para-dark-horse-malas-para-dinheiro-vivo-e-repasses-nas-bahamas-o-que-se-sabe-da-delacao-de-empresario-ligado-a-vorcaro.ghtml"
+      },
+      {
+        "label": "G1 · delator detalha pagamentos",
+        "url": "https://g1.globo.com/politica/blog/andreia-sadi/post/2026/09/09/delator-do-caso-master-detalha-pagamentos-a-fundo-de-dark-horse.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "mineiro__dark-horse",
+    "category": "movie",
+    "timestamp": "2025-01",
+    "title": "fez os repasses",
+    "description": "As transferências para o fundo do filme foram executadas pela empresa de “Mineiro” — incluída na delação como operadora dos pagamentos prometidos por Vorcaro ao projeto de Flávio Bolsonaro.",
+    "entities": [
+      "mineiro",
+      "dark-horse"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · homologação da delação",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/09/mendonca-homologa-delacao-de-mineiro.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "andre-mendonca__mineiro",
+    "category": "investigation",
+    "timestamp": "2026-09",
+    "title": "homologou a delação (9/9)",
+    "description": "O relator do caso homologou em 9/9/2026 o acordo de delação premiada de “Mineiro” com a PGR — peça que detalha o esquema de repasses de Vorcaro e alimenta a frente de apuração do filme.",
+    "entities": [
+      "andre-mendonca",
+      "mineiro"
+    ],
+    "evidence": [
+      {
+        "label": "Poder360 · homologação",
+        "url": "https://www.poder360.com.br/poder-justica/dark-horse-mendonca-homologa-delacao-sobre-repasses-de-vorcaro/"
+      },
+      {
+        "label": "Estadão · coluna",
+        "url": "https://www.estadao.com.br/politica/coluna-do-estadao/mendonca-homologa-delacao-de-operador-que-mandou-dinheiro-de-vorcaro-para-filme-dark-horse/"
+      }
+    ]
+  },
+  {
+    "id": "jair-bolsonaro__dark-horse",
+    "category": "movie",
+    "timestamp": "2025-01",
+    "title": "biografado",
+    "description": "“Dark Horse” é a cinebiografia da trajetória política de Jair Bolsonaro, com Jim Caviezel no elenco — o filme que recebeu o dinheiro de Vorcaro agora apurado pela PF como possível pagamento de vantagem indevida.",
+    "entities": [
+      "jair-bolsonaro",
+      "dark-horse"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · o que se sabe do filme",
+        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/05/13/dark-horse-o-que-se-sabe-sobre-cinebiografia-de-bolsonaro-para-a-qual-flavio-bolsonaro-pediu-dinheiro-a-vorcaro.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "jair-bolsonaro__flavio-bolsonaro",
+    "category": "family",
+    "timestamp": "2025-01",
+    "title": "pai e filho",
+    "description": "Flávio é o filho mais velho de Jair Bolsonaro e senador pelo RJ; pré-candidato à Presidência em 2026 — família no centro do esquema de financiamento apurado pela PF.",
+    "entities": [
+      "jair-bolsonaro",
+      "flavio-bolsonaro"
+    ],
+    "evidence": [
+      {
+        "label": "Wikipédia · Flávio Bolsonaro",
+        "url": "https://pt.wikipedia.org/wiki/Flávio_Bolsonaro"
+      }
+    ]
+  },
+  {
+    "id": "jair-bolsonaro__eduardo-bolsonaro",
+    "category": "family",
+    "timestamp": "2020-10",
+    "title": "pai e filho",
+    "description": "Eduardo é filho de Jair Bolsonaro e deputado federal; apontado pela PF como orientador da gestão dos recursos enviados por Vorcaro para o filme sobre o pai.",
+    "entities": [
+      "jair-bolsonaro",
+      "eduardo-bolsonaro"
+    ],
+    "evidence": [
+      {
+        "label": "MidiaMax · PF aponta orientação",
+        "url": "https://midiamax.com.br/brasil/2026/eduardo-bolsonaro-orientou-vorcaro-repasses-financiamento-dark-horse-diz-pf/"
+      }
+    ]
+  },
+  {
+    "id": "mario-frias__dark-horse",
+    "category": "movie",
+    "timestamp": "2025-01",
+    "title": "história · produtor-executivo",
+    "description": "Creator of the original story (screenplay by Cyrus and Mark Nowrasteh) and executive producer of the production. After the leak of the audios with Vorcaro, he stated that the banker gave “not a single cent” to “Dark Horse”.",
+    "entities": [
+      "mario-frias",
+      "dark-horse"
+    ],
+    "evidence": [
+      {
+        "label": "UOL · what is known about the repayments",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/07/23/o-que-se-sabe-sobre-os-repasses-de-vorcaro-ao-filme-de-bolsonaro.ghtml"
+      },
+      {
+        "label": "BBC · why the budget is questioned",
+        "url": "https://www.bbc.com/portuguese/articles/cq8p79kzz24o"
+      }
+    ]
+  },
+  {
+    "id": "mario-frias__jair-bolsonaro",
+    "category": "politics",
+    "timestamp": "2025-01",
+    "title": "ex-Secretário de Cultura · história",
+    "description": "Frias chefiou a Secretaria Especial de Cultura no governo Bolsonaro (2020–2022) e criou a história do filme sobre o ex-presidente — a ponte que levou o projeto ao círculo da família Bolsonaro.",
+    "entities": [
+      "mario-frias",
+      "jair-bolsonaro"
+    ],
+    "evidence": [
+      {
+        "label": "EN Wikipedia · Dark Horse",
+        "url": "https://en.wikipedia.org/wiki/Dark_Horse_(2026_film)"
+      },
+      {
+        "label": "G1 · everything about the film",
+        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/05/13/dark-horse-o-que-se-sabe-sobre-cinebiografia-de-bolsonaro-para-a-qual-flavio-bolsonaro-pediu-dinheiro-a-vorcaro.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "mario-frias__flavio-bolsonaro",
+    "category": "movie",
+    "timestamp": "2025-01",
+    "title": "articulação de apoios",
+    "description": "Flávio diz que sua atuação se limitou a articular apoiantes para viabilizar o filme; Frias nega que Eduardo Bolsonaro tenha sido produtor-executivo e que tenha recebido valores do fundo.",
+    "entities": [
+      "mario-frias",
+      "flavio-bolsonaro"
+    ],
+    "evidence": [
+      {
+        "label": "UOL · 10 set 2026",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/10/o-que-se-sabe-sobre-a-investigacao-de-dark-horse-filme-sobre-bolsonaro.ghtml"
+      },
+      {
+        "label": "BBC · notes from Frias",
+        "url": "https://www.bbc.com/portuguese/articles/cq8p79kzz24o"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__havengate",
+    "category": "investigation",
+    "timestamp": "2025-01",
+    "title": "≥US$ 10,6 mi para o fundo",
+    "description": "Empresas ligadas a Vorcaro transferiram ao menos US$ 10,6 milhões ao Havengate Development Fund LP. O Coaf registra nova parcela de US$ 1,67 milhão em 16/9/2025. Segundo o Intercept, o fundo foi criado em 2020 para um projeto imobiliário no Texas (US$ 21,1 milhões) nunca executado e estava inerte até os depósitos do filme.",
+    "entities": [
+      "daniel-vorcaro",
+      "havengate"
+    ],
+    "evidence": [
+      {
+        "label": "Intercept · inert fund",
+        "url": "https://www.intercept.com.br/2026/07/02/fundo-havengate-abandonou-projeto-antes-milhoes-vorcaro-dark-horse/"
+      },
+      {
+        "label": "O Globo · Miriam Leitão",
+        "url": "https://oglobo.globo.com/blogs/miriam-leitao/post/2026/09/dark-horse-fundo-havengate-que-recebeu-dinheiro-de-vorcaro-estava-inerte-desde-a-criacao-em-2020.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "havengate__dark-horse",
+    "category": "movie",
+    "timestamp": "2025-01",
+    "title": "fundo do filme",
+    "description": "O fundo, sediado no Texas, recebeu e repassou os recursos que financiaram “Dark Horse” — a rota por onde a PF tenta apurar origem e destino real do dinheiro de Vorcaro na produção.",
+    "entities": [
+      "havengate",
+      "dark-horse"
+    ],
+    "evidence": [
+      {
+        "label": "Brasil247 · Intercept review",
+        "url": "https://www.brasil247.com/brasil/fundo-ligado-ao-filme-dark-horse-nunca-executou-projeto-imobiliario-no-texas-e-permaneceu-ativo-ate-receber-milhoes-de-vorcaro-revela-intercept/"
+      },
+      {
+        "label": "Intercept · spreadsheet and receipt",
+        "url": "https://www.intercept.com.br/2026/06/09/planilha-comprovante-bancario-vorcaro-dinheiro-eua-ar-dark-horse/"
+      }
+    ]
+  },
+  {
+    "id": "mineiro__havengate",
+    "category": "investigation",
+    "timestamp": "2025-01",
+    "title": "executou as transferências",
+    "description": "Segundo a delação, as transferências da Entre Investimentos foram o canal usado pelo dinheiro de Vorcaro para chegar ao fundo Havengate — sete remessas ordenadas diretamente pelo banqueiro.",
+    "entities": [
+      "mineiro",
+      "havengate"
+    ],
+    "evidence": [
+      {
+        "label": "G1 · whistleblower details payments",
+        "url": "https://g1.globo.com/politica/blog/andreia-sadi/post/2026/09/09/delator-do-caso-master-detalha-pagamentos-a-fundo-de-dark-horse.ghtml"
+      },
+      {
+        "label": "Estadão · delação homologada",
+        "url": "https://www.estadao.com.br/politica/coluna-do-estadao/mendonca-homologa-delacao-de-operador-que-mandou-dinheiro-de-vorcaro-para-filme-dark-horse/"
+      }
+    ]
+  },
+  {
+    "id": "karina-gama__go-up",
+    "category": "business",
+    "timestamp": "2025-12",
+    "title": "dona",
+    "description": "Karina Ferreira da Gama é a empresária por trás da Go Up Entertainment, produtora de “Dark Horse” — e também do ICB (Instituto Conhecer Brasil). Foi alvo principal, com Mário Frias, da Operação Make Up.",
+    "entities": [
+      "karina-gama",
+      "go-up"
+    ],
+    "evidence": [
+      {
+        "label": "Metrópoles · quem é Karina Gama",
+        "url": "https://www.metropoles.com/colunas/mirelle-pinheiro/quem-e-karina-gama-dona-da-produtora-de-filme-sobre-bolsonaro-alvo-da-pf"
+      },
+      {
+        "label": "Gazeta do Povo · perfil",
+        "url": "https://www.gazetadopovo.com.br/republica/quem-e-karina-da-gama-produtora-de-dark-horse-investigada-pela-pf/"
+      }
+    ]
+  },
+  {
+    "id": "go-up__dark-horse",
+    "category": "movie",
+    "timestamp": "2025-12",
+    "title": "produtora · R$ 75 mi declarados",
+    "description": "A Go Up foi a produtora contratada para realizar o filme. Os valores divergem na apuração: contrato de R$ 108 milhões revelado pelo Intercept (dez/2025), R$ 75 milhões em gastos declarados pela produtora ao G1, R$ 61–65 milhões em repasses de Vorcaro apontados pelo Coaf e orçamento de até R$ 134 milhões citado na investigação.",
+    "entities": [
+      "go-up",
+      "dark-horse"
+    ],
+    "evidence": [
+      {
+        "label": "Intercept · contrato de R$ 108 mi",
+        "url": "https://www.intercept.com.br/2025/12/10/dark-horse-evangelicos-filme-bolsonaro-contrato-108-milhoes-ricardo-nunes/"
+      },
+      {
+        "label": "G1 · R$ 75 mi declarados",
+        "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/06/15/produtora-declara-gasto-de-r-75-milhoes-no-filme-sobre-bolsonaro-veja-diferentes-valores-que-envolvem-o-longa.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "mario-frias__karina-gama",
+    "category": "investigation",
+    "timestamp": "2026-09",
+    "title": "alvos da Operação Make Up",
+    "description": "Em 10/9/2026, a PF deflagrou a Operação Make Up contra Frias e Karina: apura coincidências de valores e período entre emendas parlamentares do deputado e a gravação do filme, além do fluxo de recursos da produção.",
+    "entities": [
+      "mario-frias",
+      "karina-gama"
+    ],
+    "evidence": [
+      {
+        "label": "O Tempo · principais alvos",
+        "url": "https://www.otempo.com.br/politica/judiciario/2026/9/10/mario-frias-e-produtora-de-dark-horse-sao-principais-alvos-de-operacao"
+      },
+      {
+        "label": "UOL · emendas e gravação",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/10/gastos-filme-dark-horse-valores-das-emendas.ghtm"
+      }
+    ]
+  },
+  {
+    "id": "daniel-vorcaro__reag",
+    "category": "investigation",
+    "timestamp": "2026-01",
+    "title": "ocultação de R$ 2,245 bi",
+    "description": "A gestora Reag aparece em duas frentes: na ocultação de R$ 2,245 bilhões de Vorcaro em conta em nome do pai (bloqueados em 14/1/2026) e na delação do próprio fundador da Reag (10/9/2026), que descreve o uso da Reag Trust para movimentar e ocultar recursos do grupo.",
+    "entities": [
+      "daniel-vorcaro",
+      "reag"
+    ],
+    "evidence": [
+      {
+        "label": "Poder360 · R$ 2,2 bi em conta do pai",
+        "url": "https://www.poder360.com.br/poder-justica/daniel-vorcaro-ocultou-r-22-bilhoes-em-conta-do-pai-diz-pf/"
+      },
+      {
+        "label": "Diário360 · delação do fundador da Reag",
+        "url": "https://diario360.com.br/2026/09/10/operacao-compliance-zero-ganha-novo-capitulo-apos-delacao-do-fundador-da-reag-investimentos/"
+      }
+    ]
+  }
+]

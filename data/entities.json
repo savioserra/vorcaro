@@ -1,7 +1,7 @@
 [
   {
+    "type": "person",
     "id": "daniel-vorcaro",
-    "since": "2016-01",
     "name": "Daniel Vorcaro",
     "role": "Ex-controlador do Banco Master",
     "group": "finance",
@@ -25,8 +25,8 @@
     "y": 280
   },
   {
+    "type": "person",
     "id": "nikolas-ferreira",
-    "since": "2020-01",
     "name": "Nikolas Ferreira",
     "role": "Deputado federal PL–MG",
     "group": "politics",
@@ -62,8 +62,8 @@
     "y": 320
   },
   {
+    "type": "person",
     "id": "andre-valadao",
-    "since": "2024-06",
     "name": "André Valadão",
     "role": "Pastor · Lagoinha / Diante do Trono",
     "group": "church",
@@ -81,8 +81,8 @@
     "y": 340
   },
   {
+    "type": "person",
     "id": "marcio-valadao",
-    "since": "2024-06",
     "name": "Márcio Valadão",
     "role": "Pastor fundador da Lagoinha",
     "group": "church",
@@ -99,8 +99,8 @@
     "y": 140
   },
   {
+    "type": "person",
     "id": "guilherme-batista",
-    "since": "2022-10",
     "name": "Guilherme Batista",
     "role": "Pastor · Lagoinha",
     "group": "church",
@@ -111,8 +111,8 @@
     "y": 540
   },
   {
+    "type": "person",
     "id": "henrique-vorcaro",
-    "since": "2026-01",
     "name": "Henrique Vorcaro",
     "role": "Pai · fundador da Multipar",
     "group": "family",
@@ -129,8 +129,8 @@
     "y": 220
   },
   {
+    "type": "person",
     "id": "natalia-vorcaro",
-    "since": "2026-01",
     "name": "Natalia Vorcaro Zettel",
     "role": "Irmã · pastora",
     "group": "family",
@@ -141,8 +141,8 @@
     "y": 420
   },
   {
+    "type": "person",
     "id": "fabiano-zettel",
-    "since": "2026-01",
     "name": "Fabiano Zettel",
     "role": "Cunhado · advogado, fundo Moriah",
     "group": "family",
@@ -153,8 +153,8 @@
     "y": 560
   },
   {
+    "type": "person",
     "id": "fabiola-macedo",
-    "since": "2026-03",
     "name": "Fabíola de Almeida Macedo",
     "role": "Esposa · sócia da Viking",
     "group": "family",
@@ -171,8 +171,8 @@
     "y": 700
   },
   {
+    "type": "person",
     "id": "martha-graeff",
-    "since": "2026-03",
     "name": "Martha Graeff",
     "role": "Influenciadora · ex-noiva",
     "group": "personal",
@@ -189,8 +189,8 @@
     "y": 40
   },
   {
+    "type": "person",
     "id": "thiago-faria",
-    "since": "2025-03",
     "name": "Thiago Rodrigues de Faria",
     "role": "Advogado · ex-assessor de Nikolas",
     "group": "legal",
@@ -201,8 +201,8 @@
     "y": 560
   },
   {
+    "type": "person",
     "id": "flavio-carneiro",
-    "since": "2024-04",
     "name": "Flávio Carneiro",
     "role": "Empresário · destinatário do chat",
     "group": "finance",
@@ -213,8 +213,8 @@
     "y": 80
   },
   {
+    "type": "person",
     "id": "michel-temer",
-    "since": "2024-12",
     "name": "Michel Temer",
     "role": "Ex-presidente · assessoria (reportado)",
     "group": "legal",
@@ -232,8 +232,8 @@
     "y": 280
   },
   {
+    "type": "person",
     "id": "ricardo-lewandowski",
-    "since": "2024-12",
     "name": "Ricardo Lewandowski",
     "role": "Ex-presidente do STF · consultor",
     "group": "legal",
@@ -251,8 +251,8 @@
     "y": 430
   },
   {
+    "type": "person",
     "id": "roberto-campos-neto",
-    "since": "2024-12",
     "name": "Roberto Campos Neto",
     "role": "Presidente do BC à época",
     "group": "legal",
@@ -270,8 +270,8 @@
     "y": 820
   },
   {
+    "type": "person",
     "id": "ciro-nogueira",
-    "since": "2024-08",
     "name": "Ciro Nogueira",
     "role": "Senador PP–PI",
     "group": "politics",
@@ -289,8 +289,8 @@
     "y": 160
   },
   {
+    "type": "person",
     "id": "nelson-tanure",
-    "since": "2021-12",
     "name": "Nelson Tanure",
     "role": "Empresário · sócio de Vorcaro",
     "group": "finance",
@@ -301,8 +301,8 @@
     "y": 860
   },
   {
+    "type": "person",
     "id": "alexandre-de-moraes",
-    "since": "2025-11",
     "name": "Alexandre de Moraes",
     "role": "Ministro do STF",
     "group": "stf",
@@ -324,8 +324,8 @@
     "y": 760
   },
   {
+    "type": "person",
     "id": "andre-mendonca",
-    "since": "2026-03",
     "name": "André Mendonça",
     "role": "Ministro do STF · relator do caso",
     "group": "stf",
@@ -347,8 +347,8 @@
     "y": 760
   },
   {
+    "type": "person",
     "id": "dias-toffoli",
-    "since": "2025-12",
     "name": "Dias Toffoli",
     "role": "Ministro do STF",
     "group": "stf",
@@ -365,8 +365,8 @@
     "y": 620
   },
   {
+    "type": "person",
     "id": "edson-fachin",
-    "since": "2026-09",
     "name": "Edson Fachin",
     "role": "Ministro do STF · presidente da Corte",
     "group": "stf",
@@ -383,8 +383,8 @@
     "y": 700
   },
   {
+    "type": "person",
     "id": "gilmar-mendes",
-    "since": "2026-09",
     "name": "Gilmar Mendes",
     "role": "Ministro do STF",
     "group": "stf",
@@ -405,8 +405,8 @@
     "y": 560
   },
   {
+    "type": "person",
     "id": "andrei-rodrigues",
-    "since": "2026-09",
     "name": "Andrei Rodrigues",
     "role": "Diretor-geral da Polícia Federal",
     "group": "legal",
@@ -423,8 +423,8 @@
     "y": 920
   },
   {
+    "type": "person",
     "id": "jair-bolsonaro",
-    "since": "2020-10",
     "name": "Jair Bolsonaro",
     "role": "Ex-presidente",
     "group": "politics",
@@ -442,8 +442,8 @@
     "y": 120
   },
   {
+    "type": "person",
     "id": "eduardo-bolsonaro",
-    "since": "2020-10",
     "name": "Eduardo Bolsonaro",
     "role": "Deputado federal",
     "group": "politics",
@@ -461,8 +461,8 @@
     "y": 200
   },
   {
+    "type": "person",
     "id": "flavio-bolsonaro",
-    "since": "2025-01",
     "name": "Flávio Bolsonaro",
     "role": "Senador PL–RJ · pré-candidato",
     "group": "politics",
@@ -484,8 +484,8 @@
     "y": 40
   },
   {
+    "type": "person",
     "id": "mineiro",
-    "since": "2025-01",
     "name": "Antônio Carlos Freixo Júnior (“Mineiro”)",
     "role": "Operador financeiro · Entre Investimentos",
     "group": "finance",
@@ -506,12 +506,11 @@
     "y": 620
   },
   {
+    "type": "movie",
     "id": "dark-horse",
-    "since": "2025-01",
     "name": "Dark Horse (filme)",
     "role": "Cinebiografia de Jair Bolsonaro",
     "group": "movie",
-    "kind": "movie",
     "status": "Objeto de investigação",
     "initials": "DH",
     "bio": "Cinebiografia of Jair Bolsonaro directed by Cyrus Nowrasteh (screenplay with Mark Nowrasteh; story by Mário Frias), starring Jim Caviezel alongside Esai Morales, Marcus Ornellas, Sérgio Barreto and Camille Guaty. Production by Go Up Entertainment. It received at least US$ 10.6 million (R$ 61 million+) via the Havengate fund (Texas) — money whose origin and purpose the PF is investigating; the distributor awaits the outcome to define its release.",
@@ -529,6 +528,7 @@
     "y": 40
   },
   {
+    "type": "person",
     "id": "mario-frias",
     "name": "Mário Frias",
     "role": "Deputado federal PL-SP · produtor-executivo do Dark Horse",
@@ -536,7 +536,6 @@
     "status": "Alvo da Operação Make Up (PF)",
     "initials": "MF",
     "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mário_Frias_em_2020.jpg/500px-Mário_Frias_em_2020.jpg",
-    "since": "2025-01",
     "bio": "Ator, Secretário Especial de Cultura no governo Bolsonaro (2020–2022) e hoje deputado federal (PL-SP). Criador da história de “Dark Horse” e produtor-executivo. A PF aponta coincidências de valores e período entre emendas parlamentares dele e a gravação do filme (Operação Make Up, 10/9/2026). Nega que Vorcaro tenha dado “nem um centavo”.",
     "contacts": [
       {
@@ -548,14 +547,13 @@
     "y": 120
   },
   {
+    "type": "org",
     "id": "havengate",
     "name": "Havengate Development Fund LP",
     "role": "Fundo LP · Texas (EUA)",
     "group": "finance",
     "status": "Recebeu transferências sob apuração",
     "initials": "HV",
-    "kind": "org",
-    "since": "2025-01",
     "bio": "Fundo criado em 2020 para captar recursos do projeto imobiliário Havengate Community (US$ 21,1 milhões, no Texas), jamais executado — permaneceu inerte até receber ao menos US$ 10,6 milhões de empresas ligadas a Vorcaro para bancar “Dark Horse” (Intercept; Miriam Leitão/O Globo).",
     "contacts": [
       {
@@ -567,13 +565,13 @@
     "y": 620
   },
   {
+    "type": "person",
     "id": "karina-gama",
     "name": "Karina Ferreira da Gama",
     "role": "Empresária · Go Up Entertainment",
     "group": "movie",
     "status": "Alvo da Operação Make Up (PF)",
     "initials": "KG",
-    "since": "2025-12",
     "bio": "Empresária do terceiro setor e de projetos literários cristãos, dona da Go Up Entertainment (produtora de “Dark Horse”) e do ICB (Instituto Conhecer Brasil). Alvo principal, com Mário Frias, da Operação Make Up (10/9/2026), que apura emendas parlamentares ligadas ao filme.",
     "contacts": [
       {
@@ -589,14 +587,13 @@
     "y": 300
   },
   {
+    "type": "org",
     "id": "go-up",
     "name": "Go Up Entertainment",
     "role": "Produtora do filme",
     "group": "movie",
     "status": "Produtora · Karina Ferreira da Gama",
     "initials": "GU",
-    "kind": "org",
-    "since": "2025-12",
     "bio": "Produtora responsável por “Dark Horse”, de Karina Ferreira da Gama. O Intercept revelou contrato de R$ 108 milhões (dez/2025) ligado a igrejas evangélicas e ao entorno da Prefeitura de SP; a Go Up declarou gastos de R$ 75 milhões — os valores divergem dos US$ 10,6–24 mi e do orçamento de R$ 134 mi citados na apuração.",
     "contacts": [
       {
@@ -612,14 +609,13 @@
     "y": 380
   },
   {
+    "type": "org",
     "id": "reag",
     "name": "Reag Investimentos",
     "role": "Gestora de investimentos",
     "group": "finance",
     "status": "Citada em ocultação e delação",
     "initials": "RE",
-    "kind": "org",
-    "since": "2026-01",
     "bio": "Gestora usada para movimentar e ocultar valores do grupo: R$ 2,245 bilhões de Vorcaro apareceram em conta em nome do pai via Reag, e o fundador da gestora firmou delação (10/9/2026) descrevendo o uso da Reag Trust na movimentação de recursos.",
     "contacts": [
       {

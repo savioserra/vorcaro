@@ -1,15 +1,37 @@
 /**
- * Carregador do grafo. Os dados vivem em /data (people.json, links.json) —
- * contribuições entram por PR naqueles arquivos.
+ * Tudo é derivado de data/entities.json + data/facts.json.
+ * Timeline, arestas, datas de entrada e filtros são calculados aqui.
  */
-import peopleJson from "../../data/people.json";
-import linksJson from "../../data/links.json";
-import type { GraphLink, GroupKey, Person, RelationKey } from "../types";
+import entitiesJson from "../../data/entities.json";
+import factsJson from "../../data/facts.json";
+import type { EdgeData, Entity, Fact } from "../types";
 
-export const PEOPLE = peopleJson as Person[];
-export const LINKS = linksJson as GraphLink[];
+export type { EdgeData, Entity, Fact };
 
-export const GROUPS: Record<GroupKey, { label: string; ring: string; fill: string }> = {
+export const ENTITIES = entitiesJson as Entity[];
+export const FACTS = factsJson as Fact[];
+
+export const ENTITY_BY_ID: Record<string, Entity> = Object.fromEntries(
+  ENTITIES.map((e) => [e.id, e])
+);
+
+/** YYYY-MM a partir de YYYY-MM ou YYYY-MM-DD. */
+export function monthOf(ts: string): string {
+  return ts.slice(0, 7);
+}
+
+const prettify = (s: string) =>
+  s.charAt(0).toUpperCase() + s.slice(1).replace(/[-_]/g, " ");
+
+/* ---------- grupos (chave aberta, estilo com fallback) ---------- */
+
+export interface Style {
+  label: string;
+  ring: string;
+  fill: string;
+}
+
+export const GROUP_STYLES: Record<string, Style> = {
   finance: { label: "Finanças", ring: "#f59e0b", fill: "rgba(245,158,11,.15)" },
   politics: { label: "Política", ring: "#38bdf8", fill: "rgba(56,189,248,.15)" },
   church: { label: "Igreja", ring: "#a78bfa", fill: "rgba(167,139,250,.15)" },
@@ -20,7 +42,19 @@ export const GROUPS: Record<GroupKey, { label: string; ring: string; fill: strin
   movie: { label: "Filme", ring: "#2dd4bf", fill: "rgba(45,212,191,.15)" },
 };
 
-export const RELATIONS: Record<RelationKey, { label: string; color: string }> = {
+export function groupStyle(group: string): Style {
+  return (
+    GROUP_STYLES[group] ?? {
+      label: prettify(group),
+      ring: "#71717a",
+      fill: "rgba(113,113,122,.15)",
+    }
+  );
+}
+
+/* ---------- categorias de fatos (chave aberta, estilo com fallback) ---------- */
+
+export const CATEGORY_STYLES: Record<string, { label: string; color: string }> = {
   family: { label: "Família", color: "#fb7185" },
   personal: { label: "Pessoal", color: "#f472b6" },
   church: { label: "Igreja", color: "#a78bfa" },
@@ -31,16 +65,35 @@ export const RELATIONS: Record<RelationKey, { label: string; color: string }> = 
   investigation: { label: "Investigação", color: "#f87171" },
   intro: { label: "Apresentação", color: "#c084fc" },
   stf: { label: "Crise institucional", color: "#818cf8" },
-  movie: { label: "Financiamento", color: "#2dd4bf" },
+  movie: { label: "Financiamento do filme", color: "#2dd4bf" },
 };
 
-export function personToNode(p: Person) {
-  return {
-    id: p.id,
-    type: p.kind ? ("artifact" as const) : ("person" as const),
-    position: { x: p.x ?? 0, y: p.y ?? 0 },
-    data: p,
-  };
+export function categoryStyle(category: string): { label: string; color: string } {
+  return (
+    CATEGORY_STYLES[category] ?? {
+      label: prettify(category),
+      color: "#94a3b8",
+    }
+  );
+}
+
+/* ---------- derivados ---------- */
+
+/** Mês de entrada de cada entidade = primeiro fato que a menciona. */
+export const FIRST_MONTH: Record<string, string> = (() => {
+  const m: Record<string, string> = {};
+  for (const f of FACTS) {
+    const month = monthOf(f.timestamp);
+    for (const id of f.entities) {
+      if (!m[id] || month < m[id]) m[id] = month;
+    }
+  }
+  return m;
+})();
+
+/** Fatos que mencionam uma entidade. */
+export function factsOf(entityId: string): Fact[] {
+  return FACTS.filter((f) => f.entities.includes(entityId));
 }
 
 /** Escolhe handles nas bordas para as curvas fluírem na direção do outro nó. */
@@ -58,14 +111,17 @@ export function chooseHandles(a?: { x: number; y: number }, b?: { x: number; y: 
     : { sourceHandle: "t-out", targetHandle: "b-in" };
 }
 
-export function linkToEdge(l: GraphLink, i: number, positions?: Record<string, { x: number; y: number }>) {
-  const meta = RELATIONS[l.kind] || RELATIONS.business;
-  const isInv = l.kind === "investigation";
-  return {
-    id: l.id || `e-${l.source}-${l.target}-${i}`,
-    source: l.source,
-    target: l.target,
-    ...chooseHandles(positions?.[l.source], positions?.[l.target]),
+/** Arestas derivadas: fatos com ≥2 entidades geram 1 aresta da primeira para cada demais. */
+export function factToEdges(f: Fact, positions?: Record<string, { x: number; y: number }>) {
+  if (f.entities.length < 2) return [];
+  const [first, ...rest] = f.entities;
+  const meta = categoryStyle(f.category);
+  const isInv = f.category === "investigation";
+  return rest.map((target: string, i: number) => ({
+    id: `f-${f.id}-${i}`,
+    source: first,
+    target,
+    ...chooseHandles(positions?.[first], positions?.[target]),
     type: "default" as const,
     interactionWidth: 24,
     style: {
@@ -77,16 +133,28 @@ export function linkToEdge(l: GraphLink, i: number, positions?: Record<string, {
     labelBgStyle: { fill: "#09090b", fillOpacity: 0.94 },
     labelBgPadding: [4, 6] as [number, number],
     labelBgBorderRadius: 4,
-    data: { kind: l.kind, label: l.label, why: l.why, evidence: l.evidence || [], custom: l.custom },
+    data: { fact: f } satisfies EdgeData,
+  }));
+}
+
+export function entityToNode(e: Entity) {
+  return {
+    id: e.id,
+    type: e.type === "person" ? ("person" as const) : ("artifact" as const),
+    position: { x: e.x ?? 0, y: e.y ?? 0 },
+    data: e,
   };
 }
 
-/** Limites do eixo do tempo (YYYY-MM): pontos de encaixe = datas de fatos documentados. */
+/** Pontos de encaixe da timeline = meses (únicos) dos fatos + mês de entrada por entidade. */
 export const TIMELINE = (() => {
-  const whens = LINKS.map((l) => l.when).filter(Boolean).sort();
-  const sinces = PEOPLE.map((p) => p.since).filter(Boolean);
-  const stops = [...new Set(whens)];
-  const min = stops[0] || sinces[0] || "2020-10";
-  const max = stops[stops.length - 1] || "2026-09";
-  return { min, max, stops };
+  const stops = [...new Set(FACTS.map((f) => monthOf(f.timestamp)))].sort();
+  const firstMonth: Record<string, string> = {};
+  for (const f of FACTS) {
+    const month = monthOf(f.timestamp);
+    for (const id of f.entities) {
+      if (!firstMonth[id] || month < firstMonth[id]) firstMonth[id] = month;
+    }
+  }
+  return { min: stops[0], max: stops[stops.length - 1], stops, firstMonth };
 })();

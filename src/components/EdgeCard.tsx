@@ -1,20 +1,24 @@
 import { motion } from "motion/react";
 import type { Edge } from "@xyflow/react";
-import type { EdgeData, Person } from "../types";
+import type { EdgeData, Entity } from "../types";
+import { categoryStyle } from "../data/graph";
 import { localPdf } from "../data/evidence";
-import { RELATIONS } from "../data/graph";
+import { fmtMonth } from "./TimelineBar";
 
-export function EdgeCard({ edge, peopleById, onFocus, onClose }: {
+export function EdgeCard({
+  edge,
+  entityById,
+  onFocus,
+  onClose,
+}: {
   edge: Edge<EdgeData>;
-  peopleById: Record<string, Person>;
+  entityById: Record<string, Entity>;
   onFocus: (id: string) => void;
   onClose: () => void;
 }) {
-  if (!edge) return null;
-  const d: Partial<EdgeData> = edge.data || {};
-  const meta = RELATIONS[d.kind as keyof typeof RELATIONS] || RELATIONS.business;
-  const from = peopleById[edge.source];
-  const to = peopleById[edge.target];
+  const fact = edge.data?.fact;
+  if (!fact) return null;
+  const meta = categoryStyle(fact.category);
 
   return (
     <motion.div
@@ -22,13 +26,19 @@ export function EdgeCard({ edge, peopleById, onFocus, onClose }: {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 24, scale: 0.97 }}
       transition={{ type: "spring", stiffness: 300, damping: 28 }}
-      className="absolute bottom-3 left-1/2 z-20 w-[min(620px,calc(100%-24px))] -translate-x-1/2 rounded-2xl border border-zinc-700 bg-zinc-950/95 p-4 shadow-2xl backdrop-blur">
+      className="absolute bottom-3 left-1/2 z-20 w-[min(620px,calc(100%-24px))] -translate-x-1/2 rounded-2xl border border-zinc-700 bg-zinc-950/95 p-4 shadow-2xl backdrop-blur"
+    >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-1.5 text-[13px] font-semibold text-zinc-100">
-            <button className="hover:underline" onClick={() => onFocus(edge.source)}>{from?.name}</button>
-            <span className="text-zinc-500">→</span>
-            <button className="hover:underline" onClick={() => onFocus(edge.target)}>{to?.name}</button>
+            {fact.entities.map((id) => (
+              <span key={id} className="flex items-center gap-1.5">
+                {id !== fact.entities[0] && <span className="text-zinc-500">→</span>}
+                <button className="hover:underline" onClick={() => onFocus(id)}>
+                  {entityById[id]?.name ?? id}
+                </button>
+              </span>
+            ))}
           </div>
           <div className="mt-1 flex flex-wrap items-center gap-1.5">
             <span
@@ -37,7 +47,8 @@ export function EdgeCard({ edge, peopleById, onFocus, onClose }: {
             >
               {meta.label}
             </span>
-            {d.label && <span className="font-mono text-[10px] text-zinc-400">{d.label}</span>}
+            <span className="font-mono text-[10px] text-zinc-400">{fmtMonth(fact.timestamp)}</span>
+            <span className="font-mono text-[10px] text-zinc-500">{fact.title}</span>
           </div>
         </div>
         <button
@@ -49,15 +60,13 @@ export function EdgeCard({ edge, peopleById, onFocus, onClose }: {
         </button>
       </div>
 
-      <p className="mt-3 text-[13px] leading-relaxed text-zinc-300">
-        {d.why || "Sem explicação registrada."}
-      </p>
+      <p className="mt-3 text-[13px] leading-relaxed text-zinc-300">{fact.description}</p>
 
-      {(d.evidence?.length ?? 0) > 0 && (
+      {fact.evidence.length > 0 && (
         <div className="mt-3">
           <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Evidências</div>
           <div className="flex flex-wrap gap-1.5">
-            {(d.evidence ?? []).map((ev) => {
+            {fact.evidence.map((ev) => {
               const local = localPdf(ev.url);
               return (
                 <span

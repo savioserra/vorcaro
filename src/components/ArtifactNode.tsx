@@ -1,7 +1,7 @@
 import { Handle, Position, type HandleType, type Position as XYPosition } from "@xyflow/react";
 import { motion } from "motion/react";
-import type { Person } from "../types";
-import { GROUPS } from "../data/graph";
+import type { Entity } from "../types";
+import { groupStyle } from "../data/graph";
 
 const SIDES: [XYPosition, HandleType, string][] = [
   [Position.Top, "target", "t-in"],
@@ -14,9 +14,10 @@ const SIDES: [XYPosition, HandleType, string][] = [
   [Position.Left, "source", "l-out"],
 ];
 
-/** Nó de "objeto" (ex.: filme) — visual distinto das pessoas. */
-export function ArtifactNode({ data, selected }: { data: Person; selected?: boolean }) {
-  const g = GROUPS[data.group] || GROUPS.finance;
+/** Nó de "objeto" (organizações, filmes etc.) — visual distinto das pessoas. */
+export function ArtifactNode({ data, selected }: { data: Entity; selected?: boolean }) {
+  const g = groupStyle(data.group);
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -25,7 +26,6 @@ export function ArtifactNode({ data, selected }: { data: Person; selected?: bool
       className={`relative w-[188px] rounded-[22px] border border-dashed bg-zinc-900/70 px-3 pb-3 pt-8 shadow-xl shadow-black/40 backdrop-blur-sm ${
         selected || data.highlighted ? "border-teal-400/70 ring-2 ring-teal-400/25" : "border-teal-700/60"
       } ${data.dimmed ? "saturate-0" : ""}`}
-      style={data.highlighted ? { borderColor: "#2dd4bf" } : undefined}
     >
       {SIDES.map(([pos, type, id]) => (
         <Handle
