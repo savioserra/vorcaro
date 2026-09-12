@@ -1,5 +1,5 @@
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 
 const entities = JSON.parse(readFileSync("data/entities.json", "utf8"));
 const facts = JSON.parse(readFileSync("data/facts.json", "utf8"));
@@ -47,9 +47,18 @@ for (const [i, f] of facts.entries()) {
   }
 }
 
+const manifest = JSON.parse(readFileSync("src/data/evidence-manifest.json", "utf8"));
+let pdfsMissing = 0;
+for (const [url, m] of Object.entries(manifest)) {
+  if (!existsSync(`public/evidence/${m.file}`)) {
+    errors.push(`PDF arquivado ausente do repositório: ${m.file} (${url})`);
+    pdfsMissing++;
+  }
+}
+
 if (errors.length) {
   console.error(`✗ ${errors.length} problema(s):`);
   for (const e of errors) console.error("  -", e);
   process.exit(1);
 }
-console.log(`✓ ${entities.length} entidades · ${facts.length} fatos — dados válidos`);
+console.log(`✓ ${entities.length} entidades · ${facts.length} fatos · ${Object.keys(manifest).length} PDFs arquivados — dados válidos`);

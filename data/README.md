@@ -44,3 +44,4 @@ Tudo no app é derivado destes dois arquivos: timeline = meses dos fatos, aresta
 
 - Toda conexão do mapa é um fato com ≥2 entidades + `why` + ≥1 evidência.
 - Indício ≠ condenação: redija `description`/`bio` como reportagem, não como sentença.
+- PDFs arquivados em `public/evidence/` nunca são removidos do repositório — transparência permanente, mesmo que fatos/entidades sejam editados.

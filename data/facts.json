@@ -42,48 +42,6 @@
     ]
   },
   {
-    "id": "natalia-vorcaro__fabiano-zettel",
-    "category": "family",
-    "timestamp": "2026-01",
-    "title": "esposos",
-    "description": "Zettel é marido de Natalia — advogado-pastor à frente do fundo Moriah. Também foi alvo das buscas da 2ª fase da Compliance Zero, junto com a mulher e o sogro.",
-    "entities": [
-      "natalia-vorcaro",
-      "fabiano-zettel"
-    ],
-    "evidence": [
-      {
-        "label": "InfoMoney · família",
-        "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
-      },
-      {
-        "label": "Wikipédia · 2ª fase",
-        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
-      }
-    ]
-  },
-  {
-    "id": "henrique-vorcaro__natalia-vorcaro",
-    "category": "family",
-    "timestamp": "2026-01",
-    "title": "pai e filha",
-    "description": "Pai e filha do mesmo núcleo familiar; ambos viraram alvos da operação (prisão dele na 6ª fase, buscas na casa dela na 2ª).",
-    "entities": [
-      "henrique-vorcaro",
-      "natalia-vorcaro"
-    ],
-    "evidence": [
-      {
-        "label": "G1 · prisão de Henrique",
-        "url": "https://g1.globo.com/mg/minas-gerais/noticia/2026/05/14/quem-e-henrique-vorcaro-pai-de-daniel-vorcaro-do-banco-master.ghtml"
-      },
-      {
-        "label": "Wikipédia · 2ª fase",
-        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
-      }
-    ]
-  },
-  {
     "id": "daniel-vorcaro__fabiola-macedo",
     "category": "family",
     "timestamp": "2026-03",
@@ -150,40 +108,6 @@
       },
       {
         "label": "Wikipédia · 2ª fase",
-        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
-      }
-    ]
-  },
-  {
-    "id": "daniel-vorcaro__michel-temer",
-    "category": "legal",
-    "timestamp": "2024-12",
-    "title": "assessoria na tentativa BRB",
-    "description": "Com o BC exigindo capital e a venda do Master ao BRB em negociação (2024–25), Vorcaro recrutou o ex-presidente Temer para atuar em favor de seus interesses. O BC vetou a operação em set/2025.",
-    "entities": [
-      "daniel-vorcaro",
-      "michel-temer"
-    ],
-    "evidence": [
-      {
-        "label": "Wikipédia · investigações",
-        "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
-      }
-    ]
-  },
-  {
-    "id": "daniel-vorcaro__ricardo-lewandowski",
-    "category": "legal",
-    "timestamp": "2024-12",
-    "title": "consultor no episódio BRB",
-    "description": "O ex-presidente do STF Lewandowski atuou como consultor de Vorcaro durante a tentativa de venda do Master ao BRB — parte do escudo jurídico-político montado com a aproximação dos reguladores.",
-    "entities": [
-      "daniel-vorcaro",
-      "ricardo-lewandowski"
-    ],
-    "evidence": [
-      {
-        "label": "Wikipédia · investigações",
         "url": "https://pt.wikipedia.org/wiki/Daniel_Vorcaro"
       }
     ]
@@ -286,23 +210,6 @@
       {
         "label": "InfoMoney · perfil",
         "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
-      }
-    ]
-  },
-  {
-    "id": "marcio-valadao__andre-valadao",
-    "category": "family",
-    "timestamp": "2024-06",
-    "title": "pai e filho",
-    "description": "André é filho de Márcio Valadão; os dois são figuras centrais da Lagoinha e do Diante do Trono, em Belo Horizonte — a igreja no cruzamento entre Vorcaro e Nikolas.",
-    "entities": [
-      "marcio-valadao",
-      "andre-valadao"
-    ],
-    "evidence": [
-      {
-        "label": "Wikipédia · André Valadão",
-        "url": "https://pt.wikipedia.org/wiki/André_Valadão"
       }
     ]
   },
@@ -680,7 +587,7 @@
     "category": "movie",
     "timestamp": "2025-01",
     "title": "negociou o patrocínio",
-    "description": "Flávio foi o interlocutor da produção com Vorcaro: pediu os recursos, acompanhou parcelas e defendeu publicamente o filme. A PF investiga se houve vantagem indevida envolvendo agente público (o senador, pré-candidato) e o banqueiro — investigadores rechaçam o rótulo de patrocínio.",
+    "description": "O senador pediu US$ 24 milhões (R$ 134 milhões) a Vorcaro e cobrou parcelas atrasadas — oito dias após uma cobrança, veio novo repasse (Coaf). A PF aponta que ele não foi “mero terceiro”, mas “interlocutor direto” de Vorcaro. É investigado por corrupção, lavagem de dinheiro e evasão de divisas no inquérito de Mendonça.",
     "entities": [
       "flavio-bolsonaro",
       "dark-horse"
@@ -790,40 +697,6 @@
     ]
   },
   {
-    "id": "jair-bolsonaro__flavio-bolsonaro",
-    "category": "family",
-    "timestamp": "2025-01",
-    "title": "pai e filho",
-    "description": "Flávio é o filho mais velho de Jair Bolsonaro e senador pelo RJ; pré-candidato à Presidência em 2026 — família no centro do esquema de financiamento apurado pela PF.",
-    "entities": [
-      "jair-bolsonaro",
-      "flavio-bolsonaro"
-    ],
-    "evidence": [
-      {
-        "label": "Wikipédia · Flávio Bolsonaro",
-        "url": "https://pt.wikipedia.org/wiki/Flávio_Bolsonaro"
-      }
-    ]
-  },
-  {
-    "id": "jair-bolsonaro__eduardo-bolsonaro",
-    "category": "family",
-    "timestamp": "2020-10",
-    "title": "pai e filho",
-    "description": "Eduardo é filho de Jair Bolsonaro e deputado federal; apontado pela PF como orientador da gestão dos recursos enviados por Vorcaro para o filme sobre o pai.",
-    "entities": [
-      "jair-bolsonaro",
-      "eduardo-bolsonaro"
-    ],
-    "evidence": [
-      {
-        "label": "MidiaMax · PF aponta orientação",
-        "url": "https://midiamax.com.br/brasil/2026/eduardo-bolsonaro-orientou-vorcaro-repasses-financiamento-dark-horse-diz-pf/"
-      }
-    ]
-  },
-  {
     "id": "mario-frias__dark-horse",
     "category": "movie",
     "timestamp": "2025-01",
@@ -841,27 +714,6 @@
       {
         "label": "BBC · why the budget is questioned",
         "url": "https://www.bbc.com/portuguese/articles/cq8p79kzz24o"
-      }
-    ]
-  },
-  {
-    "id": "mario-frias__jair-bolsonaro",
-    "category": "politics",
-    "timestamp": "2025-01",
-    "title": "ex-Secretário de Cultura · história",
-    "description": "Frias chefiou a Secretaria Especial de Cultura no governo Bolsonaro (2020–2022) e criou a história do filme sobre o ex-presidente — a ponte que levou o projeto ao círculo da família Bolsonaro.",
-    "entities": [
-      "mario-frias",
-      "jair-bolsonaro"
-    ],
-    "evidence": [
-      {
-        "label": "EN Wikipedia · Dark Horse",
-        "url": "https://en.wikipedia.org/wiki/Dark_Horse_(2026_film)"
-      },
-      {
-        "label": "G1 · everything about the film",
-        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/05/13/dark-horse-o-que-se-sabe-sobre-cinebiografia-de-bolsonaro-para-a-qual-flavio-bolsonaro-pediu-dinheiro-a-vorcaro.ghtml"
       }
     ]
   },
@@ -891,7 +743,7 @@
     "category": "investigation",
     "timestamp": "2025-01",
     "title": "≥US$ 10,6 mi para o fundo",
-    "description": "Empresas ligadas a Vorcaro transferiram ao menos US$ 10,6 milhões ao Havengate Development Fund LP. O Coaf registra nova parcela de US$ 1,67 milhão em 16/9/2025. Segundo o Intercept, o fundo foi criado em 2020 para um projeto imobiliário no Texas (US$ 21,1 milhões) nunca executado e estava inerte até os depósitos do filme.",
+    "description": "Empresas ligadas a Vorcaro transferiram ao menos US$ 10,6 milhões ao Havengate Development Fund LP — criado em 2020 para o projeto imobiliário Havengate Community (US$ 21,1 milhões, Melissa/condado de Collin, Texas; prometia green card via EB-5), nunca executado e inerte por ~4 anos. Primeira remessa: US$ 2 milhões em 14/2/2025. O Coaf registra nova parcela de US$ 1,67 milhão em 16/9/2025.",
     "entities": [
       "daniel-vorcaro",
       "havengate"
@@ -908,32 +760,11 @@
     ]
   },
   {
-    "id": "havengate__dark-horse",
-    "category": "movie",
-    "timestamp": "2025-01",
-    "title": "fundo do filme",
-    "description": "O fundo, sediado no Texas, recebeu e repassou os recursos que financiaram “Dark Horse” — a rota por onde a PF tenta apurar origem e destino real do dinheiro de Vorcaro na produção.",
-    "entities": [
-      "havengate",
-      "dark-horse"
-    ],
-    "evidence": [
-      {
-        "label": "Brasil247 · Intercept review",
-        "url": "https://www.brasil247.com/brasil/fundo-ligado-ao-filme-dark-horse-nunca-executou-projeto-imobiliario-no-texas-e-permaneceu-ativo-ate-receber-milhoes-de-vorcaro-revela-intercept/"
-      },
-      {
-        "label": "Intercept · spreadsheet and receipt",
-        "url": "https://www.intercept.com.br/2026/06/09/planilha-comprovante-bancario-vorcaro-dinheiro-eua-ar-dark-horse/"
-      }
-    ]
-  },
-  {
     "id": "mineiro__havengate",
     "category": "investigation",
     "timestamp": "2025-01",
     "title": "executou as transferências",
-    "description": "Segundo a delação, as transferências da Entre Investimentos foram o canal usado pelo dinheiro de Vorcaro para chegar ao fundo Havengate — sete remessas ordenadas diretamente pelo banqueiro.",
+    "description": "Segundo a delação, as sete “subscrições de cotas” da Entre Investimentos somaram US$ 12,333 milhões (jan–set/2025) — o canal do dinheiro de Vorcaro para o fundo do filme, a mando direto do banqueiro.",
     "entities": [
       "mineiro",
       "havengate"
@@ -1017,19 +848,126 @@
     "category": "investigation",
     "timestamp": "2026-01",
     "title": "ocultação de R$ 2,245 bi",
-    "description": "A gestora Reag aparece em duas frentes: na ocultação de R$ 2,245 bilhões de Vorcaro em conta em nome do pai (bloqueados em 14/1/2026) e na delação do próprio fundador da Reag (10/9/2026), que descreve o uso da Reag Trust para movimentar e ocultar recursos do grupo.",
+    "description": "A gestora Reag aparece em duas frentes: R$ 2,245 bilhões de Vorcaro ocultados em conta em nome do pai (via fundos administrados pela Reag; bloqueio em 14/1/2026) e a delação de João Carlos Mansur — fundador da gestora — com acordo assinado com a PGR em 2/9/2026 e homologação pendente por Mendonça. Mansur relata propinas de Vorcaro a autoridades públicas ocultadas em fundos da gestora.",
     "entities": [
       "daniel-vorcaro",
       "reag"
     ],
     "evidence": [
       {
-        "label": "Poder360 · R$ 2,2 bi em conta do pai",
-        "url": "https://www.poder360.com.br/poder-justica/daniel-vorcaro-ocultou-r-22-bilhoes-em-conta-do-pai-diz-pf/"
+        "label": "Poder360 · propinas na Reag",
+        "url": "https://www.poder360.com.br/poder-justica/ex-dono-da-reag-relata-propinas-de-vorcaro-para-autoridades-publicas/"
       },
       {
-        "label": "Diário360 · delação do fundador da Reag",
-        "url": "https://diario360.com.br/2026/09/10/operacao-compliance-zero-ganha-novo-capitulo-apos-delacao-do-fundador-da-reag-investimentos/"
+        "label": "G1 · delação encaminhada ao STF",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/02/pgr-encaminha-ao-stf-proposta-de-delacao-premiada-de-fundador-da-reag.ghtml"
+      }
+    ]
+  },
+  {
+    "id": "flavio-bolsonaro-mario-frias-eduardo-bolsonaro",
+    "category": "investigation",
+    "timestamp": "2026-05",
+    "title": "interlocutor direto · negativas cruzadas",
+    "entities": [
+      "flavio-bolsonaro",
+      "mario-frias",
+      "eduardo-bolsonaro"
+    ],
+    "description": "A PF aponta que Flávio não foi “mero terceiro”, mas “interlocutor direto” de Vorcaro no financiamento do filme (O Globo, 11/9/2026). Frias contradisse Flávio ao negar dinheiro do banqueiro na produção — “não há um único centavo” (13–14/5/2026). Já Eduardo negou e depois admitiu ter assinado contrato como produtor-executivo, dizendo ter investido US$ 50 mil e recebido o valor de volta (15/5/2026).",
+    "evidence": [
+      {
+        "label": "O Globo · PF: interlocutor direto",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/11/pf-diz-que-flavio-nao-foi-apenas-terceiro-mas-interlocutor-direto-de-vorcaro-no-financiamento-do-filme-dark-horse.ghtml"
+      },
+      {
+        "label": "G1 · Eduardo admite assinatura",
+        "url": "https://g1.globo.com/jornal-nacional/noticia/2026/05/15/ex-deputado-federal-eduardo-bolsonaro-admite-que-assinou-documento-como-produtor-executivo-do-filme-sobre-o-pai.ghtml"
+      },
+      {
+        "label": "UOL · a investigação",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/10/o-que-se-sabe-sobre-a-investigacao-de-dark-horse-filme-sobre-bolsonaro.ghtm"
+      }
+    ]
+  },
+  {
+    "id": "flavio-dino-mario-frias-karina-gama",
+    "category": "investigation",
+    "timestamp": "2026-09",
+    "title": "Operação Make Up · relatoria Dino",
+    "entities": [
+      "flavio-dino",
+      "mario-frias",
+      "karina-gama"
+    ],
+    "description": "O ministro Dino, relator do inquérito das emendas/Make Up, autorizou a operação de 10/9/2026 (PF+CGU; 49 mandados, 29 investigados — Frias e Karina Gama como alvos principais) e proibiu Frias de deixar o país e de contatar investigados. Frente “emendas/Dark Horse”, distinta da frente “repasses Vorcaro–Flávio” (relatoria Mendonça).",
+    "evidence": [
+      {
+        "label": "G1 · Dino proíbe saída do país",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/10/dino-proibe-mario-frias-de-sair-do-pais-e-ter-contato-com-outros-investigados.ghtml"
+      },
+      {
+        "label": "Agência Brasil · alvos",
+        "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-09/mario-frias-e-produtora-de-dark-horse-sao-alvos-de-operacao-da-pf"
+      },
+      {
+        "label": "O Tempo · duas frentes no STF",
+        "url": "https://www.otempo.com.br/politica/judiciario/2026/9/10/filme-sobre-bolsonaro-dark-horse-e-alvo-de-duas-investigacoes-no-stf-veja-diferencas-e-alvos"
+      }
+    ]
+  },
+  {
+    "id": "andre-mendonca-flavio-dino",
+    "category": "stf",
+    "timestamp": "2026-09",
+    "title": "duas frentes no STF",
+    "entities": [
+      "andre-mendonca",
+      "flavio-dino"
+    ],
+    "description": "O caso Dark Horse corre em duas frentes no STF: emendas/Make Up com relatoria Dino; repasses Vorcaro–Flávio (corrupção, lavagem, evasão) com relatoria Mendonça — que retirou sigilos e homologou a delação do Mineiro. A divisão virou crise institucional aberta no Tribunal.",
+    "evidence": [
+      {
+        "label": "O Tempo · duas investigações",
+        "url": "https://www.otempo.com.br/politica/judiciario/2026/9/10/filme-sobre-bolsonaro-dark-horse-e-alvo-de-duas-investigacoes-no-stf-veja-diferencas-e-alvos"
+      }
+    ]
+  },
+  {
+    "id": "paulo-calixto-havengate",
+    "category": "investigation",
+    "timestamp": "2025-01",
+    "title": "controla o fundo",
+    "entities": [
+      "paulo-calixto",
+      "havengate"
+    ],
+    "description": "O advogado Paulo Calixto (Calixsan Capital Management), advogado de Eduardo Bolsonaro, controla o Havengate Development Fund LP — o canal que recebeu os repasses de Vorcaro, conectando Eduardo estruturalmente ao fluxo do dinheiro.",
+    "evidence": [
+      {
+        "label": "Intercept · fundo Havengate",
+        "url": "https://www.intercept.com.br/2026/07/02/fundo-havengate-abandonou-projeto-antes-milhoes-vorcaro-dark-horse/"
+      }
+    ]
+  },
+  {
+    "id": "karina-gama-icb",
+    "category": "business",
+    "timestamp": "2025-12",
+    "title": "dona · ICB",
+    "entities": [
+      "karina-gama",
+      "icb"
+    ],
+    "description": "O ICB (Instituto Conhecer Brasil), ONG de Karina, é o elo dela com dinheiro público: contrato de wi-fi com a Prefeitura de SP de R$ 108 milhões (dez/2025; hoje R$ 157 milhões), única proposta na licitação de 2024. O TCM apontou ~20 irregularidades e a Polícia Civil deflagrou a “Operação Wi-Fi” (1/6/2026). A PF apura repasses ICB→Go Up.",
+    "evidence": [
+      {
+        "label": "G1 · contrato de wi-fi",
+        "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/05/19/policia-investiga-contrato-de-r-108-milhoes-de-wi-fi-da-prefeitura-de-sp-com-ong-ligada-a-filme-sobre-bolsonaro.ghtml"
+      },
+      {
+        "label": "G1 · R$ 157 mi (10/9/2026)",
+        "url": "https://g1.globo.com/politica/noticia/2026/09/10/karina-gama-quem-e-a-produtora-de-dark-horse-alvo-de-operacao-da-policia-federal-em-sp.ghtml"
       }
     ]
   }

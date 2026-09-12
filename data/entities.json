@@ -9,7 +9,7 @@
     "initials": "DV",
     "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Daniel_Vorcaro_-_2024_(cropped).jpg/500px-Daniel_Vorcaro_-_2024_(cropped).jpg",
     "born": "6 out 1983 · Belo Horizonte",
-    "bio": "Acionista majoritário e presidente do Banco Master até a liquidação extrajudicial pelo BC (18/11/2025). Figura central da Operação Compliance Zero: preso em 17/11/2025 em Guarulhos, solto com cautelares em 28/11, re-preso por ordem do STF em 4/3/2026. Financiou a cinebiografia de Jair Bolsonaro, “Dark Horse”, com ao menos US$ 10 mi (R$ 61 mi+) enviados a um fundo nos EUA — repasses hoje no centro da apuração contra Flávio Bolsonaro. Em 8/9/2026, a CVM o condenou por unanimidade no caso Brazil Realty FII — multa pessoal de R$ 20 mi; o banco foi sancionado em R$ 12,5 mi (total de ~R$ 201,5 mi em sanções do processo, incluindo o pai Henrique e o primo Felipe). A PF aponta que ele sabia da operação e teria planejado a fuga um dia antes da 1ª prisão.",
+    "bio": "Acionista majoritário e presidente do Banco Master até a liquidação extrajudicial pelo BC (18/11/2025). Figura central da Operação Compliance Zero: preso em 17/11/2025 em Guarulhos, solto com cautelares em 28/11, re-preso por ordem do STF em 4/3/2026. Financiou a cinebiografia de Jair Bolsonaro, “Dark Horse”, com ao menos US$ 10 mi (R$ 61 mi+) enviados a um fundo nos EUA — repasses hoje no centro da apuração contra Flávio Bolsonaro. Em 8/9/2026, a CVM o condenou por unanimidade no caso Brazil Realty FII — multa pessoal de R$ 20 mi; o banco foi sancionado em R$ 12,5 mi (total de ~R$ 201,5 mi em sanções do processo, incluindo o pai Henrique e o primo Felipe). A PF aponta que ele sabia da operação e teria planejado a fuga um dia antes da 1ª prisão. Para viabilizar a venda ao BRB, recrutou o ex-presidente Michel Temer e o ex-ministro Ricardo Lewandowski (consultor), segundo reportagens.",
     "contacts": [
       {
         "label": "Wikipédia",
@@ -211,44 +211,6 @@
     "bio": "Recebeu, em abr/2024, as mensagens em que Vorcaro afirma ter bancado “todos os voos” de Nikolas e sugere expor o deputado; Carneiro pedia que Nikolas parasse de atacar.",
     "x": 700,
     "y": 80
-  },
-  {
-    "type": "person",
-    "id": "michel-temer",
-    "name": "Michel Temer",
-    "role": "Ex-presidente · assessoria (reportado)",
-    "group": "legal",
-    "status": "Atuou na tentativa BRB",
-    "initials": "MT",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Michel_Temer_(foto_oficial)_(cropped_2).jpg/500px-Michel_Temer_(foto_oficial)_(cropped_2).jpg",
-    "bio": "Sob pressão do BC na tentativa de venda do Master ao BRB (2024–25), Vorcaro recrutou Temer para atuar em favor de seus interesses, segundo reportagens compiladas pela Wikipédia.",
-    "contacts": [
-      {
-        "label": "Wikipédia",
-        "url": "https://pt.wikipedia.org/wiki/Michel_Temer"
-      }
-    ],
-    "x": 600,
-    "y": 280
-  },
-  {
-    "type": "person",
-    "id": "ricardo-lewandowski",
-    "name": "Ricardo Lewandowski",
-    "role": "Ex-presidente do STF · consultor",
-    "group": "legal",
-    "status": "Consultor no episódio BRB",
-    "initials": "RL",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ricardo_Lewandowski_2011.jpg/500px-Ricardo_Lewandowski_2011.jpg",
-    "bio": "Atuou como consultor de Vorcaro na tentativa de venda do Master ao BRB, conforme apontado em reportagens compiladas pela Wikipédia.",
-    "contacts": [
-      {
-        "label": "Wikipédia",
-        "url": "https://pt.wikipedia.org/wiki/Ricardo_Lewandowski"
-      }
-    ],
-    "x": 600,
-    "y": 430
   },
   {
     "type": "person",
@@ -536,7 +498,7 @@
     "status": "Alvo da Operação Make Up (PF)",
     "initials": "MF",
     "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mário_Frias_em_2020.jpg/500px-Mário_Frias_em_2020.jpg",
-    "bio": "Ator, Secretário Especial de Cultura no governo Bolsonaro (2020–2022) e hoje deputado federal (PL-SP). Criador da história de “Dark Horse” e produtor-executivo. A PF aponta coincidências de valores e período entre emendas parlamentares dele e a gravação do filme (Operação Make Up, 10/9/2026). Nega que Vorcaro tenha dado “nem um centavo”.",
+    "bio": "Ator e Secretário Especial de Cultura no governo Bolsonaro (jun/2020–31/3/2022). Eleito deputado federal (PL-SP) em 2022 com 122.564 votos. Criador da história de “Dark Horse” e produtor-executivo. A PF aponta coincidências de valores e período entre emendas parlamentares dele e a gravação (Operação Make Up, 10/9/2026). Nega que Vorcaro tenha dado “nem um centavo” ao filme.",
     "contacts": [
       {
         "label": "Wikipedia",
@@ -554,7 +516,7 @@
     "group": "finance",
     "status": "Recebeu transferências sob apuração",
     "initials": "HV",
-    "bio": "Fundo criado em 2020 para captar recursos do projeto imobiliário Havengate Community (US$ 21,1 milhões, no Texas), jamais executado — permaneceu inerte até receber ao menos US$ 10,6 milhões de empresas ligadas a Vorcaro para bancar “Dark Horse” (Intercept; Miriam Leitão/O Globo).",
+    "bio": "Fundo LP criado em 2020 para captar o projeto imobiliário Havengate Community (US$ 21,1 milhões, Melissa/condado de Collin, Texas) — nunca executado, inerte por ~4 anos. Prometia green card via visto EB-5. Recebeu ao menos US$ 10,6 milhões de empresas ligadas a Vorcaro para bancar “Dark Horse”. Controlado por Paulo Calixto (Calixsan Capital Management), advogado de Eduardo Bolsonaro.",
     "contacts": [
       {
         "label": "Intercept · fund",
@@ -572,7 +534,7 @@
     "group": "movie",
     "status": "Alvo da Operação Make Up (PF)",
     "initials": "KG",
-    "bio": "Empresária do terceiro setor e de projetos literários cristãos, dona da Go Up Entertainment (produtora de “Dark Horse”) e do ICB (Instituto Conhecer Brasil). Alvo principal, com Mário Frias, da Operação Make Up (10/9/2026), que apura emendas parlamentares ligadas ao filme.",
+    "bio": "Empresária do terceiro setor e de projetos literários cristãos, dona da Go Up Entertainment (produtora de “Dark Horse”) e do ICB (Instituto Conhecer Brasil). Alvo principal, com Mário Frias, da Operação Make Up (10/9/2026); o ICB também é alvo da “Operação Wi-Fi” da Polícia Civil (1/6/2026).",
     "contacts": [
       {
         "label": "G1 · R$ 75 mi declarados",
@@ -594,7 +556,7 @@
     "group": "movie",
     "status": "Produtora · Karina Ferreira da Gama",
     "initials": "GU",
-    "bio": "Produtora responsável por “Dark Horse”, de Karina Ferreira da Gama. O Intercept revelou contrato de R$ 108 milhões (dez/2025) ligado a igrejas evangélicas e ao entorno da Prefeitura de SP; a Go Up declarou gastos de R$ 75 milhões — os valores divergem dos US$ 10,6–24 mi e do orçamento de R$ 134 mi citados na apuração.",
+    "bio": "Produtora responsável por “Dark Horse”, de Karina Ferreira da Gama. Nunca havia lançado um filme (segundo a Ancine). Declarou R$ 75,1 milhões de gastos — contra contrato público de R$ 108→157 mi do ICB, US$ 10,6–12,3 mi de Vorcaro e orçamento citado de R$ 134 mi. A PF apura repasses ICB→Go Up.",
     "contacts": [
       {
         "label": "Intercept · contrato R$ 108 mi",
@@ -629,5 +591,63 @@
     ],
     "x": 240,
     "y": 860
+  },
+  {
+    "id": "flavio-dino",
+    "name": "Flávio Dino",
+    "type": "person",
+    "role": "Ministro do STF · relator do inquérito das emendas",
+    "group": "stf",
+    "status": "Relator da frente Make Up/emendas",
+    "initials": "FD",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Flávio_Dino_no_voto_da_Ação_Penal_(AP)_2668_(cropped).jpg/500px-Flávio_Dino_no_voto_da_Ação_Penal_(AP)_2668_(cropped).jpg",
+    "since": "2026-09",
+    "bio": "Ministro do STF (desde 2024; ex-ministro da Justiça 2023–24, ex-governador do MA). Relator do inquérito das emendas/Make Up: autorizou a operação de 10/9/2026 (PF+CGU; 49 mandados, 29 investigados) e proibiu Mário Frias de deixar o país e de contatar investigados. Preside a frente “emendas/Dark Horse” — distinta da frente “repasses Vorcaro–Flávio”, de Mendonça.",
+    "contacts": [
+      {
+        "label": "Wikipedia",
+        "url": "https://pt.wikipedia.org/wiki/Flávio_Dino"
+      }
+    ],
+    "x": 1250,
+    "y": 480
+  },
+  {
+    "id": "paulo-calixto",
+    "name": "Paulo Calixto",
+    "type": "person",
+    "role": "Advogado · Calixsan Capital",
+    "group": "finance",
+    "status": "Controlador do Havengate",
+    "initials": "PC",
+    "since": "2025-01",
+    "bio": "Advogado de Eduardo Bolsonaro e controlador do Havengate Development Fund LP (via Calixsan Capital Management) — o fundo que recebeu os repasses de Vorcaro para “Dark Horse”, segundo o Intercept.",
+    "contacts": [
+      {
+        "label": "Intercept · fundo Havengate",
+        "url": "https://www.intercept.com.br/2026/07/02/fundo-havengate-abandonou-projeto-antes-milhoes-vorcaro-dark-horse/"
+      }
+    ],
+    "x": 240,
+    "y": 620
+  },
+  {
+    "id": "icb",
+    "name": "ICB · Instituto Conhecer Brasil",
+    "type": "org",
+    "role": "ONG · contratos com a Prefeitura de SP",
+    "group": "finance",
+    "status": "Alvo da Make Up · “Operação Wi-Fi”",
+    "initials": "IC",
+    "since": "2025-12",
+    "bio": "ONG de Karina Ferreira da Gama. Contrato de wi-fi com a Prefeitura de SP (gestão Ricardo Nunes): R$ 108 milhões em dez/2025 — única proposta na licitação de 2024 —, hoje em R$ 157 milhões (G1, 10/9/2026). O TCM apontou ~20 irregularidades e a Polícia Civil deflagrou a “Operação Wi-Fi” (1/6/2026). A PF apura repasses ICB→Go Up.",
+    "contacts": [
+      {
+        "label": "G1 · contrato de wi-fi",
+        "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/05/19/policia-investiga-contrato-de-r-108-milhoes-de-wi-fi-da-prefeitura-de-sp-com-ong-ligada-a-filme-sobre-bolsonaro.ghtml"
+      }
+    ],
+    "x": 1900,
+    "y": 460
   }
 ]
