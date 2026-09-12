@@ -514,7 +514,7 @@
     "kind": "movie",
     "status": "Objeto de investigação",
     "initials": "DH",
-    "bio": "Cinebiografia de Jair Bolsonaro (com Jim Caviezel no elenco). Recebeu ao menos US$ 10 mi (R$ 61 mi+) de Vorcaro via fundo Havengate Development (Texas/EUA); o Coaf registra nova parcela de US$ 1,67 mi em 16/9/2025. A PF suspeita da finalidade real da operação — projeção de bilheteria de até R$ 100 mi — e investiga corrupção, lavagem e evasão de divisas.",
+    "bio": "Cinebiografia of Jair Bolsonaro directed by Cyrus Nowrasteh (screenplay with Mark Nowrasteh; story by Mário Frias), starring Jim Caviezel alongside Esai Morales, Marcus Ornellas, Sérgio Barreto and Camille Guaty. Production by Go Up Entertainment. It received at least US$ 10.6 million (R$ 61 million+) via the Havengate fund (Texas) — money whose origin and purpose the PF is investigating; the distributor awaits the outcome to define its release.",
     "contacts": [
       {
         "label": "G1 · o que se sabe do filme",
@@ -527,5 +527,100 @@
     ],
     "x": 1350,
     "y": 40
+  },
+  {
+    "id": "mario-frias",
+    "name": "Mário Frias",
+    "role": "Story creator · executive producer of Dark Horse",
+    "group": "movie",
+    "status": "Denies receiving from Vorcaro",
+    "initials": "MF",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mário_Frias_em_2020.jpg/500px-Mário_Frias_em_2020.jpg",
+    "since": "2025-01",
+    "bio": "Actor and Special Secretary of Culture in the Bolsonaro government (2020–2022). Creator of the original story of “Dark Horse” and executive producer of the production. After the leak of the audios, he stated that Vorcaro gave “not a single cent” and that Eduardo Bolsonaro “never was” an executive producer.",
+    "contacts": [
+      {
+        "label": "Wikipedia",
+        "url": "https://pt.wikipedia.org/wiki/Mário_Frias"
+      }
+    ],
+    "x": 1500,
+    "y": 120
+  },
+  {
+    "id": "cyrus-nowrasteh",
+    "name": "Cyrus Nowrasteh",
+    "role": "Director and screenwriter",
+    "group": "movie",
+    "status": "Awaits outcome of investigations",
+    "initials": "CN",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Cyrus_Nowrasteh_(cropped).jpg/500px-Cyrus_Nowrasteh_(cropped).jpg",
+    "since": "2025-01",
+    "bio": "Iranian-American director (“The Stoning of Soraya M.”) directed “Dark Horse” and co-wrote the screenplay with his son, Mark Nowrasteh. He told Deadline he seeks “prudence”: the distributor awaits the outcome of the investigations to define the release.",
+    "contacts": [
+      {
+        "label": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Cyrus_Nowrasteh"
+      }
+    ],
+    "x": 1700,
+    "y": 40
+  },
+  {
+    "id": "jim-caviezel",
+    "name": "Jim Caviezel",
+    "role": "Lead actor — Jair Bolsonaro",
+    "group": "movie",
+    "status": "Cast",
+    "initials": "JC",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Jim_Caviezel_at_the_2013_SDCC.jpg/500px-Jim_Caviezel_at_the_2013_SDCC.jpg",
+    "since": "2025-01",
+    "bio": "Star (“The Passion of the Christ”, “Person of Interest”) plays Bolsonaro in the film; international and Brazilian cast includes Esai Morales, Marcus Ornellas, Sérgio Barreto and Camille Guaty.",
+    "contacts": [
+      {
+        "label": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Jim_Caviezel"
+      }
+    ],
+    "x": 1850,
+    "y": 120
+  },
+  {
+    "id": "havengate",
+    "name": "Havengate Development Fund LP",
+    "role": "Fund · Texas (USA)",
+    "group": "finance",
+    "status": "Recipient of transfers under investigation",
+    "initials": "HV",
+    "kind": "org",
+    "since": "2025-01",
+    "bio": "Fund created in 2020 to raise funds for the Havengate Community real estate project (US$ 21.1 million, Texas), never executed — remained inert until receiving at least US$ 10.6 million from companies linked to Vorcaro to finance “Dark Horse” (Intercept; Miriam Leitão/O Globo).",
+    "contacts": [
+      {
+        "label": "Intercept · fund",
+        "url": "https://www.intercept.com.br/2026/07/02/fundo-havengate-abandonou-projeto-antes-milhoes-vorcaro-dark-horse/"
+      }
+    ],
+    "x": 1450,
+    "y": 620
+  },
+  {
+    "id": "go-up",
+    "name": "Go Up Entertainment",
+    "role": "Producer of the film",
+    "group": "movie",
+    "status": "Producer · Karina Ferreira da Gama",
+    "initials": "GU",
+    "kind": "org",
+    "since": "2025-01",
+    "bio": "Production company responsible for “Dark Horse”, owned by businesswoman Karina Ferreira da Gama — also owner of ICB (Instituto Conhecer Brasil), cited in a Civil Police operation on contracts with the city hall of São Paulo.",
+    "contacts": [
+      {
+        "label": "CNN Brasil · production company",
+        "url": "https://www.cnnbrasil.com.br/pop/dark-horse-veja-o-que-se-sabe-sobre-a-cinebiografia-de-jair-bolsonaro/"
+      }
+    ],
+    "x": 1650,
+    "y": 560
   }
 ]

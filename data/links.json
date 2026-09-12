@@ -702,5 +702,163 @@
         "url": "https://midiamax.com.br/brasil/2026/eduardo-bolsonaro-orientou-vorcaro-repasses-financiamento-dark-horse-diz-pf/"
       }
     ]
+  },
+  {
+    "source": "mario-frias",
+    "target": "dark-horse",
+    "kind": "movie",
+    "label": "story · executive producer",
+    "when": "2025-01",
+    "why": "Creator of the original story (screenplay by Cyrus and Mark Nowrasteh) and executive producer of the production. After the leak of the audios with Vorcaro, he stated that the banker gave “not a single cent” to “Dark Horse”.",
+    "evidence": [
+      {
+        "label": "UOL · what is known about the repayments",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/07/23/o-que-se-sabe-sobre-os-repasses-de-vorcaro-ao-filme-de-bolsonaro.ghtml"
+      },
+      {
+        "label": "BBC · why the budget is questioned",
+        "url": "https://www.bbc.com/portuguese/articles/cq8p79kzz24o"
+      }
+    ]
+  },
+  {
+    "source": "mario-frias",
+    "target": "jair-bolsonaro",
+    "kind": "politics",
+    "label": "ex-Secretary of Culture · story",
+    "when": "2025-01",
+    "why": "Frias headed the Special Secretariat of Culture in the Bolsonaro government (2020–2022) and created the story of the film about the ex-president — the bridge that brought the project into the Bolsonaro family's circle.",
+    "evidence": [
+      {
+        "label": "EN Wikipedia · Dark Horse",
+        "url": "https://en.wikipedia.org/wiki/Dark_Horse_(2026_film)"
+      },
+      {
+        "label": "G1 · everything about the film",
+        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/05/13/dark-horse-o-que-se-sabe-sobre-cinebiografia-de-bolsonaro-para-a-qual-flavio-bolsonaro-pediu-dinheiro-a-vorcaro.ghtml"
+      }
+    ]
+  },
+  {
+    "source": "mario-frias",
+    "target": "flavio-bolsonaro",
+    "kind": "movie",
+    "label": "support articulation",
+    "when": "2025-01",
+    "why": "Flávio says his role was limited to articulating supporters to make the film viable; Frias denies that Eduardo Bolsonaro was an executive producer and that he received amounts from the fund.",
+    "evidence": [
+      {
+        "label": "UOL · 10 set 2026",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/10/o-que-se-sabe-sobre-a-investigacao-de-dark-horse-filme-sobre-bolsonaro.ghtml"
+      },
+      {
+        "label": "BBC · notes from Frias",
+        "url": "https://www.bbc.com/portuguese/articles/cq8p79kzz24o"
+      }
+    ]
+  },
+  {
+    "source": "cyrus-nowrasteh",
+    "target": "dark-horse",
+    "kind": "movie",
+    "label": "director · screenwriter",
+    "when": "2025-01",
+    "why": "Directed “Dark Horse” and co-wrote the screenplay with his son, Mark Nowrasteh. After the scandal, he told Deadline he seeks “prudence”; the distributor awaits the outcome of the investigations to define the release.",
+    "evidence": [
+      {
+        "label": "O Globo · director (10/9/2026)",
+        "url": "https://oglobo.globo.com/politica/eleicoes-2026/noticia/2026/09/10/distribuidora-de-dark-horse-vai-esperar-desfecho-de-investigacoes-para-lancar-filme-sobre-bolsonaro-e-o-prudente-diz-diretor.ghtml"
+      },
+      {
+        "label": "EN Wikipedia · film credits",
+        "url": "https://en.wikipedia.org/wiki/Dark_Horse_(2026_film)"
+      }
+    ]
+  },
+  {
+    "source": "jim-caviezel",
+    "target": "dark-horse",
+    "kind": "movie",
+    "label": "lead actor — Bolsonaro",
+    "when": "2025-01",
+    "why": "The American star plays Jair Bolsonaro in the cinebiography — casting that gave the project international projection and attracted the attention of the press and investigators to the funding.",
+    "evidence": [
+      {
+        "label": "G1 · cast and direction",
+        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/08/28/dark-horse-o-que-se-sabe-sobre-filme-biografico-de-jair-bolsonaro.ghtml"
+      },
+      {
+        "label": "Extra · who is who in the film",
+        "url": "https://extra.globo.com/entretenimento/noticia/2026/05/dark-horse-quem-e-quem-na-cinebiografia-de-jair-bolsonaro.ghtml"
+      }
+    ]
+  },
+  {
+    "source": "go-up",
+    "target": "dark-horse",
+    "kind": "movie",
+    "label": "producer",
+    "when": "2025-01",
+    "why": "Go Up Entertainment, owned by businesswoman Karina Ferreira da Gama, is the production company responsible for the film — the partner appears in a Civil Police operation on contracts with the city hall of São Paulo via ICB (Instituto Conhecer Brasil), also owned by her.",
+    "evidence": [
+      {
+        "label": "CNN Brasil · production company",
+        "url": "https://www.cnnbrasil.com.br/pop/dark-horse-veja-o-que-se-sabe-sobre-a-cinebiografia-de-jair-bolsonaro/"
+      }
+    ]
+  },
+  {
+    "source": "daniel-vorcaro",
+    "target": "havengate",
+    "kind": "investigation",
+    "label": "≥US$ 10.6 million to the fund",
+    "when": "2025-01",
+    "why": "Companies linked to Vorcaro transferred at least US$ 10.6 million to the Havengate Development Fund LP. The Coaf records a new tranche of US$ 1.67 million on 16/9/2025. According to the Intercept, the fund was created in 2020 for a real estate project in Texas (US$ 21.1 million) that was never executed and was inert until the film's deposits.",
+    "evidence": [
+      {
+        "label": "Intercept · inert fund",
+        "url": "https://www.intercept.com.br/2026/07/02/fundo-havengate-abandonou-projeto-antes-milhoes-vorcaro-dark-horse/"
+      },
+      {
+        "label": "O Globo · Miriam Leitão",
+        "url": "https://oglobo.globo.com/blogs/miriam-leitao/post/2026/09/dark-horse-fundo-havengate-que-recebeu-dinheiro-de-vorcaro-estava-inerte-desde-a-criacao-em-2020.ghtml"
+      }
+    ]
+  },
+  {
+    "source": "havengate",
+    "target": "dark-horse",
+    "kind": "movie",
+    "label": "film's fund",
+    "when": "2025-01",
+    "why": "The Texas-based LP fund received and forwarded the resources that financed “Dark Horse” — the route through which the PF tries to ascertain the origin and real purpose of Vorcaro's money in the production.",
+    "evidence": [
+      {
+        "label": "Brasil247 · Intercept review",
+        "url": "https://www.brasil247.com/brasil/fundo-ligado-ao-filme-dark-horse-nunca-executou-projeto-imobiliario-no-texas-e-permaneceu-ativo-ate-receber-milhoes-de-vorcaro-revela-intercept/"
+      },
+      {
+        "label": "Intercept · spreadsheet and receipt",
+        "url": "https://www.intercept.com.br/2026/06/09/planilha-comprovante-bancario-vorcaro-dinheiro-eua-ar-dark-horse/"
+      }
+    ]
+  },
+  {
+    "source": "mineiro",
+    "target": "havengate",
+    "kind": "investigation",
+    "label": "carried out the transfers",
+    "when": "2025-01",
+    "why": "According to the whistleblower's statement, the Entre Investimentos transfers were the channel used by Vorcaro's money to reach the Havengate fund — seven transfers that, according to the whistleblower, were ordered directly by the banker.",
+    "evidence": [
+      {
+        "label": "G1 · whistleblower details payments",
+        "url": "https://g1.globo.com/politica/blog/andreia-sadi/post/2026/09/09/delator-do-caso-master-detalha-pagamentos-a-fundo-de-dark-horse.ghtml"
+      },
+      {
+        "label": "Estadão · delação homologada",
+        "url": "https://www.estadao.com.br/politica/coluna-do-estadao/mendonca-homologa-delacao-de-operador-que-mandou-dinheiro-de-vorcaro-para-filme-dark-horse/"
+      }
+    ]
   }
 ]

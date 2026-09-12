@@ -83,12 +83,13 @@
   "https://www.bloomberg.com/graphics/2026-banco-master-fraud-case/": {
     "file": "www-bloomberg-com-graphics-2026-banco-master-fraud-case-2b038302.pdf",
     "title": "Bloomberg - Are you a robot?",
-    "ok": false,
-    "chars": 687,
+    "ok": true,
+    "renderer": "gotenberg",
+    "via": "reader",
+    "bytes": 20795844,
     "capturedAt": "2026-09-12",
     "label": "Bloomberg · dossiê do caso",
-    "note": "gotenberg 409",
-    "renderer": "jina-text"
+    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via r.jina.ai reader"
   },
   "https://www.em.com.br/politica/2026/09/7492959-vorcaro-diz-ter-bancado-todos-os-voos-de-nikolas-ferreira.html": {
     "file": "www-em-com-br-politica-2026-09-7492959-vorcaro-diz-ter-bancado-todos-os--32c8dd8f.pdf",
@@ -156,12 +157,13 @@
   "https://noticias.uol.com.br/comprova/ultimas-noticias/2026/09/08/desinformacao-falso-ia-documento-pf-nikolas-ferreira-vorcaro.ghtm": {
     "file": "noticias-uol-com-br-comprova-ultimas-noticias-2026-09-08-desinformacao-f-763eb211.pdf",
     "title": "Access Denied",
-    "ok": false,
-    "chars": 315,
+    "ok": true,
+    "renderer": "gotenberg",
+    "via": "reader",
+    "bytes": 302743,
     "capturedAt": "2026-09-12",
     "label": "UOL Comprova · desinformação",
-    "note": "gotenberg 409",
-    "renderer": "jina-text"
+    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via r.jina.ai reader"
   },
   "https://www.otempo.com.br/politica/2026/9/3/nikolas-ferreira-admite-voos-bancados-por-vorcaro-mas-nega-relacao-pessoal-em-resposta-a-vazamento": {
     "file": "www-otempo-com-br-politica-2026-9-3-nikolas-ferreira-admite-voos-bancado-a235220d.pdf",
@@ -197,7 +199,7 @@
     "chars": 293,
     "capturedAt": "2026-09-12",
     "label": "UOL",
-    "note": "gotenberg 409",
+    "note": "gotenberg 409; wayback: wayback indisponível (20260907050440); reader: reader indisponível",
     "renderer": "jina-text"
   },
   "https://g1.globo.com/politica/noticia/2026/09/01/pf-aponta-que-vorcaro-mandou-mensagens-a-telefone-atribuido-a-moraes-na-semana-em-que-foi-preso.ghtml": {
@@ -302,12 +304,13 @@
   "https://www.intercept.com.br/2026/06/09/planilha-comprovante-bancario-vorcaro-dinheiro-eua-ar-dark-horse/": {
     "file": "www-intercept-com-br-2026-06-09-planilha-comprovante-bancario-vorcaro-di-4a72ab57.pdf",
     "title": "Just a moment...",
-    "ok": false,
-    "chars": 16,
+    "ok": true,
+    "renderer": "gotenberg",
+    "via": "wayback",
+    "bytes": 3758485,
     "capturedAt": "2026-09-12",
     "label": "Intercept · planilha e recibo",
-    "note": "gotenberg 409",
-    "renderer": "jina-text"
+    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via snapshot wayback 20260722062834"
   },
   "https://www.bbc.com/portuguese/articles/cy9zvqle2r0o": {
     "file": "www-bbc-com-portuguese-articles-cy9zvqle2r0o-58ebbd8e.pdf",
@@ -447,10 +450,12 @@
   "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/01/mendonca-retira-sigilo-de-inquerito-e-expoe-relacao-entre-moraes-e-vorcaro.htm": {
     "file": "noticias-uol-com-br-politica-ultimas-noticias-2026-09-01-mendonca-retira-3a9a25c0.pdf",
     "title": "UOL · retirada de sigilo (1/9)",
-    "ok": false,
+    "ok": true,
     "renderer": "gotenberg",
-    "note": "gotenberg 409",
+    "via": "reader",
+    "bytes": 409700,
     "capturedAt": "2026-09-12",
-    "label": "UOL · retirada de sigilo (1/9)"
+    "label": "UOL · retirada de sigilo (1/9)",
+    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via r.jina.ai reader"
   }
 }

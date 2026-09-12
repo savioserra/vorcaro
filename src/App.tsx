@@ -152,14 +152,26 @@ export function App() {
     [edges, hiddenKinds, groupIdSet, cursor]
   );
 
-  /* vizinhos do nó ativo */
+  /* nó ativo: vizinhos diretos + todos os descendentes (segue a direção das arestas) */
   const neighborIds = useMemo(() => {
-    const s = new Set();
+    const s = new Set<string>();
     if (!activeId) return s;
     s.add(activeId);
+    const out: Record<string, string[]> = {};
+    for (const e of baseEdges) (out[e.source] ??= []).push(e.target);
     for (const e of baseEdges) {
       if (e.source === activeId) s.add(e.target);
       if (e.target === activeId) s.add(e.source);
+    }
+    const queue = [...s];
+    while (queue.length) {
+      const cur = queue.shift() as string;
+      for (const t of out[cur] || []) {
+        if (!s.has(t)) {
+          s.add(t);
+          queue.push(t);
+        }
+      }
     }
     return s;
   }, [baseEdges, activeId]);
@@ -513,7 +525,7 @@ export function App() {
           </ReactFlow>
 
           <div className="pointer-events-none absolute right-3 top-3 z-10 max-w-xs rounded-xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-right text-[11px] leading-relaxed text-zinc-500">
-            Hover acende as conexões · clique numa linha para ver as evidências · <span className="font-mono">/</span>{" "}
+            Hover acende a árvore (vizinhos + descendentes) · clique numa linha para ver as evidências · <span className="font-mono">/</span>{" "}
             busca · <span className="font-mono">Esc</span> limpa. Indício não é condenação.
           </div>
 

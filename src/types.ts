@@ -52,8 +52,8 @@ export interface Person {
   notes?: string;
   x?: number;
   y?: number;
-  /** "movie" → nó-objeto (ArtifactNode). */
-  kind?: "movie";
+  /** "movie"|"org" → nó-objeto (ArtifactNode). */
+  kind?: "movie" | "org";
 }
 
 export interface GraphLink {

@@ -37,7 +37,7 @@ export const RELATIONS: Record<RelationKey, { label: string; color: string }> = 
 export function personToNode(p: Person) {
   return {
     id: p.id,
-    type: p.kind === "movie" ? ("artifact" as const) : ("person" as const),
+    type: p.kind ? ("artifact" as const) : ("person" as const),
     position: { x: p.x ?? 0, y: p.y ?? 0 },
     data: p,
   };
