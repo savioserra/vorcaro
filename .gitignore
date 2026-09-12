@@ -2,3 +2,7 @@ node_modules
 dist
 .DS_Store
 *.local
+scripts/build-evidence.mjs
+scripts/gotenberg-*.mjs
+evidence-audit.md
+fact-check-report.md
