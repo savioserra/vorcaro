@@ -199,7 +199,7 @@
         "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
       }
     ],
-    "thread": "dark-horse"
+    "thread": "redes"
   },
   {
     "id": "andre-valadao__nikolas-ferreira",
@@ -994,5 +994,27 @@
       }
     ],
     "thread": "negocios"
+  },
+  {
+    "id": "daniel-vorcaro__andre-valadao",
+    "category": "church",
+    "thread": "redes",
+    "timestamp": "2025-11",
+    "title": "órbita Lagoinha",
+    "entities": [
+      "daniel-vorcaro",
+      "andre-valadao"
+    ],
+    "description": "Vorcaro e André Valadão circulam na órbita da Lagoinha — a igreja que ligou o banqueiro à política evangélica. Valadão confirmou que repassou a queixa de Vorcaro a Nikolas e fez a apresentação entre os dois; nega envolvimento com o banco.",
+    "evidence": [
+      {
+        "label": "O Globo · Valadão confirma",
+        "url": "https://oglobo.globo.com/politica/noticia/2026/09/04/andre-valadao-confirma-que-aproximou-nikolas-de-vorcaro-mas-nega-envolvimento-com-banco-master.ghtml"
+      },
+      {
+        "label": "G1 · vínculos com a Lagoinha",
+        "url": "https://g1.globo.com/mg/minas-gerais/noticia/2025/11/19/antes-de-virar-banqueiro-daniel-vorcaro-apresentou-programa-de-musica-gospel-de-igreja-de-bh.ghtml"
+      }
+    ]
   }
 ]
