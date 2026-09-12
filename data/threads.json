@@ -1,0 +1,58 @@
+[
+  {
+    "id": "compliance-zero",
+    "label": "Operação Compliance Zero",
+    "color": "#f87171",
+    "period": "nov/2025 – em andamento",
+    "status": "Em andamento",
+    "summary": "Apura as fraudes do Banco Master: CDBs acima do mercado, carteiras de crédito fictícias vendidas ao BRB, ocultação de patrimônio e intimidação. Sete fases; prisões de Vorcaro (nov/2025 e mar/2026) e do pai Henrique (mai/2026); bloqueios de R$ 5,7 bi."
+  },
+  {
+    "id": "dark-horse",
+    "label": "Financiamento Dark Horse",
+    "color": "#2dd4bf",
+    "period": "dez/2025 – em andamento",
+    "status": "Em andamento",
+    "summary": "Apura o financiamento da cinebiografia de Bolsonaro com dinheiro de Vorcaro: pedidos de Flávio Bolsonaro (US$ 24 mi), repasses via “Mineiro” ao fundo Havengate (Texas), contrato do ICB com a Prefeitura de SP e os valores divergentes da produção."
+  },
+  {
+    "id": "make-up",
+    "label": "Operação Make Up",
+    "color": "#fb923c",
+    "period": "10/9/2026",
+    "status": "Deflagrada · em andamento",
+    "summary": "PF + CGU apuram emendas parlamentares de Mário Frias coincidentes com a gravação do filme. 49 mandados, 29 investigados; alvos principais Frias e Karina Gama. Autorizada pelo ministro Flávio Dino, que proibiu Frias de deixar o país."
+  },
+  {
+    "id": "stf-crisis",
+    "label": "Crise no STF",
+    "color": "#a5b4fc",
+    "period": "nov/2025 – em andamento",
+    "status": "Em andamento",
+    "summary": "Vazamento de mensagens entre Vorcaro e um número atribuído a Moraes, retirada de sigilos por Mendonça (relatório da PF, delação do Mineiro), embate com a PF (afastamento do diretor-geral), pressão de Fachin e proposta de Gilmar Mendes sobre delegados em gabinetes."
+  },
+  {
+    "id": "campanha-2022",
+    "label": "Campanha 2022",
+    "color": "#34d399",
+    "period": "out/2022",
+    "status": "Fatos encerrados",
+    "summary": "Caravana “Juventude pelo Brasil” no 2º turno, feita em jato ligado a Vorcaro com Nikolas Ferreira e o pastor Guilherme Batista — origem da alegação de que o banqueiro bancou os voos de Nikolas."
+  },
+  {
+    "id": "negocios",
+    "label": "Negócios e histórico",
+    "color": "#fbbf24",
+    "period": "2016 – 2025",
+    "status": "Histórico",
+    "summary": "Trajetória empresarial: aquisição do Banco Máxima de Saul Sabbá e a escalada do patrimônio via Viking Participações."
+  },
+  {
+    "id": "pessoal",
+    "label": "Vida pessoal",
+    "color": "#e879f9",
+    "period": "—",
+    "status": "Contexto",
+    "summary": "Relações pessoais citadas na apuração: esposa Fabíola (sócia da Viking), ex-noiva Martha Graeff (trust nos EUA, negado pela defesa), pastores e parentes que aparecem nos fatos."
+  }
+]

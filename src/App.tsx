@@ -24,6 +24,7 @@ import {
   FACTS,
   TIMELINE,
   monthOf,
+  THREADS,
   entityToNode,
   factToEdges,
   groupStyle,
@@ -115,6 +116,7 @@ export function App() {
   const [hiddenGroups, setHiddenGroups] = useState<Record<string, boolean>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
+  const [activeThread, setActiveThread] = useState<string | null>(null);
 
   const [cursorIdx, setCursorIdx] = useState(TIMELINE.stops.length - 1);
   const [playing, setPlaying] = useState(false);
@@ -324,6 +326,55 @@ export function App() {
                 )}
               </div>
               <div className="flex-1 overflow-y-auto p-2">
+              <div className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Frentes</div>
+              {THREADS.map((t) => {
+                const tf = FACTS.filter((f) => f.thread === t.id).sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+                const isOn = activeThread === t.id;
+                const entCount = new Set(tf.flatMap((f) => f.entities)).size;
+                return (
+                  <div key={t.id} className={`mb-2 rounded-xl border ${isOn ? "border-zinc-500 bg-zinc-900/70" : "border-zinc-800/80"}`}>
+                    <button
+                      type="button"
+                      onClick={() => setActiveThread(isOn ? null : t.id)}
+                      aria-pressed={isOn}
+                      className="flex w-full items-center gap-2 px-2.5 py-2 text-left"
+                    >
+                      <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: threadStyle(t.id).color }} />
+                      <span className={`min-w-0 flex-1 truncate text-[12px] font-semibold ${isOn ? "text-zinc-50" : "text-zinc-200"}`}>
+                        {threadStyle(t.id).label}
+                      </span>
+                      <span className="shrink-0 font-mono text-[9px] text-zinc-500">
+                        {tf.length} fatos · {entCount} envolvidos
+                      </span>
+                      <span className="shrink-0 text-zinc-600">{isOn ? "▾" : "▸"}</span>
+                    </button>
+                    {isOn && (
+                      <div className="border-t border-zinc-800 px-2.5 pb-2 pt-2">
+                        <p className="mb-2 text-[10.5px] leading-snug text-zinc-500">{t.summary}</p>
+                        <ul className="space-y-1">
+                          {tf.map((f) => (
+                            <li key={f.id}>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setSelectedId(f.entities[0] ?? null);
+                                  traceEdge(`f-${f.id}-0`);
+                                }}
+                                className="w-full rounded-md px-1.5 py-1 text-left hover:bg-zinc-800/70"
+                              >
+                                <span className="font-mono text-[9.5px] text-zinc-500">{monthOf(f.timestamp)}</span>
+                                <span className="ml-1.5 text-[11px] text-zinc-200">{f.title}</span>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+              <div className="my-3 border-t border-zinc-800" />
+              <div className="mb-1.5 px-1 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Pessoas</div>
                 {filteredList.map((p) => {
                   const g = groupStyle(p.group);
                   return (
