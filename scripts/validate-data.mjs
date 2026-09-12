@@ -1,7 +1,4 @@
-/**
- * Valida data/entities.json e data/facts.json.
- * Uso: node scripts/validate-data.mjs  (roda no CI antes do build)
- */
+
 import { readFileSync } from "node:fs";
 
 const entities = JSON.parse(readFileSync("data/entities.json", "utf8"));
@@ -9,7 +6,7 @@ const facts = JSON.parse(readFileSync("data/facts.json", "utf8"));
 
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
 const YM_D = /^\d{4}-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?$/;
-const URL_OK = /^https?:\/\//;
+const URL_OK = /^https?:\/\//
 
 const errors = [];
 const ids = new Set();

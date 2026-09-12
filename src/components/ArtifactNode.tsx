@@ -1,7 +1,8 @@
 import { Handle, Position, type HandleType, type Position as XYPosition } from "@xyflow/react";
-import { motion } from "motion/react";
+import { motion, useTransform } from "motion/react";
 import type { Entity } from "../types";
 import { groupStyle } from "../data/graph";
+import { useBoard } from "../state/BoardContext";
 
 const SIDES: [XYPosition, HandleType, string][] = [
   [Position.Top, "target", "t-in"],
@@ -14,18 +15,26 @@ const SIDES: [XYPosition, HandleType, string][] = [
   [Position.Left, "source", "l-out"],
 ];
 
-/** Nó de "objeto" (organizações, filmes etc.) — visual distinto das pessoas. */
 export function ArtifactNode({ data, selected }: { data: Entity; selected?: boolean }) {
   const g = groupStyle(data.group);
+  const { active, descendants } = useBoard();
+
+  const dimmed = useTransform(active, (act: string | null) =>
+    !!act && act !== data.id && !descendants(act).has(data.id)
+  );
+  const opacity = useTransform(dimmed, (d) => (d ? 0.22 : 1));
+  const filter = useTransform(dimmed, (d) => (d ? "saturate(0)" : "saturate(1)"));
+  const borderColor = useTransform(dimmed, (d) => (d ? "rgba(13,84,72,.6)" : "rgba(45,212,191,.7)"));
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.85, y: 10 }}
-      animate={{ opacity: data.dimmed ? 0.22 : 1, scale: 1, y: 0 }}
+      animate={{ scale: 1, y: 0 }}
+      style={{ opacity, filter, borderColor }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
       className={`relative w-[188px] rounded-[22px] border border-dashed bg-zinc-900/70 px-3 pb-3 pt-8 shadow-xl shadow-black/40 backdrop-blur-sm ${
-        selected || data.highlighted ? "border-teal-400/70 ring-2 ring-teal-400/25" : "border-teal-700/60"
-      } ${data.dimmed ? "saturate-0" : ""}`}
+        selected ? "ring-2 ring-teal-400/25" : ""
+      }`}
     >
       {SIDES.map(([pos, type, id]) => (
         <Handle

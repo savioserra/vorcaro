@@ -1,7 +1,4 @@
-/**
- * Tudo é derivado de data/entities.json + data/facts.json.
- * Timeline, arestas, datas de entrada e filtros são calculados aqui.
- */
+
 import entitiesJson from "../../data/entities.json";
 import factsJson from "../../data/facts.json";
 import type { EdgeData, Entity, Fact } from "../types";
@@ -15,15 +12,12 @@ export const ENTITY_BY_ID: Record<string, Entity> = Object.fromEntries(
   ENTITIES.map((e) => [e.id, e])
 );
 
-/** YYYY-MM a partir de YYYY-MM ou YYYY-MM-DD. */
 export function monthOf(ts: string): string {
   return ts.slice(0, 7);
 }
 
 const prettify = (s: string) =>
   s.charAt(0).toUpperCase() + s.slice(1).replace(/[-_]/g, " ");
-
-/* ---------- grupos (chave aberta, estilo com fallback) ---------- */
 
 export interface Style {
   label: string;
@@ -52,8 +46,6 @@ export function groupStyle(group: string): Style {
   );
 }
 
-/* ---------- categorias de fatos (chave aberta, estilo com fallback) ---------- */
-
 export const CATEGORY_STYLES: Record<string, { label: string; color: string }> = {
   family: { label: "Família", color: "#fb7185" },
   personal: { label: "Pessoal", color: "#f472b6" },
@@ -77,9 +69,6 @@ export function categoryStyle(category: string): { label: string; color: string 
   );
 }
 
-/* ---------- derivados ---------- */
-
-/** Mês de entrada de cada entidade = primeiro fato que a menciona. */
 export const FIRST_MONTH: Record<string, string> = (() => {
   const m: Record<string, string> = {};
   for (const f of FACTS) {
@@ -91,12 +80,10 @@ export const FIRST_MONTH: Record<string, string> = (() => {
   return m;
 })();
 
-/** Fatos que mencionam uma entidade. */
 export function factsOf(entityId: string): Fact[] {
   return FACTS.filter((f) => f.entities.includes(entityId));
 }
 
-/** Escolhe handles nas bordas para as curvas fluírem na direção do outro nó. */
 export function chooseHandles(a?: { x: number; y: number }, b?: { x: number; y: number }) {
   if (!a || !b) return {};
   const dx = b.x - a.x;
@@ -111,7 +98,6 @@ export function chooseHandles(a?: { x: number; y: number }, b?: { x: number; y: 
     : { sourceHandle: "t-out", targetHandle: "b-in" };
 }
 
-/** Arestas derivadas: fatos com ≥2 entidades geram 1 aresta da primeira para cada demais. */
 export function factToEdges(f: Fact, positions?: Record<string, { x: number; y: number }>) {
   if (f.entities.length < 2) return [];
   const [first, ...rest] = f.entities;
@@ -122,8 +108,7 @@ export function factToEdges(f: Fact, positions?: Record<string, { x: number; y: 
     source: first,
     target,
     ...chooseHandles(positions?.[first], positions?.[target]),
-    type: "default" as const,
-    interactionWidth: 24,
+    type: "fact" as const,
     style: {
       stroke: meta.color,
       strokeWidth: isInv ? 2 : 1.4,
@@ -146,7 +131,6 @@ export function entityToNode(e: Entity) {
   };
 }
 
-/** Pontos de encaixe da timeline = meses (únicos) dos fatos + mês de entrada por entidade. */
 export const TIMELINE = (() => {
   const stops = [...new Set(FACTS.map((f) => monthOf(f.timestamp)))].sort();
   const firstMonth: Record<string, string> = {};

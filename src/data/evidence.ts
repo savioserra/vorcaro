@@ -12,7 +12,6 @@ export interface EvidenceManifestEntry {
 const base = import.meta.env.BASE_URL || "/";
 const entries = manifest as Record<string, EvidenceManifestEntry>;
 
-/** URL do PDF arquivado (ou null se a captura não está íntegra). */
 export function localPdf(url: string): string | null {
   const m = entries[url];
   return m?.ok ? `${base}evidence/${m.file}` : null;

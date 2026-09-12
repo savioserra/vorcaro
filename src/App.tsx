@@ -1,23 +1,41 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ReactFlow, Background, Controls, MiniMap, useEdgesState, useNodesState, type Edge, type Node, type ReactFlowInstance } from "@xyflow/react";
-import { forceSimulation, forceLink, forceManyBody, forceCollide, forceX, forceY, type SimulationNodeDatum } from "d3-force";
-import { motion, AnimatePresence } from "motion/react";
+import {
+  ReactFlow,
+  Background,
+  Controls,
+  MiniMap,
+  useEdgesState,
+  useNodesState,
+  type Edge,
+  type Node,
+  type ReactFlowInstance,
+} from "@xyflow/react";
+import {
+  forceSimulation,
+  forceLink,
+  forceManyBody,
+  forceCollide,
+  forceX,
+  forceY,
+  type SimulationNodeDatum,
+} from "d3-force";
 import {
   ENTITIES,
   FACTS,
-  entityToNode,
-  factToEdges,
-  chooseHandles,
   TIMELINE,
   monthOf,
+  entityToNode,
+  factToEdges,
   groupStyle,
   categoryStyle,
   type EdgeData,
   type Entity,
-  type Fact,
 } from "./data/graph";
+import { AnimatePresence } from "motion/react";
+import { BoardProvider, useCreateBoard } from "./state/BoardContext";
 import { PersonNode } from "./components/PersonNode";
 import { ArtifactNode } from "./components/ArtifactNode";
+import { FactEdge } from "./components/FactEdge";
 import { Inspector } from "./components/Inspector";
 import { EdgeCard } from "./components/EdgeCard";
 import { TimelineBar } from "./components/TimelineBar";
@@ -26,21 +44,20 @@ type FlowNode = Node<Entity>;
 type FlowEdge = Edge<EdgeData>;
 
 const nodeTypes = { person: PersonNode, artifact: ArtifactNode };
-
-/* ---------- layout orgânico ---------- */
+const edgeTypes = { fact: FactEdge };
 
 const KNOWN_GROUPS = ["finance", "politics", "church", "stf", "family", "legal", "personal", "movie"];
+const GROUP_ORDER = [
+  ...KNOWN_GROUPS,
+  ...[...new Set(ENTITIES.map((e) => e.group))].filter((g) => !KNOWN_GROUPS.includes(g)).sort(),
+];
 const CENTER = { x: 950, y: 470 };
 
 function groupCenter(group: string) {
-  const i = Math.max(0, KNOWN_GROUPS.indexOf(group));
-  const angle = (i / Math.max(GROUP_ORDER.length, 1)) * Math.PI * 2 - Math.PI / 2;
+  const i = Math.max(0, GROUP_ORDER.indexOf(group));
+  const angle = (i / GROUP_ORDER.length) * Math.PI * 2 - Math.PI / 2;
   return { x: CENTER.x + Math.cos(angle) * 500, y: CENTER.y + Math.sin(angle) * 350 };
 }
-
-const GROUP_ORDER = [...KNOWN_GROUPS, ...[...new Set(ENTITIES.map((e) => e.group))]
-  .filter((g) => !KNOWN_GROUPS.includes(g))
-  .sort()];
 
 function runForceLayout(nodes: FlowNode[]) {
   type SimNode = SimulationNodeDatum & { id: string; group: string; x: number; y: number };
@@ -89,7 +106,6 @@ export function App() {
   const [edges, , onEdgesChange] = useEdgesState<FlowEdge>(seedEdges);
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedEdgeId, setSelectedEdgeId] = useState<string | null>(null);
   const [alwaysShow, setAlwaysShow] = useState(false);
   const [query, setQuery] = useState("");
@@ -98,11 +114,41 @@ export function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
 
-  /* linha do tempo */
   const [cursorIdx, setCursorIdx] = useState(TIMELINE.stops.length - 1);
   const [playing, setPlaying] = useState(false);
   const cursor = TIMELINE.stops[cursorIdx];
   const timelineEngaged = cursorIdx < TIMELINE.stops.length - 1;
+
+  const edgesRef = useRef(edges);
+  edgesRef.current = edges;
+
+  const descendants = useCallback((id: string) => {
+    const s = new Set<string>([id]);
+    const out: Record<string, string[]> = {};
+    for (const e of edgesRef.current) (out[e.source] ??= []).push(e.target);
+    for (const e of edgesRef.current) {
+      if (e.source === id) s.add(e.target);
+      if (e.target === id) s.add(e.source);
+    }
+    const queue = [...s];
+    while (queue.length) {
+      const cur = queue.shift() as string;
+      for (const t of out[cur] || []) {
+        if (!s.has(t)) {
+          s.add(t);
+          queue.push(t);
+        }
+      }
+    }
+    return s;
+  }, []);
+
+  const board = useCreateBoard(descendants);
+
+  useEffect(() => {
+    board.edgeBaseline.set(alwaysShow || timelineEngaged ? 0.5 : 0.09);
+    board.labelFloor.set(timelineEngaged ? 1 : 0);
+  }, [alwaysShow, timelineEngaged, board]);
 
   useEffect(() => {
     if (!playing) return;
@@ -125,9 +171,7 @@ export function App() {
   }, [nodes]);
 
   const selected = selectedId ? entityById[selectedId] : null;
-  const activeId = hoveredId || selectedId;
 
-  /* nós visíveis: linha do tempo (primeiro fato da entidade) + filtro de grupo */
   const timeVisibleNodes = useMemo(
     () => nodes.filter((n) => (TIMELINE.firstMonth[n.id] || TIMELINE.min) <= cursor),
     [nodes, cursor]
@@ -138,7 +182,6 @@ export function App() {
   );
   const groupIdSet = useMemo(() => new Set(groupVisibleNodes.map((n) => n.id)), [groupVisibleNodes]);
 
-  /* arestas visíveis: categoria + endpoints + momento */
   const baseEdges = useMemo(
     () =>
       edges.filter(
@@ -152,111 +195,9 @@ export function App() {
     [edges, hiddenCategories, groupIdSet, cursor]
   );
 
-  /* nó ativo: vizinhos diretos + todos os descendentes (segue a direção das arestas) */
-  const neighborIds = useMemo(() => {
-    const s = new Set<string>();
-    if (!activeId) return s;
-    s.add(activeId);
-    const out: Record<string, string[]> = {};
-    for (const e of baseEdges) (out[e.source] ??= []).push(e.target);
-    for (const e of baseEdges) {
-      if (e.source === activeId) s.add(e.target);
-      if (e.target === activeId) s.add(e.source);
-    }
-    const queue = [...s];
-    while (queue.length) {
-      const cur = queue.shift() as string;
-      for (const t of out[cur] || []) {
-        if (!s.has(t)) {
-          s.add(t);
-          queue.push(t);
-        }
-      }
-    }
-    return s;
-  }, [baseEdges, activeId]);
-
-  const displayNodes = useMemo(() => {
-    let out = groupVisibleNodes;
-    if (activeId) {
-      out = out.map((n) => ({
-        ...n,
-        data: { ...n.data, dimmed: !neighborIds.has(n.id), highlighted: n.id === activeId },
-      }));
-    }
-    return out;
-  }, [groupVisibleNodes, activeId, neighborIds]);
-
   const selectedEdge = useMemo(
     () => edges.find((e) => e.id === selectedEdgeId) || null,
     [edges, selectedEdgeId]
-  );
-
-  const displayEdges = useMemo(() => {
-    return baseEdges.map((e) => {
-      const isActive = activeId && (e.source === activeId || e.target === activeId);
-      const isPinned = selectedEdgeId === e.id;
-      let opacity = alwaysShow || timelineEngaged ? 0.5 : 0.09;
-      const baseWidth = typeof e.style?.strokeWidth === "number" ? e.style.strokeWidth : 1.4;
-      let strokeWidth: number = baseWidth;
-      let label;
-      if (isActive || isPinned || timelineEngaged) {
-        opacity = 1;
-        strokeWidth = baseWidth + (isPinned ? 1.2 : 0.8);
-        label = e.data?.fact.title;
-      }
-      return {
-        ...e,
-        label,
-        zIndex: isPinned ? 12 : isActive ? 10 : 0,
-        style: { ...e.style, opacity, strokeWidth },
-        labelStyle: { ...e.labelStyle, opacity: label ? 1 : 0 },
-        labelBgStyle: { ...e.labelBgStyle, opacity: label ? 0.94 : 0 },
-      };
-    });
-  }, [baseEdges, activeId, alwaysShow, selectedEdgeId, timelineEngaged]);
-
-  /* ---------- interações (somente leitura/navegação) ---------- */
-
-  const onNodeClick = useCallback(
-    (_: unknown, node: FlowNode) => {
-      setSelectedId(node.id);
-      setSelectedEdgeId(null);
-      if (!isDesktop) setInspectorOpen(true);
-    },
-    [isDesktop]
-  );
-
-  const onEdgeClick = useCallback((_: unknown, edge: FlowEdge) => setSelectedEdgeId((cur) => (cur === edge.id ? null : edge.id)), []);
-
-  const fitPerson = useCallback(
-    (id: string) => {
-      setSelectedId(id);
-      const n = nodes.find((x) => x.id === id);
-      if (n && flowRef.current) {
-        flowRef.current.setCenter(n.position.x + 94, n.position.y + 60, { zoom: 1.05, duration: 400 });
-      }
-    },
-    [nodes]
-  );
-
-  const traceEdge = useCallback(
-    (edgeId: string) => {
-      setSelectedEdgeId(edgeId);
-      const e = edges.find((x) => x.id === edgeId);
-      if (e && flowRef.current) {
-        const a = nodes.find((n) => n.id === e.source);
-        const b = nodes.find((n) => n.id === e.target);
-        if (a && b) {
-          flowRef.current.setCenter(
-            (a.position.x + b.position.x) / 2 + 94,
-            (a.position.y + b.position.y) / 2 + 60,
-            { zoom: 0.85, duration: 400 }
-          );
-        }
-      }
-    },
-    [edges, nodes]
   );
 
   const filteredList = useMemo(() => {
@@ -280,7 +221,6 @@ export function App() {
     setHiddenGroups({});
   }
 
-  /* categorias e grupos presentes nos dados (derivados) */
   const categories = useMemo(() => [...new Set(FACTS.map((f) => f.category))], []);
   const groups = useMemo(() => {
     const set = new Set(ENTITIES.map((e) => e.group));
@@ -291,7 +231,6 @@ export function App() {
     });
   }, []);
 
-  /* teclado: "/" busca · Esc fecha em camadas */
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       const tag = document.activeElement?.tagName;
@@ -305,7 +244,6 @@ export function App() {
         if (selectedEdgeId) return setSelectedEdgeId(null);
         if (typing) return (document.activeElement as HTMLElement | null)?.blur();
         if (selectedId) return setSelectedId(null);
-        setHoveredId(null);
       }
     }
     window.addEventListener("keydown", onKey);
@@ -316,290 +254,323 @@ export function App() {
   const inspectorVisible = isDesktop || inspectorOpen;
   const drawerCls = "absolute inset-y-0 z-30 shadow-2xl shadow-black/60";
 
-  return (
-    <div className="flex h-full flex-col bg-[#0b0b0d] font-sans">
-      <header className="flex items-center gap-2 border-b border-zinc-800 px-3 py-2.5 lg:px-4">
-        <button
-          type="button"
-          aria-label="Abrir lista de pessoas"
-          aria-pressed={sidebarOpen}
-          onClick={() => setSidebarOpen((v) => !v)}
-          className="rounded-lg border border-zinc-700 px-2 py-1.5 text-xs text-zinc-300 hover:bg-zinc-800 lg:hidden"
-        >
-          ☰
-        </button>
-        <div className="min-w-0">
-          <div className="text-[11px] font-medium tracking-[0.22em] text-zinc-500">GRAFO PÚBLICO</div>
-          <div className="truncate text-sm font-semibold text-zinc-100">Mapa de pessoas · caso Banco Master</div>
-        </div>
-        <div className="ml-2 flex-1">
-          <input
-            ref={searchRef}
-            value={query}
-            onInput={(e) => setQuery(e.currentTarget.value)}
-            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-              if (e.key === "Enter" && filteredList[0]) {
-                fitPerson(filteredList[0].id);
-                e.currentTarget.blur();
-              }
-            }}
-            placeholder="Buscar pessoas…"
-            aria-label="Buscar pessoas"
-            className="w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/80 px-3 py-1.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-zinc-600"
-          />
-        </div>
-        <button
-          type="button"
-          aria-label="Abrir inspetor"
-          aria-pressed={inspectorOpen}
-          onClick={() => setInspectorOpen((v) => !v)}
-          className="rounded-lg border border-zinc-700 px-2 py-1.5 text-xs text-zinc-300 hover:bg-zinc-800 lg:hidden"
-        >
-          ⓘ
-        </button>
-      </header>
+  const fitPerson = useCallback(
+    (id: string) => {
+      setSelectedId(id);
+      const n = nodes.find((x) => x.id === id);
+      if (n && flowRef.current) {
+        flowRef.current.setCenter(n.position.x + 94, n.position.y + 60, { zoom: 1.05, duration: 400 });
+      }
+    },
+    [nodes]
+  );
 
-      <div className="relative flex min-h-0 flex-1">
-        {(sidebarVisible || null) && (
-          <aside
-            className={`${
-              isDesktop ? "relative" : `${drawerCls} left-0`
-            } flex w-[280px] shrink-0 flex-col border-r border-zinc-800 bg-zinc-950 lg:w-[260px]`}
-            aria-label="Lista de pessoas"
+  return (
+    <BoardProvider value={board}>
+      <div className="flex h-full flex-col bg-[#0b0b0d] font-sans">
+        <header className="flex items-center gap-2 border-b border-zinc-800 px-3 py-2.5 lg:px-4">
+          <button
+            type="button"
+            aria-label="Abrir lista de pessoas"
+            aria-pressed={sidebarOpen}
+            onClick={() => setSidebarOpen((v) => !v)}
+            className="rounded-lg border border-zinc-700 px-2 py-1.5 text-xs text-zinc-300 hover:bg-zinc-800 lg:hidden"
           >
-            <div className="flex items-center justify-between border-b border-zinc-800 px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-              <span>{filteredList.length} pessoas</span>
-              {!isDesktop && (
-                <button type="button" onClick={() => setSidebarOpen(false)} aria-label="Fechar lista" className="text-zinc-400">
-                  ✕
-                </button>
-              )}
-            </div>
-            <div className="flex-1 overflow-y-auto p-2">
-              {filteredList.map((p) => {
-                const g = groupStyle(p.group);
-                return (
+            ☰
+          </button>
+          <div className="min-w-0">
+            <div className="text-[11px] font-medium tracking-[0.22em] text-zinc-500">GRAFO PÚBLICO</div>
+            <div className="truncate text-sm font-semibold text-zinc-100">Mapa de pessoas · caso Banco Master</div>
+          </div>
+          <div className="ml-2 flex-1">
+            <input
+              ref={searchRef}
+              value={query}
+              onInput={(e) => setQuery(e.currentTarget.value)}
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key === "Enter" && filteredList[0]) {
+                  fitPerson(filteredList[0].id);
+                  e.currentTarget.blur();
+                }
+              }}
+              placeholder="Buscar pessoas…"
+              aria-label="Buscar pessoas"
+              className="w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/80 px-3 py-1.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-zinc-600"
+            />
+          </div>
+          <button
+            type="button"
+            aria-label="Abrir inspetor"
+            aria-pressed={inspectorOpen}
+            onClick={() => setInspectorOpen((v) => !v)}
+            className="rounded-lg border border-zinc-700 px-2 py-1.5 text-xs text-zinc-300 hover:bg-zinc-800 lg:hidden"
+          >
+            ⓘ
+          </button>
+        </header>
+
+        <div className="relative flex min-h-0 flex-1">
+          {(sidebarVisible || null) && (
+            <aside
+              className={`${
+                isDesktop ? "relative" : `${drawerCls} left-0`
+              } flex w-[280px] shrink-0 flex-col border-r border-zinc-800 bg-zinc-950 lg:w-[260px]`}
+              aria-label="Lista de pessoas"
+            >
+              <div className="flex items-center justify-between border-b border-zinc-800 px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                <span>{filteredList.length} pessoas</span>
+                {!isDesktop && (
+                  <button type="button" onClick={() => setSidebarOpen(false)} aria-label="Fechar lista" className="text-zinc-400">
+                    ✕
+                  </button>
+                )}
+              </div>
+              <div className="flex-1 overflow-y-auto p-2">
+                {filteredList.map((p) => {
+                  const g = groupStyle(p.group);
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => {
+                        fitPerson(p.id);
+                        if (!isDesktop) setSidebarOpen(false);
+                      }}
+                      onMouseEnter={() => board.hover(p.id)}
+                      onMouseLeave={() => board.hover(null)}
+                      className={`mb-1 flex w-full items-center gap-2 rounded-xl px-2 py-1.5 text-left transition-colors ${
+                        selectedId === p.id ? "bg-zinc-800" : "hover:bg-zinc-900"
+                      }`}
+                    >
+                      <span
+                        className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border text-[10px]"
+                        style={{ borderColor: g.ring, color: g.ring }}
+                      >
+                        {p.photo ? <img src={p.photo} alt="" className="h-full w-full object-cover" /> : p.initials}
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block truncate text-[12px] font-medium text-zinc-100">{p.name}</span>
+                        <span className="block truncate text-[10px] text-zinc-500">{p.role}</span>
+                      </span>
+                    </button>
+                  );
+                })}
+                {filteredList.length === 0 && (
+                  <p className="px-2 py-6 text-center text-xs text-zinc-600">Ninguém encontrado.</p>
+                )}
+              </div>
+
+              <div className="border-t border-zinc-800 p-3">
+                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Grupos</div>
+                <div className="mb-3 flex flex-wrap gap-1">
+                  {groups.map((g) => {
+                    const style = groupStyle(g);
+                    const total = nodes.filter((n) => n.data.group === g).length;
+                    if (!total) return null;
+                    const off = hiddenGroups[g];
+                    return (
+                      <button
+                        key={g}
+                        type="button"
+                        onClick={() => toggleGroup(g)}
+                        aria-pressed={!off}
+                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
+                        }`}
+                        style={!off ? { borderColor: style.ring, color: style.ring } : undefined}
+                      >
+                        {style.label} · {total}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">Conexões</span>
                   <button
-                    key={p.id}
                     type="button"
-                    onClick={() => {
-                      fitPerson(p.id);
-                      if (!isDesktop) setSidebarOpen(false);
-                    }}
-                    onMouseEnter={() => setHoveredId(p.id)}
-                    onMouseLeave={() => setHoveredId(null)}
-                    aria-pressed={activeId === p.id}
-                    className={`mb-1 flex w-full items-center gap-2 rounded-xl px-2 py-1.5 text-left transition-colors ${
-                      activeId === p.id ? "bg-zinc-800" : "hover:bg-zinc-900"
+                    onClick={() => setAlwaysShow((v) => !v)}
+                    aria-pressed={alwaysShow}
+                    className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+                      alwaysShow
+                        ? "border-zinc-400 bg-zinc-800 text-zinc-100"
+                        : "border-zinc-700 text-zinc-500 hover:text-zinc-300"
                     }`}
                   >
-                    <span
-                      className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border text-[10px]"
-                      style={{ borderColor: g.ring, color: g.ring }}
-                    >
-                      {p.photo ? <img src={p.photo} alt="" className="h-full w-full object-cover" /> : p.initials}
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block truncate text-[12px] font-medium text-zinc-100">{p.name}</span>
-                      <span className="block truncate text-[10px] text-zinc-500">{p.role}</span>
-                    </span>
+                    {alwaysShow ? "sempre visíveis" : "só no hover"}
                   </button>
-                );
-              })}
-              {filteredList.length === 0 && (
-                <p className="px-2 py-6 text-center text-xs text-zinc-600">Ninguém encontrado.</p>
-              )}
-            </div>
-
-            <div className="border-t border-zinc-800 p-3">
-              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Grupos</div>
-              <div className="mb-3 flex flex-wrap gap-1">
-                {groups.map((g) => {
-                  const style = groupStyle(g);
-                  const total = nodes.filter((n) => n.data.group === g).length;
-                  if (!total) return null;
-                  const off = hiddenGroups[g];
-                  return (
-                    <button
-                      key={g}
-                      type="button"
-                      onClick={() => toggleGroup(g)}
-                      aria-pressed={!off}
-                      className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                        off ? "border-zinc-800 text-zinc-600 line-through" : ""
-                      }`}
-                      style={!off ? { borderColor: style.ring, color: style.ring } : undefined}
-                    >
-                      {style.label} · {total}
-                    </button>
-                  );
-                })}
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {categories.map((c) => {
+                    const style = categoryStyle(c);
+                    const off = hiddenCategories[c];
+                    return (
+                      <button
+                        key={c}
+                        type="button"
+                        onClick={() => toggleCategory(c)}
+                        aria-pressed={!off}
+                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+                          off ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
+                        }`}
+                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
+                      >
+                        {style.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                {filtersDirty && (
+                  <button
+                    type="button"
+                    onClick={clearFilters}
+                    className="mt-2 w-full rounded-lg border border-zinc-700 py-1 font-mono text-[10px] uppercase tracking-wide text-zinc-300 hover:border-zinc-500 hover:text-zinc-100"
+                  >
+                    limpar filtros
+                  </button>
+                )}
               </div>
-              <div className="mb-2 flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">Conexões</span>
-                <button
-                  type="button"
-                  onClick={() => setAlwaysShow((v) => !v)}
-                  aria-pressed={alwaysShow}
-                  className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                    alwaysShow
-                      ? "border-zinc-400 bg-zinc-800 text-zinc-100"
-                      : "border-zinc-700 text-zinc-500 hover:text-zinc-300"
-                  }`}
-                >
-                  {alwaysShow ? "sempre visíveis" : "só no hover"}
-                </button>
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {categories.map((c) => {
-                  const style = categoryStyle(c);
-                  const off = hiddenCategories[c];
-                  return (
-                    <button
-                      key={c}
-                      type="button"
-                      onClick={() => toggleCategory(c)}
-                      aria-pressed={!off}
-                      className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                        off ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
-                      }`}
-                      style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                    >
-                      {style.label}
-                    </button>
-                  );
-                })}
-              </div>
-              {filtersDirty && (
-                <button
-                  type="button"
-                  onClick={clearFilters}
-                  className="mt-2 w-full rounded-lg border border-zinc-700 py-1 font-mono text-[10px] uppercase tracking-wide text-zinc-300 hover:border-zinc-500 hover:text-zinc-100"
-                >
-                  limpar filtros
-                </button>
-              )}
-            </div>
-          </aside>
-        )}
+            </aside>
+          )}
 
-        {(sidebarOpen && !isDesktop || null) && (
-          <div
-            className="absolute inset-0 z-20 bg-black/50 lg:hidden"
-            onClick={() => setSidebarOpen(false)}
-            aria-hidden="true"
-          />
-        )}
-        {(inspectorOpen && !isDesktop || null) && (
-          <div
-            className="absolute inset-0 z-20 bg-black/50 lg:hidden"
-            onClick={() => setInspectorOpen(false)}
-            aria-hidden="true"
-          />
-        )}
-
-        <div className="relative min-w-0 flex-1">
-          <ReactFlow
-            nodes={displayNodes}
-            edges={displayEdges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onNodeClick={(_, node) => {
-              setSelectedId(node.id);
-              setSelectedEdgeId(null);
-              if (!isDesktop) setInspectorOpen(true);
-            }}
-            onEdgeClick={(_, edge) => setSelectedEdgeId((cur) => (cur === edge.id ? null : edge.id))}
-            onPaneClick={() => setSelectedEdgeId(null)}
-            onNodeMouseEnter={(_, node) => setHoveredId(node.id)}
-            onNodeMouseLeave={() => setHoveredId(null)}
-            nodeTypes={nodeTypes}
-            onInit={(inst) => {
-              flowRef.current = inst as ReactFlowInstance<FlowNode, FlowEdge>;
-            }}
-            fitView
-            fitViewOptions={{ padding: 0.15 }}
-            minZoom={0.2}
-            maxZoom={1.8}
-            className="group"
-            /* somente leitura */
-            nodesDraggable={false}
-            nodesConnectable={false}
-            edgesReconnectable={false}
-            elementsSelectable={true}
-            deleteKeyCode={null}
-            zoomOnDoubleClick={false}
-          >
-            <Background gap={24} size={1} color="#1f1f23" />
-            <Controls position="bottom-left" showInteractive={false} />
-            <MiniMap
-              position="bottom-right"
-              pannable
-              zoomable
-              nodeColor={(n) => groupStyle((n.data as Entity | undefined)?.group || "finance").ring}
-              maskColor="rgba(0,0,0,.55)"
+          {(sidebarOpen && !isDesktop || null) && (
+            <div
+              className="absolute inset-0 z-20 bg-black/50 lg:hidden"
+              onClick={() => setSidebarOpen(false)}
+              aria-hidden="true"
             />
-          </ReactFlow>
+          )}
+          {(inspectorOpen && !isDesktop || null) && (
+            <div
+              className="absolute inset-0 z-20 bg-black/50 lg:hidden"
+              onClick={() => setInspectorOpen(false)}
+              aria-hidden="true"
+            />
+          )}
 
-          <div className="pointer-events-none absolute right-3 top-3 z-10 max-w-[260px] rounded-xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-right text-[11px] leading-relaxed text-zinc-500">
-            Informação pública, baseada em reportagens. Indício não é condenação.
+          <div className="relative min-w-0 flex-1">
+            <ReactFlow
+              nodes={groupVisibleNodes}
+              edges={baseEdges}
+              onNodesChange={onNodesChange}
+              onEdgesChange={onEdgesChange}
+              onNodeClick={(_, node) => {
+                board.select(node.id);
+                setSelectedId(node.id);
+                setSelectedEdgeId(null);
+                if (!isDesktop) setInspectorOpen(true);
+              }}
+              onEdgeClick={(_, edge) => setSelectedEdgeId((cur) => (cur === edge.id ? null : edge.id))}
+              onPaneClick={() => {
+                board.select(null);
+                setSelectedId(null);
+                setSelectedEdgeId(null);
+              }}
+              onNodeMouseEnter={(_, node) => board.hover(node.id)}
+              onNodeMouseLeave={() => board.hover(null)}
+              nodeTypes={nodeTypes}
+              edgeTypes={edgeTypes}
+              onInit={(inst) => {
+                flowRef.current = inst as ReactFlowInstance<FlowNode, FlowEdge>;
+              }}
+              fitView
+              fitViewOptions={{ padding: 0.15 }}
+              minZoom={0.2}
+              maxZoom={1.8}
+              className="group"
+              nodesDraggable={false}
+              nodesConnectable={false}
+              edgesReconnectable={false}
+              elementsSelectable={true}
+              deleteKeyCode={null}
+              zoomOnDoubleClick={false}
+            >
+              <Background gap={24} size={1} color="#1f1f23" />
+              <Controls position="bottom-left" showInteractive={false} />
+              <MiniMap
+                position="bottom-right"
+                pannable
+                zoomable
+                nodeColor={(n) => groupStyle((n.data as Entity | undefined)?.group || "finance").ring}
+                maskColor="rgba(0,0,0,.55)"
+              />
+            </ReactFlow>
+
+            <div className="pointer-events-none absolute right-3 top-3 z-10 max-w-[260px] rounded-xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-right text-[11px] leading-relaxed text-zinc-500">
+              Informação pública, baseada em reportagens. Indício não é condenação.
+            </div>
+
+            <AnimatePresence>
+              {selectedEdge && (
+                <EdgeCard
+                  edge={selectedEdge}
+                  entityById={entityById}
+                  onFocus={fitPerson}
+                  onClose={() => setSelectedEdgeId(null)}
+                />
+              )}
+            </AnimatePresence>
           </div>
 
-          <AnimatePresence>
-            {selectedEdge && (
-              <EdgeCard
-                edge={selectedEdge}
+          {(inspectorVisible || null) && (
+            <aside
+              className={`${
+                isDesktop ? "relative" : `${drawerCls} right-0`
+              } flex w-[340px] shrink-0 flex-col border-l border-zinc-800 bg-zinc-950`}
+              aria-label="Inspetor da pessoa"
+            >
+              <Inspector
+                entity={selected}
+                facts={FACTS}
                 entityById={entityById}
                 onFocus={fitPerson}
-                onClose={() => setSelectedEdgeId(null)}
+                onTrace={traceEdge}
+                onClose={() => {
+                  setSelectedId(null);
+                  setInspectorOpen(false);
+                }}
               />
-            )}
-          </AnimatePresence>
+            </aside>
+          )}
         </div>
 
-        {(inspectorVisible || null) && (
-          <aside
-            className={`${
-              isDesktop ? "relative" : `${drawerCls} right-0`
-            } flex w-[340px] shrink-0 flex-col border-l border-zinc-800 bg-zinc-950`}
-            aria-label="Inspetor da pessoa"
-          >
-            <Inspector
-              entity={selected}
-              facts={FACTS}
-              entityById={entityById}
-              onFocus={fitPerson}
-              onTrace={traceEdge}
-              onClose={() => {
-                setSelectedId(null);
-                setInspectorOpen(false);
-              }}
-            />
-          </aside>
-        )}
+        <TimelineBar
+          stops={TIMELINE.stops}
+          index={cursorIdx}
+          onSeek={(i: number) => {
+            setPlaying(false);
+            setCursorIdx(i);
+          }}
+          playing={playing}
+          onTogglePlay={() => {
+            if (!playing && cursorIdx >= TIMELINE.stops.length - 1) setCursorIdx(0);
+            setPlaying((v) => !v);
+          }}
+          onJumpEnd={() => {
+            setPlaying(false);
+            setCursorIdx(TIMELINE.stops.length - 1);
+          }}
+          peopleCount={groupVisibleNodes.length}
+          edgeCount={baseEdges.length}
+        />
       </div>
-
-      <TimelineBar
-        stops={TIMELINE.stops}
-        index={cursorIdx}
-        onSeek={(i: number) => {
-          setPlaying(false);
-          setCursorIdx(i);
-        }}
-        playing={playing}
-        onTogglePlay={() => {
-          if (!playing && cursorIdx >= TIMELINE.stops.length - 1) setCursorIdx(0);
-          setPlaying((v) => !v);
-        }}
-        onJumpEnd={() => {
-          setPlaying(false);
-          setCursorIdx(TIMELINE.stops.length - 1);
-        }}
-        peopleCount={displayNodes.length}
-        edgeCount={displayEdges.length}
-      />
-    </div>
+    </BoardProvider>
   );
+
+  function traceEdge(edgeId: string) {
+    setSelectedEdgeId(edgeId);
+    const e = edges.find((x) => x.id === edgeId);
+    if (e && flowRef.current) {
+      const a = nodes.find((n) => n.id === e.source);
+      const b = nodes.find((n) => n.id === e.target);
+      if (a && b) {
+        flowRef.current.setCenter(
+          (a.position.x + b.position.x) / 2 + 94,
+          (a.position.y + b.position.y) / 2 + 60,
+          { zoom: 0.85, duration: 400 }
+        );
+      }
+    }
+  }
 }
 
 function useIsDesktop() {
