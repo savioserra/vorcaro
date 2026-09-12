@@ -133,9 +133,9 @@ export function Inspector({
                         <span className="font-mono text-[10px] text-zinc-500">{f.title}</span>
                       </div>
                       <p className="text-[11px] leading-relaxed text-zinc-400">{f.description}</p>
-                      {f.evidence.length > 0 && (
+                      {f.sources.length > 0 && (
                         <div className="mt-2 flex flex-wrap gap-1">
-                          {f.evidence.map((ev) => {
+                          {f.sources.map((ev) => {
                             const local = localPdf(ev.url);
                             return (
                               <span

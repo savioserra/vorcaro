@@ -38,7 +38,7 @@ Tudo no app é derivado destes dois arquivos: timeline = meses dos fatos, aresta
 | `title` | string | ✓ | curto (exibido na aresta) |
 | `description` | string | ✓ | explicação com datas/valores (≥40 caracteres) |
 | `entities` | array de id | ≥1 | entidades envolvidas; ≥2 gera aresta (primeira → demais) |
-| `evidence` | array | ≥1 | `{ label, url }` — URL pública e http(s) |
+| `sources` | array | ≥1 | `{ label, url }` — URL pública e http(s) |
 
 ## Regras
 

@@ -69,11 +69,11 @@ export function EdgeCard({
 
       <p className="mt-3 text-[13px] leading-relaxed text-zinc-300">{fact.description}</p>
 
-      {fact.evidence.length > 0 && (
+      {fact.sources.length > 0 && (
         <div className="mt-3">
-          <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Evidências</div>
+          <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Fontes</div>
           <div className="flex flex-wrap gap-1.5">
-            {fact.evidence.map((ev) => {
+            {fact.sources.map((ev) => {
               const local = localPdf(ev.url);
               return (
                 <span

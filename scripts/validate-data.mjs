@@ -42,10 +42,10 @@ for (const [i, f] of facts.entries()) {
       if (!ids.has(id)) errors.push(`${at}: entidade inexistente "${id}"`);
     }
   }
-  if (!Array.isArray(f.evidence) || f.evidence.length === 0) {
-    errors.push(`${at}: sem evidence (todo fato precisa de fonte)`);
+  if (!Array.isArray(f.sources) || f.sources.length === 0) {
+    errors.push(`${at}: sem sources (todo fato precisa de fonte)`);
   } else {
-    for (const ev of f.evidence) {
+    for (const ev of f.sources) {
       if (!URL_OK.test(ev.url || "")) errors.push(`${at}: evidence.url inválida: ${ev.url}`);
       if (!ev.label) errors.push(`${at}: evidence sem label: ${ev.url}`);
     }

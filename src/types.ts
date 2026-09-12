@@ -1,7 +1,7 @@
 
 export type Timestamp = string;
 
-export interface Evidence {
+export interface Source {
   label: string;
   url: string;
 }
@@ -48,7 +48,7 @@ export interface Fact {
   description: string;
   
   entities: string[];
-  evidence: Evidence[];
+  sources: Source[];
 }
 
 export interface EdgeData {
