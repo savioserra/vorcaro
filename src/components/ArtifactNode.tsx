@@ -15,6 +15,7 @@ const SIDES: [XYPosition, HandleType, string][] = [
   [Position.Left, "source", "l-out"],
 ];
 
+/** Nó-objeto (organizações, filmes, fundos) — dossiê com aba tracejada. */
 export function ArtifactNode({ data, selected }: { data: Entity; selected?: boolean }) {
   const g = groupStyle(data.group);
   const { active, connected } = useBoard();
@@ -22,23 +23,21 @@ export function ArtifactNode({ data, selected }: { data: Entity; selected?: bool
   const dimmed = useTransform(active, (act: string | null) =>
     !!act && act !== data.id && !connected(act).has(data.id)
   );
-  const opacity = useTransform(dimmed, (d): number => (d ? 0.22 : 1));
-  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0)" : "saturate(1)"));
-  const borderColor = useTransform(dimmed, (d): string => (d ? "rgba(13,84,72,.6)" : "rgba(45,212,191,.7)"));
-
-  const spring = { stiffness: 320, damping: 28 };
-  const opacityS = useSpring(opacity, spring);
-  
-  
+  const opacity = useTransform(dimmed, (d): number => (d ? 0.18 : 1));
+  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0) brightness(.75)" : "saturate(1)"));
+  const borderColor = useTransform(
+    dimmed,
+    (d): string => (d ? "rgba(39,39,42,.5)" : selected ? "rgba(45,212,191,.55)" : "rgba(20,83,45,.55)")
+  );
 
   return (
     <motion.div
-      initial={{ scale: 0.85, y: 10 }}
+      initial={{ scale: 0.92, y: 8 }}
       animate={{ scale: 1, y: 0 }}
-      style={{ opacity: opacityS, filter, borderColor }}
-      transition={{ type: "spring", stiffness: 260, damping: 24 }}
-      className={`relative w-[188px] rounded-[22px] border border-dashed bg-zinc-900/70 px-3 pb-3 pt-8 shadow-xl shadow-black/40 backdrop-blur-sm transition-[border-color,filter] duration-300 ${
-        selected ? "ring-2 ring-teal-400/25" : ""
+      style={{ opacity, filter, borderColor }}
+      transition={{ type: "spring", stiffness: 300, damping: 28 }}
+      className={`relative flex w-[224px] gap-3 rounded-lg border border-dashed bg-zinc-900/90 p-2.5 pr-3 shadow-lg shadow-black/50 ${
+        selected ? "border-teal-400/60" : ""
       }`}
     >
       {SIDES.map(([pos, type, id]) => (
@@ -48,15 +47,21 @@ export function ArtifactNode({ data, selected }: { data: Entity; selected?: bool
           type={type}
           position={pos}
           isConnectable={false}
-          className="!h-2 !w-2 !border-teal-700 !opacity-0 transition-opacity duration-200 group-hover:!opacity-60"
+          className="!h-px !w-px !border-transparent !bg-transparent !opacity-0"
         />
       ))}
-      <div className="text-center">
-        <div className="text-lg leading-none">🎬</div>
-        <div className="mt-1.5 text-[13px] font-semibold leading-tight text-teal-200">{data.name}</div>
-        <div className="mt-1 line-clamp-2 text-[11px] leading-snug text-zinc-400">{data.role}</div>
+
+      <span className="absolute inset-y-2 left-0 w-[3px] rounded-full bg-teal-400/80" aria-hidden="true" />
+
+      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md border border-teal-900/60 bg-teal-950/30 text-lg">
+        🎬
+      </div>
+
+      <div className="min-w-0 flex-1 pt-0.5 text-left">
+        <div className="truncate text-[13px] font-semibold leading-tight text-zinc-50">{data.name}</div>
+        <div className="mt-0.5 line-clamp-2 text-[10.5px] leading-snug text-zinc-400">{data.role}</div>
         {data.status && (
-          <div className="mt-2 inline-block rounded-full bg-teal-500/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wide text-teal-300">
+          <div className="mt-1.5 inline-block max-w-full truncate rounded-sm bg-teal-950/40 px-1.5 py-0.5 font-mono text-[8.5px] uppercase tracking-wider text-teal-300">
             {data.status}
           </div>
         )}
