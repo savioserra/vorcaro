@@ -14,10 +14,10 @@ export const GROUPS: Record<GroupKey, { label: string; ring: string; fill: strin
   politics: { label: "Política", ring: "#38bdf8", fill: "rgba(56,189,248,.15)" },
   church: { label: "Igreja", ring: "#a78bfa", fill: "rgba(167,139,250,.15)" },
   stf: { label: "STF", ring: "#818cf8", fill: "rgba(129,140,248,.18)" },
-  family: { label: "Família (na apuração)", ring: "#fb7185", fill: "rgba(251,113,133,.15)" },
+  family: { label: "Família", ring: "#fb7185", fill: "rgba(251,113,133,.15)" },
   legal: { label: "Jurídico / Estado", ring: "#94a3b8", fill: "rgba(148,163,184,.15)" },
-  personal: { label: "Pessoal (na apuração)", ring: "#f472b6", fill: "rgba(244,114,182,.15)" },
-  movie: { label: "Objeto (filme)", ring: "#2dd4bf", fill: "rgba(45,212,191,.15)" },
+  personal: { label: "Pessoal", ring: "#f472b6", fill: "rgba(244,114,182,.15)" },
+  movie: { label: "Filme", ring: "#2dd4bf", fill: "rgba(45,212,191,.15)" },
 };
 
 export const RELATIONS: Record<RelationKey, { label: string; color: string }> = {
@@ -28,7 +28,7 @@ export const RELATIONS: Record<RelationKey, { label: string; color: string }> = 
   business: { label: "Negócios", color: "#f59e0b" },
   campaign: { label: "Logística de campanha", color: "#34d399" },
   legal: { label: "Jurídico / assessoria", color: "#94a3b8" },
-  investigation: { label: "Investigação (reportado)", color: "#f87171" },
+  investigation: { label: "Investigação", color: "#f87171" },
   intro: { label: "Apresentação", color: "#c084fc" },
   stf: { label: "Crise institucional", color: "#818cf8" },
   movie: { label: "Financiamento", color: "#2dd4bf" },
