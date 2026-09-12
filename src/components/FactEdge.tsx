@@ -38,7 +38,7 @@ export function FactEdge(props: EdgeProps) {
     selectedMV.set(selected ? 1 : 0);
   }, [selected, selectedMV]);
 
-  const opacity = useTransform<number>(() => {
+  const opacity = useTransform((): number => {
     const act = active.get();
     const sel = selectedMV.get();
     const base = edgeBaseline.get();
@@ -47,7 +47,7 @@ export function FactEdge(props: EdgeProps) {
     return participants.includes(act) ? 1 : 0.04;
   });
 
-  const strokeWidth = useTransform<number>(() => {
+  const strokeWidth = useTransform((): number => {
     const sel = selectedMV.get();
     const act = active.get();
     const base = isInv ? 2 : 1.4;
@@ -55,7 +55,7 @@ export function FactEdge(props: EdgeProps) {
     return act && participants.includes(act) ? base + 0.8 : base;
   });
 
-  const labelOpacity = useTransform<number>(() => {
+  const labelOpacity = useTransform((): number => {
     const act = active.get();
     const sel = selectedMV.get();
     const floor = labelFloor.get();

@@ -20,14 +20,14 @@ export function PersonNode({ data, selected }: { data: Entity; selected?: boolea
   const g = groupStyle(data.group);
   const [broken, setBroken] = useState(false);
   const showPhoto = data.photo && !broken;
-  const { active, descendants } = useBoard();
+  const { active, connected } = useBoard();
 
   const dimmed = useTransform(active, (act: string | null) =>
-    !!act && act !== data.id && !descendants(act).has(data.id)
+    !!act && act !== data.id && !connected(act).has(data.id)
   );
-  const opacity = useTransform<number>(dimmed, (d) => (d ? 0.22 : 1));
-  const filter = useTransform(dimmed, (d) => (d ? "saturate(0)" : "saturate(1)"));
-  const borderColor = useTransform(dimmed, (d) => (d ? "rgba(63,63,70,.7)" : "rgba(255,255,255,.35)"));
+  const opacity = useTransform(dimmed, (d): number => (d ? 0.22 : 1));
+  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0)" : "saturate(1)"));
+  const borderColor = useTransform(dimmed, (d): string => (d ? "rgba(63,63,70,.7)" : "rgba(255,255,255,.35)"));
 
   const spring = { stiffness: 320, damping: 28 };
   const opacityS = useSpring(opacity, spring);

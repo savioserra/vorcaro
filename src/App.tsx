@@ -122,13 +122,13 @@ export function App() {
   const edgesRef = useRef(edges);
   edgesRef.current = edges;
 
-  const descendants = useCallback((id: string) => {
+  const connected = useCallback((id: string) => {
     const s = new Set<string>([id]);
     const out: Record<string, string[]> = {};
-    for (const e of edgesRef.current) (out[e.source] ??= []).push(e.target);
+    const inc: Record<string, string[]> = {};
     for (const e of edgesRef.current) {
-      if (e.source === id) s.add(e.target);
-      if (e.target === id) s.add(e.source);
+      (out[e.source] ??= []).push(e.target);
+      (inc[e.target] ??= []).push(e.source);
     }
     const queue = [...s];
     while (queue.length) {
@@ -139,11 +139,17 @@ export function App() {
           queue.push(t);
         }
       }
+      for (const src of inc[cur] || []) {
+        if (!s.has(src)) {
+          s.add(src);
+          queue.push(src);
+        }
+      }
     }
     return s;
   }, []);
 
-  const board = useCreateBoard(descendants);
+  const board = useCreateBoard(connected);
 
   useEffect(() => {
     board.edgeBaseline.set(alwaysShow || timelineEngaged ? 0.5 : 0.09);

@@ -17,14 +17,14 @@ const SIDES: [XYPosition, HandleType, string][] = [
 
 export function ArtifactNode({ data, selected }: { data: Entity; selected?: boolean }) {
   const g = groupStyle(data.group);
-  const { active, descendants } = useBoard();
+  const { active, connected } = useBoard();
 
   const dimmed = useTransform(active, (act: string | null) =>
-    !!act && act !== data.id && !descendants(act).has(data.id)
+    !!act && act !== data.id && !connected(act).has(data.id)
   );
-  const opacity = useTransform<number>(dimmed, (d) => (d ? 0.22 : 1));
-  const filter = useTransform(dimmed, (d) => (d ? "saturate(0)" : "saturate(1)"));
-  const borderColor = useTransform(dimmed, (d) => (d ? "rgba(13,84,72,.6)" : "rgba(45,212,191,.7)"));
+  const opacity = useTransform(dimmed, (d): number => (d ? 0.22 : 1));
+  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0)" : "saturate(1)"));
+  const borderColor = useTransform(dimmed, (d): string => (d ? "rgba(13,84,72,.6)" : "rgba(45,212,191,.7)"));
 
   const spring = { stiffness: 320, damping: 28 };
   const opacityS = useSpring(opacity, spring);
