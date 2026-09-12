@@ -4,7 +4,7 @@ export interface EvidenceManifestEntry {
   file: string;
   title: string;
   ok: boolean;
-  chars: number;
+  chars?: number;
   capturedAt: string;
   label: string;
 }
