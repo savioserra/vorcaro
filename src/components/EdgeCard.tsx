@@ -27,7 +27,7 @@ export function EdgeCard({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 24, scale: 0.97 }}
       transition={{ type: "spring", stiffness: 300, damping: 28 }}
-      className="absolute bottom-3 left-1/2 z-20 w-[min(620px,calc(100%-24px))] -translate-x-1/2 rounded-2xl border border-zinc-700 bg-zinc-950/95 p-4 shadow-2xl backdrop-blur"
+      className="absolute bottom-3 left-1/2 z-20 max-h-[46vh] w-[min(620px,calc(100%-24px))] -translate-x-1/2 overflow-y-auto rounded-2xl border border-zinc-700 bg-zinc-950/95 p-4 shadow-2xl backdrop-blur"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">

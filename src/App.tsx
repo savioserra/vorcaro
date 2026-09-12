@@ -108,11 +108,10 @@ export function App() {
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedEdgeId, setSelectedEdgeId] = useState<string | null>(null);
-  const [alwaysShow, setAlwaysShow] = useState(false);
+  const [alwaysShow, setAlwaysShow] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches
+  );
   const [query, setQuery] = useState("");
-  const [hiddenCategories, setHiddenCategories] = useState<Record<string, boolean>>({});
-  const [hiddenThreads, setHiddenThreads] = useState<Record<string, boolean>>({});
-  const [hiddenGroups, setHiddenGroups] = useState<Record<string, boolean>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
 
@@ -166,10 +165,7 @@ export function App() {
     () => nodes.filter((n) => (TIMELINE.firstMonth[n.id] || TIMELINE.min) <= cursor),
     [nodes, cursor]
   );
-  const groupVisibleNodes = useMemo(
-    () => timeVisibleNodes.filter((n) => !hiddenGroups[n.data.group]),
-    [timeVisibleNodes, hiddenGroups]
-  );
+  const groupVisibleNodes = useMemo(() => timeVisibleNodes, [timeVisibleNodes]);
   const groupIdSet = useMemo(() => new Set(groupVisibleNodes.map((n) => n.id)), [groupVisibleNodes]);
 
   const baseEdges = useMemo(
@@ -177,13 +173,11 @@ export function App() {
       edges.filter(
         (e) =>
           !!e.data?.fact &&
-          !hiddenCategories[e.data.fact.category] &&
-          !hiddenThreads[e.data.fact.thread] &&
           groupIdSet.has(e.source) &&
           groupIdSet.has(e.target) &&
           monthOf(e.data.fact.timestamp) <= cursor
       ),
-    [edges, hiddenCategories, hiddenThreads, groupIdSet, cursor]
+    [edges, groupIdSet, cursor]
   );
 
   const selectedEdge = useMemo(
@@ -198,25 +192,6 @@ export function App() {
       .filter((p) => !q || `${p.name} ${p.role} ${p.bio || ""}`.toLowerCase().includes(q));
   }, [groupVisibleNodes, query]);
 
-  function toggleCategory(c: string) {
-    setHiddenCategories((h) => ({ ...h, [c]: !h[c] }));
-  }
-  function toggleThread(t: string) {
-    setHiddenThreads((h) => ({ ...h, [t]: !h[t] }));
-  }
-  function toggleGroup(g: string) {
-    setHiddenGroups((h) => ({ ...h, [g]: !h[g] }));
-  }
-
-  const filtersDirty =
-    Object.values(hiddenCategories).some(Boolean) ||
-    Object.values(hiddenThreads).some(Boolean) ||
-    Object.values(hiddenGroups).some(Boolean);
-  function clearFilters() {
-    setHiddenCategories({});
-    setHiddenThreads({});
-    setHiddenGroups({});
-  }
 
   const categories = useMemo(() => [...new Set(FACTS.map((f) => f.category))], []);
   const threads = useMemo(() => [...new Set(FACTS.map((f) => f.thread))], []);
@@ -312,7 +287,7 @@ export function App() {
             <aside
               className={`${
                 isDesktop ? "relative" : `${drawerCls} left-0`
-              } flex w-[280px] shrink-0 flex-col border-r border-zinc-800 bg-zinc-950 lg:w-[260px]`}
+              } flex w-[min(280px,calc(100vw-56px))] shrink-0 flex-col border-r border-zinc-800 bg-zinc-950 lg:w-[260px]`}
               aria-label="Lista de pessoas"
             >
               <div className="flex items-center justify-between border-b border-zinc-800 px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
@@ -359,120 +334,18 @@ export function App() {
               </div>
 
               <div className="border-t border-zinc-800 p-3">
-                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Grupos</div>
-                <div className="mb-3 flex flex-wrap gap-1">
-                  {groups.map((g) => {
-                    const style = groupStyle(g);
-                    const total = nodes.filter((n) => n.data.group === g).length;
-                    if (!total) return null;
-                    const off = hiddenGroups[g];
-                    return (
-                      <button
-                        key={g}
-                        type="button"
-                        onClick={() => toggleGroup(g)}
-                        aria-pressed={!off}
-                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
-                        }`}
-                        style={!off ? { borderColor: style.ring, color: style.ring } : undefined}
-                      >
-                        {style.label} · {total}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Frentes</div>
-                <div className="mb-3 flex flex-wrap gap-1">
-                  {threads.map((t) => {
-                    const style = threadStyle(t);
-                    const total = FACTS.filter((f) => f.thread === t).length;
-                    const off = hiddenThreads[t];
-                    return (
-                      <button
-                        key={t}
-                        type="button"
-                        onClick={() => toggleThread(t)}
-                        aria-pressed={!off}
-                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
-                        }`}
-                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                      >
-                        {style.label} · {total}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Frentes</div>
-                <div className="mb-3 flex flex-wrap gap-1">
-                  {threads.map((t) => {
-                    const style = threadStyle(t);
-                    const total = FACTS.filter((f) => f.thread === t).length;
-                    const off = hiddenThreads[t];
-                    return (
-                      <button
-                        key={t}
-                        type="button"
-                        onClick={() => toggleThread(t)}
-                        aria-pressed={!off}
-                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
-                        }`}
-                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                      >
-                        {style.label} · {total}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mb-2 flex items-center justify-between">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">Conexões</span>
-                  <button
-                    type="button"
-                    onClick={() => setAlwaysShow((v) => !v)}
-                    aria-pressed={alwaysShow}
-                    className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                      alwaysShow
-                        ? "border-zinc-400 bg-zinc-800 text-zinc-100"
-                        : "border-zinc-700 text-zinc-500 hover:text-zinc-300"
-                    }`}
-                  >
-                    {alwaysShow ? "sempre visíveis" : "só no hover"}
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {categories.map((c) => {
-                        const style = categoryStyle(c);
-                        const off = hiddenCategories[c];
-                        return (
-                          <button
-                            key={c}
-                            type="button"
-                            onClick={() => toggleCategory(c)}
-                            aria-pressed={!off}
-                            className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                              off ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
-                            }`}
-                            style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                          >
-                            {style.label}
-                          </button>
-                        );
-                    })}
-                </div>
-                {filtersDirty && (
-                  <button
-                    type="button"
-                    onClick={clearFilters}
-                    className="mt-2 w-full rounded-lg border border-zinc-700 py-1 font-mono text-[10px] uppercase tracking-wide text-zinc-300 hover:border-zinc-500 hover:text-zinc-100"
-                  >
-                    limpar filtros
-                  </button>
-                )}
+                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Conexões</div>
+                <button
+                  type="button"
+                  onClick={() => setAlwaysShow((v) => !v)}
+                  aria-pressed={alwaysShow}
+                  className={`flex w-full items-center justify-between rounded-lg border border-zinc-700 px-2.5 py-2 text-[11px] text-zinc-300 hover:border-zinc-500 ${
+                    alwaysShow ? "text-zinc-100" : ""
+                  }`}
+                >
+                  <span>Acender todas as conexões</span>
+                  <span className="font-mono text-[9px] uppercase">{alwaysShow ? "sempre" : "foco"}</span>
+                </button>
               </div>
             </aside>
           )}
@@ -560,7 +433,7 @@ export function App() {
             <aside
               className={`${
                 isDesktop ? "relative" : `${drawerCls} right-0`
-              } flex w-[340px] shrink-0 flex-col border-l border-zinc-800 bg-zinc-950`}
+              } flex w-[min(340px,calc(100vw-32px))] shrink-0 flex-col border-l border-zinc-800 bg-zinc-950`}
               aria-label="Inspetor da pessoa"
             >
               <Inspector
