@@ -82,14 +82,6 @@ export function App() {
   const [hiddenGroups, setHiddenGroups] = useState<Record<string, boolean>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
-  const [showIntro, setShowIntro] = useState(() => {
-    try {
-      return !localStorage.getItem("pg-intro-seen");
-    } catch {
-      return true;
-    }
-  });
-
   /* linha do tempo */
   const [cursorIdx, setCursorIdx] = useState(TIMELINE.stops.length - 1);
   const [playing, setPlaying] = useState(false);
@@ -109,15 +101,6 @@ export function App() {
     }, 320);
     return () => clearInterval(t);
   }, [playing]);
-
-  function finishIntro() {
-    try {
-      localStorage.setItem("pg-intro-seen", "1");
-    } catch {
-      /* ok */
-    }
-    setShowIntro(false);
-  }
 
   const peopleById = useMemo(() => {
     const map: Record<string, Person> = {};
@@ -290,7 +273,6 @@ export function App() {
         return;
       }
       if (e.key === "Escape") {
-        if (showIntro) return finishIntro();
         if (selectedEdgeId) return setSelectedEdgeId(null);
         if (typing) return (document.activeElement as HTMLElement | null)?.blur();
         if (selectedId) return setSelectedId(null);
@@ -299,7 +281,7 @@ export function App() {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [showIntro, selectedEdgeId, selectedId]);
+  }, [selectedEdgeId, selectedId]);
 
   const sidebarVisible = isDesktop || sidebarOpen;
   const inspectorVisible = isDesktop || inspectorOpen;
@@ -332,7 +314,7 @@ export function App() {
                 e.currentTarget.blur();
               }
             }}
-            placeholder="Buscar pessoas…   ( / )"
+            placeholder="Buscar pessoas…"
             aria-label="Buscar pessoas"
             className="w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/80 px-3 py-1.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-zinc-600"
           />
@@ -524,9 +506,8 @@ export function App() {
             />
           </ReactFlow>
 
-          <div className="pointer-events-none absolute right-3 top-3 z-10 max-w-xs rounded-xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-right text-[11px] leading-relaxed text-zinc-500">
-            Hover acende a árvore (vizinhos + descendentes) · clique numa linha para ver as evidências · <span className="font-mono">/</span>{" "}
-            busca · <span className="font-mono">Esc</span> limpa. Indício não é condenação.
+          <div className="pointer-events-none absolute right-3 top-3 z-10 max-w-[260px] rounded-xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-right text-[11px] leading-relaxed text-zinc-500">
+            Informação pública, baseada em reportagens. Indício não é condenação.
           </div>
 
           <AnimatePresence>
@@ -583,56 +564,6 @@ export function App() {
         edgeCount={displayEdges.length}
       />
 
-      <AnimatePresence>
-        {showIntro && (
-          <motion.div
-            key="intro"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.94, y: 12 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.94, y: 12 }}
-              transition={{ type: "spring", stiffness: 260, damping: 26 }}
-              role="dialog"
-              aria-modal="true"
-              aria-label="Como usar o mapa"
-              className="w-full max-w-md space-y-3 rounded-2xl border border-zinc-700 bg-zinc-950 p-6 shadow-2xl"
-            >
-              <h2 className="text-base font-semibold text-zinc-100">Como ler este mapa</h2>
-              <ul className="space-y-2 text-[13px] leading-relaxed text-zinc-300">
-                <li>
-                  <b className="text-zinc-100">Passe o mouse</b> (ou clique para fixar) numa pessoa: só as conexões
-                  dela acendem — o resto some.
-                </li>
-                <li>
-                  <b className="text-zinc-100">Clique numa linha</b> para ver por que a relação existe, com as
-                  evidências arquivadas em PDF neste repositório.
-                </li>
-                <li>
-                  Na <b className="text-zinc-100">barra inferior</b>, reproduza a linha do tempo: pessoas e fatos
-                  entram na ordem em que ocorreram.
-                </li>
-                <li>
-                  Na <b className="text-zinc-100">barra lateral</b>, filtre por grupo e tipo de conexão.
-                  <span className="text-zinc-500"> Atalhos: / busca · Esc limpa.</span>
-                </li>
-                <li>Conteúdo apenas para consulta: só reportagem pública — indício não é condenação.</li>
-              </ul>
-              <button
-                type="button"
-                onClick={finishIntro}
-                className="w-full rounded-xl bg-zinc-100 py-2 text-sm font-semibold text-zinc-950 hover:bg-white"
-              >
-                Começar
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

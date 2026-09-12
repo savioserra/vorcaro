@@ -50,7 +50,7 @@ export function EdgeCard({ edge, peopleById, onFocus, onClose }: {
       </div>
 
       <p className="mt-3 text-[13px] leading-relaxed text-zinc-300">
-        {d.why || "Sem explicação registrada — conexão criada manualmente no mapa."}
+        {d.why || "Sem explicação registrada."}
       </p>
 
       {(d.evidence?.length ?? 0) > 0 && (

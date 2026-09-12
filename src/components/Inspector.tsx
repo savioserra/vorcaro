@@ -17,8 +17,7 @@ export function Inspector({ person, edges, peopleById, onFocus, onTrace, onClose
       <aside className="flex h-full w-[340px] shrink-0 flex-col border-l border-zinc-800 bg-zinc-950/80 p-5 text-sm text-zinc-500">
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">Inspetor</p>
         <p className="mt-4 leading-relaxed">
-          Clique numa pessoa. Arraste entre os pontos para conectar. Use{" "}
-          <span className="text-zinc-300">+ Pessoa</span> para crescer o mapa — adições ficam salvas neste navegador.
+          Selecione uma pessoa no mapa para ver o perfil, as conexões e as evidências.
         </p>
       </aside>
     );
@@ -95,7 +94,7 @@ export function Inspector({ person, edges, peopleById, onFocus, onTrace, onClose
 
         <section>
           <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-            Conexões · {related.length} · clique para expandir
+            Conexões de {person.name?.split(' ')[0]} · {related.length}
           </h3>
           <ul className="space-y-2">
             {related.map((r) => {
