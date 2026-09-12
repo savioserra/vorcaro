@@ -36,7 +36,7 @@ export function PersonNode({ data, selected }: { data: Entity; selected?: boolea
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.85, y: 10 }}
+      initial={{ scale: 0.85, y: 10 }}
       animate={{ scale: 1, y: 0 }}
       style={{ opacity: opacityS, filter, borderColor }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
