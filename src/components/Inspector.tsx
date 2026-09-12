@@ -3,6 +3,7 @@ import type { Edge } from "@xyflow/react";
 import type { EdgeData, Entity, Fact } from "../types";
 import { categoryStyle, groupStyle } from "../data/graph";
 import { localPdf } from "../data/evidence";
+import { threadStyle } from "../data/graph";
 import { fmtMonth } from "./TimelineBar";
 
 export function Inspector({
@@ -128,6 +129,7 @@ export function Inspector({
                         >
                           {meta.label}
                         </span>
+                        <span className="rounded-full bg-teal-950/40 px-1.5 py-0.5 font-mono text-[9px] uppercase text-teal-300">{threadStyle(f.thread).label}</span>
                         <span className="font-mono text-[10px] text-zinc-500">{f.title}</span>
                       </div>
                       <p className="text-[11px] leading-relaxed text-zinc-400">{f.description}</p>

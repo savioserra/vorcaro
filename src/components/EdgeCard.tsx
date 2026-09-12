@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import type { Edge } from "@xyflow/react";
 import type { EdgeData, Entity } from "../types";
-import { categoryStyle } from "../data/graph";
+import { categoryStyle, threadStyle } from "../data/graph";
 import { localPdf } from "../data/evidence";
 import { fmtMonth } from "./TimelineBar";
 
@@ -19,6 +19,7 @@ export function EdgeCard({
   const fact = edge.data?.fact;
   if (!fact) return null;
   const meta = categoryStyle(fact.category);
+  const thread = threadStyle(fact.thread);
 
   return (
     <motion.div
@@ -48,6 +49,12 @@ export function EdgeCard({
               {meta.label}
             </span>
             <span className="font-mono text-[10px] text-zinc-400">{fmtMonth(fact.timestamp)}</span>
+            <span
+              className="rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide"
+              style={{ color: thread.color, background: "rgba(255,255,255,.05)" }}
+            >
+              {thread.label}
+            </span>
             <span className="font-mono text-[10px] text-zinc-500">{fact.title}</span>
           </div>
         </div>

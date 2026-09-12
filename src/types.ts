@@ -43,6 +43,7 @@ export interface Fact {
   timestamp: Timestamp;
   
   title: string;
+  thread: string;
   
   description: string;
   

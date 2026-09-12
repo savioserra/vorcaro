@@ -28,6 +28,7 @@ import {
   factToEdges,
   groupStyle,
   categoryStyle,
+  threadStyle,
   type EdgeData,
   type Entity,
 } from "./data/graph";
@@ -110,6 +111,7 @@ export function App() {
   const [alwaysShow, setAlwaysShow] = useState(false);
   const [query, setQuery] = useState("");
   const [hiddenCategories, setHiddenCategories] = useState<Record<string, boolean>>({});
+  const [hiddenThreads, setHiddenThreads] = useState<Record<string, boolean>>({});
   const [hiddenGroups, setHiddenGroups] = useState<Record<string, boolean>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
@@ -196,11 +198,12 @@ export function App() {
         (e) =>
           !!e.data?.fact &&
           !hiddenCategories[e.data.fact.category] &&
+          !hiddenThreads[e.data.fact.thread] &&
           groupIdSet.has(e.source) &&
           groupIdSet.has(e.target) &&
           monthOf(e.data.fact.timestamp) <= cursor
       ),
-    [edges, hiddenCategories, groupIdSet, cursor]
+    [edges, hiddenCategories, hiddenThreads, groupIdSet, cursor]
   );
 
   const selectedEdge = useMemo(
@@ -218,18 +221,25 @@ export function App() {
   function toggleCategory(c: string) {
     setHiddenCategories((h) => ({ ...h, [c]: !h[c] }));
   }
+  function toggleThread(t: string) {
+    setHiddenThreads((h) => ({ ...h, [t]: !h[t] }));
+  }
   function toggleGroup(g: string) {
     setHiddenGroups((h) => ({ ...h, [g]: !h[g] }));
   }
 
   const filtersDirty =
-    Object.values(hiddenCategories).some(Boolean) || Object.values(hiddenGroups).some(Boolean);
+    Object.values(hiddenCategories).some(Boolean) ||
+    Object.values(hiddenThreads).some(Boolean) ||
+    Object.values(hiddenGroups).some(Boolean);
   function clearFilters() {
     setHiddenCategories({});
+    setHiddenThreads({});
     setHiddenGroups({});
   }
 
   const categories = useMemo(() => [...new Set(FACTS.map((f) => f.category))], []);
+  const threads = useMemo(() => [...new Set(FACTS.map((f) => f.thread))], []);
   const groups = useMemo(() => {
     const set = new Set(ENTITIES.map((e) => e.group));
     return [...set].sort((a, b) => {
@@ -392,6 +402,53 @@ export function App() {
                     );
                   })}
                 </div>
+
+                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Frentes</div>
+                <div className="mb-3 flex flex-wrap gap-1">
+                  {threads.map((t) => {
+                    const style = threadStyle(t);
+                    const total = FACTS.filter((f) => f.thread === t).length;
+                    const off = hiddenThreads[t];
+                    return (
+                      <button
+                        key={t}
+                        type="button"
+                        onClick={() => toggleThread(t)}
+                        aria-pressed={!off}
+                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
+                        }`}
+                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
+                      >
+                        {style.label} · {total}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Frentes</div>
+                <div className="mb-3 flex flex-wrap gap-1">
+                  {threads.map((t) => {
+                    const style = threadStyle(t);
+                    const total = FACTS.filter((f) => f.thread === t).length;
+                    const off = hiddenThreads[t];
+                    return (
+                      <button
+                        key={t}
+                        type="button"
+                        onClick={() => toggleThread(t)}
+                        aria-pressed={!off}
+                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
+                        }`}
+                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
+                      >
+                        {style.label} · {total}
+                      </button>
+                    );
+                  })}
+                </div>
+
                 <div className="mb-2 flex items-center justify-between">
                   <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">Conexões</span>
                   <button
@@ -409,23 +466,23 @@ export function App() {
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {categories.map((c) => {
-                    const style = categoryStyle(c);
-                    const off = hiddenCategories[c];
-                    return (
-                      <button
-                        key={c}
-                        type="button"
-                        onClick={() => toggleCategory(c)}
-                        aria-pressed={!off}
-                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                          off ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
-                        }`}
-                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                      >
-                        {style.label}
-                      </button>
-                    );
-                  })}
+                        const style = categoryStyle(c);
+                        const off = hiddenCategories[c];
+                        return (
+                          <button
+                            key={c}
+                            type="button"
+                            onClick={() => toggleCategory(c)}
+                            aria-pressed={!off}
+                            className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+                              off ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
+                            }`}
+                            style={!off ? { borderColor: style.color, color: style.color } : undefined}
+                          >
+                            {style.label}
+                          </button>
+                        );
+                    })}
                 </div>
                 {filtersDirty && (
                   <button

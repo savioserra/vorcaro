@@ -46,6 +46,25 @@ export function groupStyle(group: string): Style {
   );
 }
 
+export interface ThreadStyle {
+  label: string;
+  color: string;
+}
+
+export const THREAD_STYLES: Record<string, ThreadStyle> = {
+  "compliance-zero": { label: "Operação Compliance Zero", color: "#f87171" },
+  "dark-horse": { label: "Financiamento Dark Horse", color: "#2dd4bf" },
+  "make-up": { label: "Operação Make Up", color: "#fb923c" },
+  "stf-crisis": { label: "Crise no STF", color: "#a5b4fc" },
+  "campanha-2022": { label: "Campanha 2022", color: "#34d399" },
+  negocios: { label: "Negócios e histórico", color: "#fbbf24" },
+  pessoal: { label: "Vida pessoal", color: "#e879f9" },
+};
+
+export function threadStyle(thread: string): ThreadStyle {
+  return THREAD_STYLES[thread] ?? { label: prettify(thread), color: "#71717a" };
+}
+
 export const CATEGORY_STYLES: Record<string, { label: string; color: string }> = {
   family: { label: "Família", color: "#fb7185" },
   personal: { label: "Pessoal", color: "#f472b6" },

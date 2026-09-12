@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { EdgeLabelRenderer, getBezierPath, type EdgeProps } from "@xyflow/react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import type { EdgeData } from "../types";
-import { categoryStyle } from "../data/graph";
+import { categoryStyle, threadStyle } from "../data/graph";
 import { useBoard } from "../state/BoardContext";
 
 export function FactEdge(props: EdgeProps) {
@@ -21,6 +21,7 @@ export function FactEdge(props: EdgeProps) {
   const { active, edgeBaseline, labelFloor, connected } = useBoard();
   const fact = (data as EdgeData | undefined)?.fact;
   const meta = categoryStyle(fact?.category ?? "");
+  const thread = threadStyle(fact?.thread ?? "");
   const isInv = fact?.category === "investigation";
   const participants = fact?.entities ?? [];
 
@@ -76,7 +77,7 @@ export function FactEdge(props: EdgeProps) {
       <motion.path
         d={path}
         fill="none"
-        stroke={meta.color}
+        stroke={thread.color}
         style={{ opacity: opacityS, strokeWidth: strokeWidthS }}
         strokeDasharray={isInv ? "7 5" : undefined}
         strokeLinecap="round"
