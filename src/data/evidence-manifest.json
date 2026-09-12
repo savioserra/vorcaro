@@ -641,5 +641,99 @@
     "bytes": 4025433,
     "capturedAt": "2026-09-12",
     "label": "Diário360 · delação do fundador da Reag"
+  },
+  "https://www.poder360.com.br/poder-justica/ex-dono-da-reag-relata-propinas-de-vorcaro-para-autoridades-publicas/": {
+    "file": "www-poder360-com-br-poder-justica-ex-dono-da-reag-relata-propinas-de-vor-215ddd66.pdf",
+    "title": "Poder360 · propinas na Reag",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 606015,
+    "capturedAt": "2026-09-12",
+    "label": "Poder360 · propinas na Reag"
+  },
+  "https://g1.globo.com/politica/noticia/2026/09/02/pgr-encaminha-ao-stf-proposta-de-delacao-premiada-de-fundador-da-reag.ghtml": {
+    "file": "g1-globo-com-politica-noticia-2026-09-02-pgr-encaminha-ao-stf-proposta-d-c4ae1763.pdf",
+    "title": "G1 · delação encaminhada ao STF",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 2877966,
+    "capturedAt": "2026-09-12",
+    "label": "G1 · delação encaminhada ao STF"
+  },
+  "https://oglobo.globo.com/politica/noticia/2026/09/11/pf-diz-que-flavio-nao-foi-apenas-terceiro-mas-interlocutor-direto-de-vorcaro-no-financiamento-do-filme-dark-horse.ghtml": {
+    "file": "oglobo-globo-com-politica-noticia-2026-09-11-pf-diz-que-flavio-nao-foi-a-99c73001.pdf",
+    "title": "O Globo · PF: interlocutor direto",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 3906673,
+    "capturedAt": "2026-09-12",
+    "label": "O Globo · PF: interlocutor direto"
+  },
+  "https://g1.globo.com/jornal-nacional/noticia/2026/05/15/ex-deputado-federal-eduardo-bolsonaro-admite-que-assinou-documento-como-produtor-executivo-do-filme-sobre-o-pai.ghtml": {
+    "file": "g1-globo-com-jornal-nacional-noticia-2026-05-15-ex-deputado-federal-edua-5fcd6066.pdf",
+    "title": "G1 · Eduardo admite assinatura",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 3042732,
+    "capturedAt": "2026-09-12",
+    "label": "G1 · Eduardo admite assinatura"
+  },
+  "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/10/o-que-se-sabe-sobre-a-investigacao-de-dark-horse-filme-sobre-bolsonaro.ghtm": {
+    "file": "noticias-uol-com-br-politica-ultimas-noticias-2026-09-10-o-que-se-sabe-s-bfa6af40.pdf",
+    "title": "UOL · a investigação",
+    "ok": true,
+    "renderer": "gotenberg",
+    "via": "reader",
+    "bytes": 417531,
+    "capturedAt": "2026-09-12",
+    "label": "UOL · a investigação",
+    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: gotenberg 503; capturado via r.jina.ai reader"
+  },
+  "https://g1.globo.com/politica/noticia/2026/09/10/dino-proibe-mario-frias-de-sair-do-pais-e-ter-contato-com-outros-investigados.ghtml": {
+    "file": "g1-globo-com-politica-noticia-2026-09-10-dino-proibe-mario-frias-de-sair-3a12af2b.pdf",
+    "title": "G1 · Dino proíbe saída do país",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 4620831,
+    "capturedAt": "2026-09-12",
+    "label": "G1 · Dino proíbe saída do país"
+  },
+  "https://agenciabrasil.ebc.com.br/geral/noticia/2026-09/mario-frias-e-produtora-de-dark-horse-sao-alvos-de-operacao-da-pf": {
+    "file": "agenciabrasil-ebc-com-br-geral-noticia-2026-09-mario-frias-e-produtora-d-a29e5557.pdf",
+    "title": "Agência Brasil · alvos",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 2932036,
+    "capturedAt": "2026-09-12",
+    "label": "Agência Brasil · alvos"
+  },
+  "https://www.otempo.com.br/politica/judiciario/2026/9/10/filme-sobre-bolsonaro-dark-horse-e-alvo-de-duas-investigacoes-no-stf-veja-diferencas-e-alvos": {
+    "file": "www-otempo-com-br-politica-judiciario-2026-9-10-filme-sobre-bolsonaro-da-aa8274db.pdf",
+    "title": "O Tempo · duas frentes no STF",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 19685366,
+    "capturedAt": "2026-09-12",
+    "label": "O Tempo · duas frentes no STF"
+  },
+  "https://g1.globo.com/sp/sao-paulo/noticia/2026/05/19/policia-investiga-contrato-de-r-108-milhoes-de-wi-fi-da-prefeitura-de-sp-com-ong-ligada-a-filme-sobre-bolsonaro.ghtml": {
+    "file": "g1-globo-com-sp-sao-paulo-noticia-2026-05-19-policia-investiga-contrato--3249a3ba.pdf",
+    "title": "G1 · contrato de wi-fi",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 3454581,
+    "capturedAt": "2026-09-12",
+    "label": "G1 · contrato de wi-fi"
+  },
+  "https://g1.globo.com/politica/noticia/2026/09/10/karina-gama-quem-e-a-produtora-de-dark-horse-alvo-de-operacao-da-policia-federal-em-sp.ghtml": {
+    "file": "g1-globo-com-politica-noticia-2026-09-10-karina-gama-quem-e-a-produtora--b11180af.pdf",
+    "title": "G1 · R$ 157 mi (10/9/2026)",
+    "ok": true,
+    "renderer": "gotenberg",
+    "via": "reader",
+    "bytes": 21603,
+    "capturedAt": "2026-09-12",
+    "label": "G1 · R$ 157 mi (10/9/2026)",
+    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: sem snapshot no wayback; capturado via r.jina.ai reader"
   }
 }

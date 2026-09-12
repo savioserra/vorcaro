@@ -31,11 +31,15 @@ export function PersonNode({ data, selected }: { data: Entity; selected?: boolea
     (d): string => (d ? "rgba(39,39,42,.5)" : selected ? "rgba(255,255,255,.4)" : "rgba(82,82,91,.6)")
   );
 
+  const fade = { stiffness: 160, damping: 26 };
+  const opacityS = useSpring(opacity, fade);
+  const borderColorS = useSpring(borderColor, fade);
+
   return (
     <motion.div
       initial={{ scale: 0.92, y: 8 }}
       animate={{ scale: 1, y: 0 }}
-      style={{ opacity, filter, borderColor }}
+      style={{ opacity: opacityS, filter, borderColor: borderColorS }}
       transition={{ type: "spring", stiffness: 300, damping: 28 }}
       className={`relative flex w-[224px] gap-3 rounded-lg border bg-zinc-900/95 p-2.5 pr-3 shadow-lg shadow-black/50 ${
         selected ? "border-zinc-300/70" : ""
