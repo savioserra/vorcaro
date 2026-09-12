@@ -707,7 +707,7 @@
     "source": "mario-frias",
     "target": "dark-horse",
     "kind": "movie",
-    "label": "story · executive producer",
+    "label": "história · produtor-executivo",
     "when": "2025-01",
     "why": "Creator of the original story (screenplay by Cyrus and Mark Nowrasteh) and executive producer of the production. After the leak of the audios with Vorcaro, he stated that the banker gave “not a single cent” to “Dark Horse”.",
     "evidence": [
@@ -725,9 +725,9 @@
     "source": "mario-frias",
     "target": "jair-bolsonaro",
     "kind": "politics",
-    "label": "ex-Secretary of Culture · story",
+    "label": "ex-Secretário de Cultura · história",
     "when": "2025-01",
-    "why": "Frias headed the Special Secretariat of Culture in the Bolsonaro government (2020–2022) and created the story of the film about the ex-president — the bridge that brought the project into the Bolsonaro family's circle.",
+    "why": "Frias chefiou a Secretaria Especial de Cultura no governo Bolsonaro (2020–2022) e criou a história do filme sobre o ex-presidente — a ponte que levou o projeto ao círculo da família Bolsonaro.",
     "evidence": [
       {
         "label": "EN Wikipedia · Dark Horse",
@@ -743,9 +743,9 @@
     "source": "mario-frias",
     "target": "flavio-bolsonaro",
     "kind": "movie",
-    "label": "support articulation",
+    "label": "articulação de apoios",
     "when": "2025-01",
-    "why": "Flávio says his role was limited to articulating supporters to make the film viable; Frias denies that Eduardo Bolsonaro was an executive producer and that he received amounts from the fund.",
+    "why": "Flávio diz que sua atuação se limitou a articular apoiantes para viabilizar o filme; Frias nega que Eduardo Bolsonaro tenha sido produtor-executivo e que tenha recebido valores do fundo.",
     "evidence": [
       {
         "label": "UOL · 10 set 2026",
@@ -758,62 +758,12 @@
     ]
   },
   {
-    "source": "cyrus-nowrasteh",
-    "target": "dark-horse",
-    "kind": "movie",
-    "label": "director · screenwriter",
-    "when": "2025-01",
-    "why": "Directed “Dark Horse” and co-wrote the screenplay with his son, Mark Nowrasteh. After the scandal, he told Deadline he seeks “prudence”; the distributor awaits the outcome of the investigations to define the release.",
-    "evidence": [
-      {
-        "label": "O Globo · director (10/9/2026)",
-        "url": "https://oglobo.globo.com/politica/eleicoes-2026/noticia/2026/09/10/distribuidora-de-dark-horse-vai-esperar-desfecho-de-investigacoes-para-lancar-filme-sobre-bolsonaro-e-o-prudente-diz-diretor.ghtml"
-      },
-      {
-        "label": "EN Wikipedia · film credits",
-        "url": "https://en.wikipedia.org/wiki/Dark_Horse_(2026_film)"
-      }
-    ]
-  },
-  {
-    "source": "jim-caviezel",
-    "target": "dark-horse",
-    "kind": "movie",
-    "label": "lead actor — Bolsonaro",
-    "when": "2025-01",
-    "why": "The American star plays Jair Bolsonaro in the cinebiography — casting that gave the project international projection and attracted the attention of the press and investigators to the funding.",
-    "evidence": [
-      {
-        "label": "G1 · cast and direction",
-        "url": "https://g1.globo.com/pop-arte/cinema/noticia/2026/08/28/dark-horse-o-que-se-sabe-sobre-filme-biografico-de-jair-bolsonaro.ghtml"
-      },
-      {
-        "label": "Extra · who is who in the film",
-        "url": "https://extra.globo.com/entretenimento/noticia/2026/05/dark-horse-quem-e-quem-na-cinebiografia-de-jair-bolsonaro.ghtml"
-      }
-    ]
-  },
-  {
-    "source": "go-up",
-    "target": "dark-horse",
-    "kind": "movie",
-    "label": "producer",
-    "when": "2025-01",
-    "why": "Go Up Entertainment, owned by businesswoman Karina Ferreira da Gama, is the production company responsible for the film — the partner appears in a Civil Police operation on contracts with the city hall of São Paulo via ICB (Instituto Conhecer Brasil), also owned by her.",
-    "evidence": [
-      {
-        "label": "CNN Brasil · production company",
-        "url": "https://www.cnnbrasil.com.br/pop/dark-horse-veja-o-que-se-sabe-sobre-a-cinebiografia-de-jair-bolsonaro/"
-      }
-    ]
-  },
-  {
     "source": "daniel-vorcaro",
     "target": "havengate",
     "kind": "investigation",
-    "label": "≥US$ 10.6 million to the fund",
+    "label": "≥US$ 10,6 mi para o fundo",
     "when": "2025-01",
-    "why": "Companies linked to Vorcaro transferred at least US$ 10.6 million to the Havengate Development Fund LP. The Coaf records a new tranche of US$ 1.67 million on 16/9/2025. According to the Intercept, the fund was created in 2020 for a real estate project in Texas (US$ 21.1 million) that was never executed and was inert until the film's deposits.",
+    "why": "Empresas ligadas a Vorcaro transferiram ao menos US$ 10,6 milhões ao Havengate Development Fund LP. O Coaf registra nova parcela de US$ 1,67 milhão em 16/9/2025. Segundo o Intercept, o fundo foi criado em 2020 para um projeto imobiliário no Texas (US$ 21,1 milhões) nunca executado e estava inerte até os depósitos do filme.",
     "evidence": [
       {
         "label": "Intercept · inert fund",
@@ -829,9 +779,9 @@
     "source": "havengate",
     "target": "dark-horse",
     "kind": "movie",
-    "label": "film's fund",
+    "label": "fundo do filme",
     "when": "2025-01",
-    "why": "The Texas-based LP fund received and forwarded the resources that financed “Dark Horse” — the route through which the PF tries to ascertain the origin and real purpose of Vorcaro's money in the production.",
+    "why": "O fundo, sediado no Texas, recebeu e repassou os recursos que financiaram “Dark Horse” — a rota por onde a PF tenta apurar origem e destino real do dinheiro de Vorcaro na produção.",
     "evidence": [
       {
         "label": "Brasil247 · Intercept review",
@@ -847,9 +797,9 @@
     "source": "mineiro",
     "target": "havengate",
     "kind": "investigation",
-    "label": "carried out the transfers",
+    "label": "executou as transferências",
     "when": "2025-01",
-    "why": "According to the whistleblower's statement, the Entre Investimentos transfers were the channel used by Vorcaro's money to reach the Havengate fund — seven transfers that, according to the whistleblower, were ordered directly by the banker.",
+    "why": "Segundo a delação, as transferências da Entre Investimentos foram o canal usado pelo dinheiro de Vorcaro para chegar ao fundo Havengate — sete remessas ordenadas diretamente pelo banqueiro.",
     "evidence": [
       {
         "label": "G1 · whistleblower details payments",
@@ -858,6 +808,78 @@
       {
         "label": "Estadão · delação homologada",
         "url": "https://www.estadao.com.br/politica/coluna-do-estadao/mendonca-homologa-delacao-de-operador-que-mandou-dinheiro-de-vorcaro-para-filme-dark-horse/"
+      }
+    ]
+  },
+  {
+    "source": "karina-gama",
+    "target": "go-up",
+    "kind": "business",
+    "label": "dona",
+    "when": "2025-12",
+    "why": "Karina Ferreira da Gama é a empresária por trás da Go Up Entertainment, produtora de “Dark Horse” — e também do ICB (Instituto Conhecer Brasil). Foi alvo principal, com Mário Frias, da Operação Make Up.",
+    "evidence": [
+      {
+        "label": "Metrópoles · quem é Karina Gama",
+        "url": "https://www.metropoles.com/colunas/mirelle-pinheiro/quem-e-karina-gama-dona-da-produtora-de-filme-sobre-bolsonaro-alvo-da-pf"
+      },
+      {
+        "label": "Gazeta do Povo · perfil",
+        "url": "https://www.gazetadopovo.com.br/republica/quem-e-karina-da-gama-produtora-de-dark-horse-investigada-pela-pf/"
+      }
+    ]
+  },
+  {
+    "source": "go-up",
+    "target": "dark-horse",
+    "kind": "movie",
+    "label": "produtora · R$ 75 mi declarados",
+    "when": "2025-12",
+    "why": "A Go Up foi a produtora contratada para realizar o filme. Os valores divergem na apuração: contrato de R$ 108 milhões revelado pelo Intercept (dez/2025), R$ 75 milhões em gastos declarados pela produtora ao G1, R$ 61–65 milhões em repasses de Vorcaro apontados pelo Coaf e orçamento de até R$ 134 milhões citado na investigação.",
+    "evidence": [
+      {
+        "label": "Intercept · contrato de R$ 108 mi",
+        "url": "https://www.intercept.com.br/2025/12/10/dark-horse-evangelicos-filme-bolsonaro-contrato-108-milhoes-ricardo-nunes/"
+      },
+      {
+        "label": "G1 · R$ 75 mi declarados",
+        "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/06/15/produtora-declara-gasto-de-r-75-milhoes-no-filme-sobre-bolsonaro-veja-diferentes-valores-que-envolvem-o-longa.ghtml"
+      }
+    ]
+  },
+  {
+    "source": "mario-frias",
+    "target": "karina-gama",
+    "kind": "investigation",
+    "label": "alvos da Operação Make Up",
+    "when": "2026-09",
+    "why": "Em 10/9/2026, a PF deflagrou a Operação Make Up contra Frias e Karina: apura coincidências de valores e período entre emendas parlamentares do deputado e a gravação do filme, além do fluxo de recursos da produção.",
+    "evidence": [
+      {
+        "label": "O Tempo · principais alvos",
+        "url": "https://www.otempo.com.br/politica/judiciario/2026/9/10/mario-frias-e-produtora-de-dark-horse-sao-principais-alvos-de-operacao"
+      },
+      {
+        "label": "UOL · emendas e gravação",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/10/gastos-filme-dark-horse-valores-das-emendas.ghtm"
+      }
+    ]
+  },
+  {
+    "source": "daniel-vorcaro",
+    "target": "reag",
+    "kind": "investigation",
+    "label": "ocultação de R$ 2,245 bi",
+    "when": "2026-01",
+    "why": "A gestora Reag aparece em duas frentes: na ocultação de R$ 2,245 bilhões de Vorcaro em conta em nome do pai (bloqueados em 14/1/2026) e na delação do próprio fundador da Reag (10/9/2026), que descreve o uso da Reag Trust para movimentar e ocultar recursos do grupo.",
+    "evidence": [
+      {
+        "label": "Poder360 · R$ 2,2 bi em conta do pai",
+        "url": "https://www.poder360.com.br/poder-justica/daniel-vorcaro-ocultou-r-22-bilhoes-em-conta-do-pai-diz-pf/"
+      },
+      {
+        "label": "Diário360 · delação do fundador da Reag",
+        "url": "https://diario360.com.br/2026/09/10/operacao-compliance-zero-ganha-novo-capitulo-apos-delacao-do-fundador-da-reag-investimentos/"
       }
     ]
   }

@@ -531,13 +531,13 @@
   {
     "id": "mario-frias",
     "name": "Mário Frias",
-    "role": "Story creator · executive producer of Dark Horse",
+    "role": "Deputado federal PL-SP · produtor-executivo do Dark Horse",
     "group": "movie",
-    "status": "Denies receiving from Vorcaro",
+    "status": "Alvo da Operação Make Up (PF)",
     "initials": "MF",
     "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mário_Frias_em_2020.jpg/500px-Mário_Frias_em_2020.jpg",
     "since": "2025-01",
-    "bio": "Actor and Special Secretary of Culture in the Bolsonaro government (2020–2022). Creator of the original story of “Dark Horse” and executive producer of the production. After the leak of the audios, he stated that Vorcaro gave “not a single cent” and that Eduardo Bolsonaro “never was” an executive producer.",
+    "bio": "Ator, Secretário Especial de Cultura no governo Bolsonaro (2020–2022) e hoje deputado federal (PL-SP). Criador da história de “Dark Horse” e produtor-executivo. A PF aponta coincidências de valores e período entre emendas parlamentares dele e a gravação do filme (Operação Make Up, 10/9/2026). Nega que Vorcaro tenha dado “nem um centavo”.",
     "contacts": [
       {
         "label": "Wikipedia",
@@ -548,53 +548,15 @@
     "y": 120
   },
   {
-    "id": "cyrus-nowrasteh",
-    "name": "Cyrus Nowrasteh",
-    "role": "Director and screenwriter",
-    "group": "movie",
-    "status": "Awaits outcome of investigations",
-    "initials": "CN",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Cyrus_Nowrasteh_(cropped).jpg/500px-Cyrus_Nowrasteh_(cropped).jpg",
-    "since": "2025-01",
-    "bio": "Iranian-American director (“The Stoning of Soraya M.”) directed “Dark Horse” and co-wrote the screenplay with his son, Mark Nowrasteh. He told Deadline he seeks “prudence”: the distributor awaits the outcome of the investigations to define the release.",
-    "contacts": [
-      {
-        "label": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Cyrus_Nowrasteh"
-      }
-    ],
-    "x": 1700,
-    "y": 40
-  },
-  {
-    "id": "jim-caviezel",
-    "name": "Jim Caviezel",
-    "role": "Lead actor — Jair Bolsonaro",
-    "group": "movie",
-    "status": "Cast",
-    "initials": "JC",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Jim_Caviezel_at_the_2013_SDCC.jpg/500px-Jim_Caviezel_at_the_2013_SDCC.jpg",
-    "since": "2025-01",
-    "bio": "Star (“The Passion of the Christ”, “Person of Interest”) plays Bolsonaro in the film; international and Brazilian cast includes Esai Morales, Marcus Ornellas, Sérgio Barreto and Camille Guaty.",
-    "contacts": [
-      {
-        "label": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Jim_Caviezel"
-      }
-    ],
-    "x": 1850,
-    "y": 120
-  },
-  {
     "id": "havengate",
     "name": "Havengate Development Fund LP",
-    "role": "Fund · Texas (USA)",
+    "role": "Fundo LP · Texas (EUA)",
     "group": "finance",
-    "status": "Recipient of transfers under investigation",
+    "status": "Recebeu transferências sob apuração",
     "initials": "HV",
     "kind": "org",
     "since": "2025-01",
-    "bio": "Fund created in 2020 to raise funds for the Havengate Community real estate project (US$ 21.1 million, Texas), never executed — remained inert until receiving at least US$ 10.6 million from companies linked to Vorcaro to finance “Dark Horse” (Intercept; Miriam Leitão/O Globo).",
+    "bio": "Fundo criado em 2020 para captar recursos do projeto imobiliário Havengate Community (US$ 21,1 milhões, no Texas), jamais executado — permaneceu inerte até receber ao menos US$ 10,6 milhões de empresas ligadas a Vorcaro para bancar “Dark Horse” (Intercept; Miriam Leitão/O Globo).",
     "contacts": [
       {
         "label": "Intercept · fund",
@@ -605,22 +567,71 @@
     "y": 620
   },
   {
-    "id": "go-up",
-    "name": "Go Up Entertainment",
-    "role": "Producer of the film",
+    "id": "karina-gama",
+    "name": "Karina Ferreira da Gama",
+    "role": "Empresária · Go Up Entertainment",
     "group": "movie",
-    "status": "Producer · Karina Ferreira da Gama",
-    "initials": "GU",
-    "kind": "org",
-    "since": "2025-01",
-    "bio": "Production company responsible for “Dark Horse”, owned by businesswoman Karina Ferreira da Gama — also owner of ICB (Instituto Conhecer Brasil), cited in a Civil Police operation on contracts with the city hall of São Paulo.",
+    "status": "Alvo da Operação Make Up (PF)",
+    "initials": "KG",
+    "since": "2025-12",
+    "bio": "Empresária do terceiro setor e de projetos literários cristãos, dona da Go Up Entertainment (produtora de “Dark Horse”) e do ICB (Instituto Conhecer Brasil). Alvo principal, com Mário Frias, da Operação Make Up (10/9/2026), que apura emendas parlamentares ligadas ao filme.",
     "contacts": [
       {
-        "label": "CNN Brasil · production company",
-        "url": "https://www.cnnbrasil.com.br/pop/dark-horse-veja-o-que-se-sabe-sobre-a-cinebiografia-de-jair-bolsonaro/"
+        "label": "G1 · R$ 75 mi declarados",
+        "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/06/15/produtora-declara-gasto-de-r-75-milhoes-no-filme-sobre-bolsonaro-veja-diferentes-valores-que-envolvem-o-longa.ghtml"
+      },
+      {
+        "label": "Metrópoles · quem é Karina Gama",
+        "url": "https://www.metropoles.com/colunas/mirelle-pinheiro/quem-e-karina-gama-dona-da-produtora-de-filme-sobre-bolsonaro-alvo-da-pf"
       }
     ],
-    "x": 1650,
-    "y": 560
+    "x": 1600,
+    "y": 300
+  },
+  {
+    "id": "go-up",
+    "name": "Go Up Entertainment",
+    "role": "Produtora do filme",
+    "group": "movie",
+    "status": "Produtora · Karina Ferreira da Gama",
+    "initials": "GU",
+    "kind": "org",
+    "since": "2025-12",
+    "bio": "Produtora responsável por “Dark Horse”, de Karina Ferreira da Gama. O Intercept revelou contrato de R$ 108 milhões (dez/2025) ligado a igrejas evangélicas e ao entorno da Prefeitura de SP; a Go Up declarou gastos de R$ 75 milhões — os valores divergem dos US$ 10,6–24 mi e do orçamento de R$ 134 mi citados na apuração.",
+    "contacts": [
+      {
+        "label": "Intercept · contrato R$ 108 mi",
+        "url": "https://www.intercept.com.br/2025/12/10/dark-horse-evangelicos-filme-bolsonaro-contrato-108-milhoes-ricardo-nunes/"
+      },
+      {
+        "label": "G1 · valores divergentes",
+        "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/06/15/produtora-declara-gasto-de-r-75-milhoes-no-filme-sobre-bolsonaro-veja-diferentes-valores-que-envolvem-o-longa.ghtml"
+      }
+    ],
+    "x": 1750,
+    "y": 380
+  },
+  {
+    "id": "reag",
+    "name": "Reag Investimentos",
+    "role": "Gestora de investimentos",
+    "group": "finance",
+    "status": "Citada em ocultação e delação",
+    "initials": "RE",
+    "kind": "org",
+    "since": "2026-01",
+    "bio": "Gestora usada para movimentar e ocultar valores do grupo: R$ 2,245 bilhões de Vorcaro apareceram em conta em nome do pai via Reag, e o fundador da gestora firmou delação (10/9/2026) descrevendo o uso da Reag Trust na movimentação de recursos.",
+    "contacts": [
+      {
+        "label": "Poder360 · R$ 2,2 bi no pai",
+        "url": "https://www.poder360.com.br/poder-justica/daniel-vorcaro-ocultou-r-22-bilhoes-em-conta-do-pai-diz-pf/"
+      },
+      {
+        "label": "Diário360 · delação do fundador",
+        "url": "https://diario360.com.br/2026/09/10/operacao-compliance-zero-ganha-novo-capitulo-apos-delacao-do-fundador-da-reag-investimentos/"
+      }
+    ],
+    "x": 240,
+    "y": 860
   }
 ]
