@@ -83,11 +83,11 @@
   "https://www.bloomberg.com/graphics/2026-banco-master-fraud-case/": {
     "file": "www-bloomberg-com-graphics-2026-banco-master-fraud-case-2b038302.pdf",
     "title": "Bloomberg - Are you a robot?",
-    "ok": true,
+    "ok": false,
     "chars": 687,
     "capturedAt": "2026-09-12",
     "label": "Bloomberg · dossiê do caso",
-    "note": "paywall/anti-bot: PDF em texto extraído (não é o render original)",
+    "note": "gotenberg 409",
     "renderer": "jina-text"
   },
   "https://www.em.com.br/politica/2026/09/7492959-vorcaro-diz-ter-bancado-todos-os-voos-de-nikolas-ferreira.html": {
@@ -156,11 +156,11 @@
   "https://noticias.uol.com.br/comprova/ultimas-noticias/2026/09/08/desinformacao-falso-ia-documento-pf-nikolas-ferreira-vorcaro.ghtm": {
     "file": "noticias-uol-com-br-comprova-ultimas-noticias-2026-09-08-desinformacao-f-763eb211.pdf",
     "title": "Access Denied",
-    "ok": true,
+    "ok": false,
     "chars": 315,
     "capturedAt": "2026-09-12",
     "label": "UOL Comprova · desinformação",
-    "note": "paywall/anti-bot: PDF em texto extraído (não é o render original)",
+    "note": "gotenberg 409",
     "renderer": "jina-text"
   },
   "https://www.otempo.com.br/politica/2026/9/3/nikolas-ferreira-admite-voos-bancados-por-vorcaro-mas-nega-relacao-pessoal-em-resposta-a-vazamento": {
@@ -193,11 +193,11 @@
   "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/03/nikolas-ferreira-audio-daniel-vorcaro.ghtml": {
     "file": "noticias-uol-com-br-politica-ultimas-noticias-2026-09-03-nikolas-ferreir-13786aaf.pdf",
     "title": "Access Denied",
-    "ok": true,
+    "ok": false,
     "chars": 293,
     "capturedAt": "2026-09-12",
     "label": "UOL",
-    "note": "paywall/anti-bot: PDF em texto extraído (não é o render original)",
+    "note": "gotenberg 409",
     "renderer": "jina-text"
   },
   "https://g1.globo.com/politica/noticia/2026/09/01/pf-aponta-que-vorcaro-mandou-mensagens-a-telefone-atribuido-a-moraes-na-semana-em-que-foi-preso.ghtml": {
@@ -302,11 +302,11 @@
   "https://www.intercept.com.br/2026/06/09/planilha-comprovante-bancario-vorcaro-dinheiro-eua-ar-dark-horse/": {
     "file": "www-intercept-com-br-2026-06-09-planilha-comprovante-bancario-vorcaro-di-4a72ab57.pdf",
     "title": "Just a moment...",
-    "ok": true,
+    "ok": false,
     "chars": 16,
     "capturedAt": "2026-09-12",
     "label": "Intercept · planilha e recibo",
-    "note": "paywall/anti-bot: PDF em texto extraído (não é o render original)",
+    "note": "gotenberg 409",
     "renderer": "jina-text"
   },
   "https://www.bbc.com/portuguese/articles/cy9zvqle2r0o": {
@@ -434,5 +434,23 @@
     "bytes": 1105484,
     "capturedAt": "2026-09-12",
     "label": "Wikipédia · Flávio Bolsonaro"
+  },
+  "https://www.poder360.com.br/poder-justica/leia-a-integra-da-decisao-de-mendonca-que-determinou-a-prisao-de-vorcaro/": {
+    "file": "www-poder360-com-br-poder-justica-leia-a-integra-da-decisao-de-mendonca--cf8fef16.pdf",
+    "title": "Poder360 · decisão na íntegra",
+    "ok": true,
+    "renderer": "gotenberg",
+    "bytes": 405607,
+    "capturedAt": "2026-09-12",
+    "label": "Poder360 · decisão na íntegra"
+  },
+  "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/01/mendonca-retira-sigilo-de-inquerito-e-expoe-relacao-entre-moraes-e-vorcaro.htm": {
+    "file": "noticias-uol-com-br-politica-ultimas-noticias-2026-09-01-mendonca-retira-3a9a25c0.pdf",
+    "title": "UOL · retirada de sigilo (1/9)",
+    "ok": false,
+    "renderer": "gotenberg",
+    "note": "gotenberg 409",
+    "capturedAt": "2026-09-12",
+    "label": "UOL · retirada de sigilo (1/9)"
   }
 }

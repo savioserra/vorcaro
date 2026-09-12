@@ -5,7 +5,7 @@
     "kind": "family",
     "label": "pai · preso",
     "when": "2026-01",
-    "why": "Henrique é pai de Daniel e fundador da Multipar. Preso em 14/5/2026 (6ª fase da Compliance Zero); a PF aponta que ele demandava e pagava serviços de núcleos de coação e vazamento. Cerca de R$ 2,2 bi chegaram a ser ocultados na conta dele em jan/2026 e foram bloqueados pela Justiça.",
+    "why": "Henrique é pai de Daniel e fundador da Multipar. Preso em 14/5/2026 (6ª fase da Compliance Zero); a PF aponta que ele demandava e pagava serviços de núcleos de coação e vazamento. R$ 2,245 bilhões foram ocultados por Daniel em conta em nome do pai (via gestora Reag) e bloqueados pela Justiça em 14/1/2026, na 2ª fase da operação.",
     "evidence": [
       {
         "label": "G1 · quem é Henrique Vorcaro",
@@ -281,7 +281,7 @@
     "kind": "investigation",
     "label": "áudio mar/2025 · voos · doc. falso",
     "when": "2022-10",
-    "why": "Material do celular de Vorcaro (vazado pelo ICL; confirmado por G1/O Globo) mostra áudio de 30/3/2025 em que Nikolas chama o banqueiro de “Dani”, diz querer “mais proximidade” e pede ajuda para liberar um ativo minerário de um ex-assessor. Em chats de abr/2024, Vorcaro afirma ter bancado “todos os voos” de Nikolas. Em 8–10/9/2026, Nikolas divulgou suposto relatório da PF dizendo não ver crime nas conversas — apontado como falso, criado com IA. Ele admite os contatos e os voos; nega encontro e recebimento de dinheiro.",
+    "why": "Material do celular de Vorcaro (vazado pelo ICL; confirmado por G1/O Globo) mostra áudio de 30/3/2025 em que Nikolas chama o banqueiro de “Dani”, diz querer “mais proximidade” e pede ajuda para liberar um ativo minerário de um ex-assessor. Em chats de abr/2024, Vorcaro afirma ter bancado “todos os voos” de Nikolas. Entre 3 e 10/9/2026 circulou — e Nikolas republicou — suposto relatório da PF dizendo não ver crime nas conversas; o documento era falso, criado com IA (marca d'água da OpenAI), e o deputado admitiu e apagou o post. Ele admite os contatos e os voos; nega encontro e recebimento de dinheiro.",
     "evidence": [
       {
         "label": "G1 · pedidos confirmados",
@@ -405,7 +405,7 @@
     "kind": "investigation",
     "label": "prisão decretada · relator",
     "when": "2026-03",
-    "why": "Mendonça é o relator da Compliance Zero no STF: decretou a segunda prisão preventiva de Vorcaro (4/3/2026), autorizou suas transferências de cela e, em 8–9/9/2026, quebrou o sigilo do relatório da PF sobre as mensagens com Moraes — o estopim da crise institucional e do afastamento do diretor-geral da PF.",
+    "why": "Mendonça é o relator da Compliance Zero no STF: decretou a segunda prisão preventiva de Vorcaro (4/3/2026), autorizou suas transferências de cela e em 1/9/2026 retirou o sigilo do relatório da PF que expôs as mensagens com Moraes — estopim da crise institucional e do afastamento do diretor-geral da PF.",
     "evidence": [
       {
         "label": "CNN · 10 revelações",
@@ -414,6 +414,14 @@
       {
         "label": "Wikipédia · caso no STF",
         "url": "https://pt.wikipedia.org/wiki/Caso_Master_no_Supremo_Tribunal_Federal"
+      },
+      {
+        "label": "Poder360 · decisão na íntegra",
+        "url": "https://www.poder360.com.br/poder-justica/leia-a-integra-da-decisao-de-mendonca-que-determinou-a-prisao-de-vorcaro/"
+      },
+      {
+        "label": "UOL · retirada de sigilo (1/9)",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2026/09/01/mendonca-retira-sigilo-de-inquerito-e-expoe-relacao-entre-moraes-e-vorcaro.htm"
       }
     ]
   },
