@@ -2,6 +2,7 @@
 import { readFileSync, existsSync } from "node:fs";
 
 const entities = JSON.parse(readFileSync("data/entities.json", "utf8"));
+const threads = JSON.parse(readFileSync("data/threads.json", "utf8"));
 const facts = JSON.parse(readFileSync("data/facts.json", "utf8"));
 
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
@@ -10,6 +11,8 @@ const URL_OK = /^https?:\/\//
 
 const errors = [];
 const ids = new Set();
+const threadIds = new Set(threads.map((t) => t.id));
+if (threadIds.size !== threads.length) errors.push("threads.json: ids duplicados");
 
 for (const e of entities) {
   const at = `entities[${e.id ?? JSON.stringify(e).slice(0, 40)}]`;
@@ -27,6 +30,8 @@ for (const [i, f] of facts.entries()) {
   if (ids.has(f.id)) errors.push(`${at}: id duplicado`);
   ids.add(f.id);
   if (!f.category) errors.push(`${at}: sem category`);
+  if (!f.thread) errors.push(`${at}: sem thread`);
+  else if (!threadIds.has(f.thread)) errors.push(`${at}: thread inexistente "${f.thread}"`);
   if (!YM_D.test(f.timestamp || "")) errors.push(`${at}: timestamp deve ser YYYY-MM ou YYYY-MM-DD ("${f.timestamp}")`);
   if (!f.title) errors.push(`${at}: sem title`);
   if (!f.description || f.description.length < 40) errors.push(`${at}: description ausente/curta (explique o fato)`);
