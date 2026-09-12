@@ -4,7 +4,7 @@
     "title": "Quem é Henrique Vorcaro, pai de Daniel Vorcaro do Banco Master | G1",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 2874432,
+    "bytes": 2900586,
     "capturedAt": "2026-09-12",
     "label": "G1 · quem é Henrique Vorcaro"
   },
@@ -13,7 +13,7 @@
     "title": "Daniel Vorcaro – Wikipédia, a enciclopédia livre",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 430347,
+    "bytes": 494109,
     "capturedAt": "2026-09-12",
     "label": "Wikipédia · fases e bloqueios"
   },
@@ -31,7 +31,7 @@
     "title": "Empresa dona de jatinhos vira peça-chave em cerco da Justiça a Vorcaro",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 1824348,
+    "bytes": 1823886,
     "capturedAt": "2026-09-12",
     "label": "Metrópoles · jatos da Viking na Justiça"
   },
@@ -40,7 +40,7 @@
     "title": "VIKING PARTICIPACOES LTDA em Belo Horizonte, MG - CNPJ 07.875.796/0001-75 - Atualizado em agosto de 2026",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 655566,
+    "bytes": 655214,
     "capturedAt": "2026-09-12",
     "label": "Registro CNPJ Viking"
   },
@@ -49,7 +49,7 @@
     "title": "Ex de Vorcaro nega ter ocultado bens do banqueiro nos EUA",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4207076,
+    "bytes": 4224949,
     "capturedAt": "2026-09-12",
     "label": "Metrópoles · negativa da defesa"
   },
@@ -58,7 +58,7 @@
     "title": "Martha Graeff: quem é a ex-noiva de Vorcaro que disse ter sido",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 5098410,
+    "bytes": 4488349,
     "capturedAt": "2026-09-12",
     "label": "O Globo · relato dela"
   },
@@ -76,7 +76,7 @@
     "title": "Alta tensão",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 516168,
+    "bytes": 521353,
     "capturedAt": "2026-09-12",
     "label": "piauí · Alta tensão"
   },
@@ -86,7 +86,7 @@
     "ok": true,
     "renderer": "gotenberg",
     "via": "reader",
-    "bytes": 20795844,
+    "bytes": 9827368,
     "capturedAt": "2026-09-12",
     "label": "Bloomberg · dossiê do caso",
     "note": "origem bloqueou acesso direto (gotenberg 409); wayback: sem snapshot no wayback; capturado via r.jina.ai reader"
@@ -96,7 +96,7 @@
     "title": "Vorcaro diz ter bancado &lsquo;todos os voos&rsquo; de Nikolas Ferreira",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 2823627,
+    "bytes": 2825086,
     "capturedAt": "2026-09-12",
     "label": "EM.com · o chat"
   },
@@ -105,7 +105,7 @@
     "title": "Em áudios, Nikolas Ferreira pede que Daniel Vorcaro ajude em negócios de ex-assessor  | G1",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4240490,
+    "bytes": 4415679,
     "capturedAt": "2026-09-12",
     "label": "G1 · áudios"
   },
@@ -114,7 +114,7 @@
     "title": "André Valadão confirma que aproximou Nikolas de Vorcaro, mas nega envolvimento com Banco Master",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3714734,
+    "bytes": 4531047,
     "capturedAt": "2026-09-12",
     "label": "O Globo · Valadão confirma"
   },
@@ -123,7 +123,7 @@
     "title": "Daniel Vorcaro: de programa gospel a banqueiro do Banco Master | G1",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 2911750,
+    "bytes": 2984146,
     "capturedAt": "2026-09-12",
     "label": "G1 · vínculos com a Lagoinha"
   },
@@ -141,7 +141,7 @@
     "title": "Vorcaro diz que bancou",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3622293,
+    "bytes": 3881032,
     "capturedAt": "2026-09-12",
     "label": "O Globo · áudios"
   },
@@ -150,7 +150,7 @@
     "title": "É falso relatório da PF sobre conversa de Nikolas e Vorcaro | G1",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 5013370,
+    "bytes": 5039673,
     "capturedAt": "2026-09-12",
     "label": "G1 · doc. falso é fake (10/9)"
   },
@@ -163,14 +163,14 @@
     "bytes": 301842,
     "capturedAt": "2026-09-12",
     "label": "UOL Comprova · desinformação",
-    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: gotenberg 503; capturado via r.jina.ai reader"
+    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: timeout; capturado via r.jina.ai reader"
   },
   "https://www.otempo.com.br/politica/2026/9/3/nikolas-ferreira-admite-voos-bancados-por-vorcaro-mas-nega-relacao-pessoal-em-resposta-a-vazamento": {
     "file": "www-otempo-com-br-politica-2026-9-3-nikolas-ferreira-admite-voos-bancado-a235220d.pdf",
     "title": "Nikolas Ferreira admite voos bancados por Vorcaro mas nega relação pessoal em resposta a vazamento",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 12812639,
+    "bytes": 11950771,
     "capturedAt": "2026-09-12",
     "label": "O Tempo · admite voos"
   },
@@ -179,7 +179,7 @@
     "title": "Vorcaro diz em mensagem ter bancado “todos os voos” de Nikolas Ferreira - Revista Fórum",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4991288,
+    "bytes": 5505055,
     "capturedAt": "2026-09-12",
     "label": "Revista Fórum · caravana"
   },
@@ -188,7 +188,7 @@
     "title": "O que Nikolas Ferreira pediu a Daniel Vorcaro, do Banco Master | Faria Lima News",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 6087291,
+    "bytes": 6258995,
     "capturedAt": "2026-09-12",
     "label": "Veja · ativo minerário"
   },
@@ -197,18 +197,16 @@
     "title": "Access Denied",
     "ok": true,
     "renderer": "gotenberg",
-    "via": "wayback",
-    "bytes": 1611764,
+    "bytes": 28470,
     "capturedAt": "2026-09-12",
-    "label": "UOL",
-    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via snapshot wayback 20260907050440"
+    "label": "UOL"
   },
   "https://g1.globo.com/politica/noticia/2026/09/01/pf-aponta-que-vorcaro-mandou-mensagens-a-telefone-atribuido-a-moraes-na-semana-em-que-foi-preso.ghtml": {
     "file": "g1-globo-com-politica-noticia-2026-09-01-pf-aponta-que-vorcaro-mandou-me-67f882a1.pdf",
     "title": "PF aponta que Vorcaro mandou ao menos 28 mensagens a Moraes | G1",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4374811,
+    "bytes": 4653566,
     "capturedAt": "2026-09-12",
     "label": "G1 · 28 mensagens"
   },
@@ -217,7 +215,7 @@
     "title": "Moraes mandou 4 mensagens autodestrutivas a Vorcaro no dia da prisão; veja",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 1822157,
+    "bytes": 1820348,
     "capturedAt": "2026-09-12",
     "label": "Metrópoles · 4 msgs autodestrutivas"
   },
@@ -226,7 +224,7 @@
     "title": "Oposição pede prisão de Moraes, e cresce pressão por ética no STF após mensagens vazadas com Vorcaro",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 589732,
+    "bytes": 1107261,
     "capturedAt": "2026-09-12",
     "label": "Estadão · oposição pede prisão"
   },
@@ -235,7 +233,7 @@
     "title": "Caso Banco Master: veja 10 revelações após nova prisão de Vorcaro | CNN Brasil",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 2353025,
+    "bytes": 2414421,
     "capturedAt": "2026-09-12",
     "label": "CNN · 10 revelações"
   },
@@ -253,7 +251,7 @@
     "title": "Fachin dá 24h para que Mendonça retire sigilo total da operação Compliance Zero",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 869390,
+    "bytes": 1002233,
     "capturedAt": "2026-09-12",
     "label": "Exame · Fachin dá 24h"
   },
@@ -262,7 +260,7 @@
     "title": "Relação Moraes-Vorcaro, Mendonça afasta Andrei: tudo sobre a crise no STF | CNN Brasil",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 1833978,
+    "bytes": 1879789,
     "capturedAt": "2026-09-12",
     "label": "CNN · crise no STF"
   },
@@ -271,7 +269,7 @@
     "title": "Gilmar Mendes propõe proibir delegados da PF em gabinetes do STF | G1",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4077403,
+    "bytes": 4269208,
     "capturedAt": "2026-09-12",
     "label": "G1 · proposta a Fachin"
   },
@@ -280,7 +278,7 @@
     "title": "Gilmar Mendes formaliza proposta de mudar regimento do STF para retirar membro da PF e militares de gabinetes",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4258647,
+    "bytes": 3876027,
     "capturedAt": "2026-09-12",
     "label": "O Globo · regimento"
   },
@@ -289,7 +287,7 @@
     "title": "Saiba quem é Nikolas Ferreira, o bolsonarista mineiro de 26 anos que foi o deputado federal mais votado do país",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4569654,
+    "bytes": 5394482,
     "capturedAt": "2026-09-12",
     "label": "O Globo · perfil 2022"
   },
@@ -298,7 +296,7 @@
     "title": "Conheça o youtuber que ganhou o apoio de Eduardo Bolsonaro em Belo Horizonte | Sonar - A Escuta das Redes - O Globo",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 735791,
+    "bytes": 1308062,
     "capturedAt": "2026-09-12",
     "label": "O Globo · Sonár (2020)"
   },
@@ -318,7 +316,7 @@
     "title": "&#x27;Dark Horse&#x27;: o que Flávio Bolsonaro precisa esclarecer sobre financiamento do filme por Vorcaro - BBC News Brasil",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 579749,
+    "bytes": 580083,
     "capturedAt": "2026-09-12",
     "label": "BBC · o que ele precisa explicar"
   },
@@ -327,7 +325,7 @@
     "title": "5 pontos que a PF quer esclarecer sobre o financiamento de",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4708118,
+    "bytes": 4988995,
     "capturedAt": "2026-09-12",
     "label": "G1 · PF investiga Flávio (11/9)"
   },
@@ -345,7 +343,7 @@
     "title": "Vorcaro repassou a ‘Dark Horse’ mais que o admitido por Flávio",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3161724,
+    "bytes": 2112128,
     "capturedAt": "2026-09-12",
     "label": "Valor · Coaf aponta mais repasses"
   },
@@ -354,7 +352,7 @@
     "title": "Projeção de renda da bilheteria de",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4789250,
+    "bytes": 5099703,
     "capturedAt": "2026-09-12",
     "label": "O Globo · suspeita sobre finalidade (11/9)"
   },
@@ -363,7 +361,7 @@
     "title": "'Dark Horse': investigadores rechaçam 'patrocínio' e apuram suspeitas de corrupção e lavagem nos negócios de Flávio Bolsonaro com o filme | G1",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 2821245,
+    "bytes": 3175495,
     "capturedAt": "2026-09-12",
     "label": "G1 · investigadores rechaçam “patrocínio”"
   },
@@ -372,7 +370,7 @@
     "title": "Cinebiografia de Bolsonaro: tudo sobre o filme",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3594225,
+    "bytes": 4041674,
     "capturedAt": "2026-09-12",
     "label": "G1 · o que se sabe do filme"
   },
@@ -390,7 +388,7 @@
     "title": "Recursos para",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4810137,
+    "bytes": 4922054,
     "capturedAt": "2026-09-12",
     "label": "G1 · o que se sabe da delação"
   },
@@ -399,7 +397,7 @@
     "title": "Delator do caso Master detalha pagamentos a fundo de",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4109545,
+    "bytes": 4192379,
     "capturedAt": "2026-09-12",
     "label": "G1 · delator detalha pagamentos"
   },
@@ -408,7 +406,7 @@
     "title": "Mendonça homologa delação de empresário responsável por pagamentos a fundo que bancou",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4779153,
+    "bytes": 4754948,
     "capturedAt": "2026-09-12",
     "label": "G1 · homologação da delação"
   },
@@ -426,7 +424,7 @@
     "title": "Mendonça homologa delação de operador que mandou dinheiro de Vorcaro para filme ‘Dark Horse’",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 521376,
+    "bytes": 512927,
     "capturedAt": "2026-09-12",
     "label": "Estadão · coluna"
   },
@@ -457,25 +455,23 @@
     "bytes": 409700,
     "capturedAt": "2026-09-12",
     "label": "UOL · retirada de sigilo (1/9)",
-    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: gotenberg 503; capturado via r.jina.ai reader"
+    "note": "origem bloqueou acesso direto (timeout); wayback: timeout; capturado via r.jina.ai reader"
   },
   "https://noticias.uol.com.br/politica/ultimas-noticias/2026/07/23/o-que-se-sabe-sobre-os-repasses-de-vorcaro-ao-filme-de-bolsonaro.ghtml": {
     "file": "noticias-uol-com-br-politica-ultimas-noticias-2026-07-23-o-que-se-sabe-s-16269df1.pdf",
     "title": "UOL · what is known about the repayments",
     "ok": true,
     "renderer": "gotenberg",
-    "via": "wayback",
-    "bytes": 2360520,
+    "bytes": 28470,
     "capturedAt": "2026-09-12",
-    "label": "UOL · what is known about the repayments",
-    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via snapshot wayback 20260907112633"
+    "label": "UOL · what is known about the repayments"
   },
   "https://www.bbc.com/portuguese/articles/cq8p79kzz24o": {
     "file": "www-bbc-com-portuguese-articles-cq8p79kzz24o-6b4698c0.pdf",
     "title": "BBC · why the budget is questioned",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 6873844,
+    "bytes": 7085084,
     "capturedAt": "2026-09-12",
     "label": "BBC · why the budget is questioned"
   },
@@ -493,11 +489,9 @@
     "title": "UOL · 10 set 2026",
     "ok": true,
     "renderer": "gotenberg",
-    "via": "wayback",
-    "bytes": 2297085,
+    "bytes": 28470,
     "capturedAt": "2026-09-12",
-    "label": "UOL · 10 set 2026",
-    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via snapshot wayback 20260911030120"
+    "label": "UOL · 10 set 2026"
   },
   "https://oglobo.globo.com/politica/eleicoes-2026/noticia/2026/09/10/distribuidora-de-dark-horse-vai-esperar-desfecho-de-investigacoes-para-lancar-filme-sobre-bolsonaro-e-o-prudente-diz-diretor.ghtml": {
     "file": "oglobo-globo-com-politica-eleicoes-2026-noticia-2026-09-10-distribuidora-37e228c2.pdf",
@@ -541,7 +535,7 @@
     "ok": true,
     "renderer": "gotenberg",
     "via": "wayback",
-    "bytes": 5475999,
+    "bytes": 5475989,
     "capturedAt": "2026-09-12",
     "label": "Intercept · inert fund",
     "note": "origem bloqueou acesso direto (gotenberg 409); capturado via snapshot wayback 20260802115112"
@@ -551,7 +545,7 @@
     "title": "O Globo · Miriam Leitão",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 1507243,
+    "bytes": 1875437,
     "capturedAt": "2026-09-12",
     "label": "O Globo · Miriam Leitão"
   },
@@ -571,7 +565,7 @@
     "title": "Metrópoles · quem é Karina Gama",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3064635,
+    "bytes": 3065344,
     "capturedAt": "2026-09-12",
     "label": "Metrópoles · quem é Karina Gama"
   },
@@ -580,7 +574,7 @@
     "title": "Gazeta do Povo · perfil",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 1374451,
+    "bytes": 1392489,
     "capturedAt": "2026-09-12",
     "label": "Gazeta do Povo · perfil"
   },
@@ -600,7 +594,7 @@
     "title": "G1 · R$ 75 mi declarados",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4115632,
+    "bytes": 5744605,
     "capturedAt": "2026-09-12",
     "label": "G1 · R$ 75 mi declarados"
   },
@@ -609,7 +603,7 @@
     "title": "O Tempo · principais alvos",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 14735093,
+    "bytes": 13654307,
     "capturedAt": "2026-09-12",
     "label": "O Tempo · principais alvos"
   },
@@ -618,11 +612,9 @@
     "title": "UOL · emendas e gravação",
     "ok": true,
     "renderer": "gotenberg",
-    "via": "wayback",
-    "bytes": 1375665,
+    "bytes": 1755962,
     "capturedAt": "2026-09-12",
-    "label": "UOL · emendas e gravação",
-    "note": "origem bloqueou acesso direto (gotenberg 409); capturado via snapshot wayback 20260911035600"
+    "label": "UOL · emendas e gravação"
   },
   "https://www.poder360.com.br/poder-justica/daniel-vorcaro-ocultou-r-22-bilhoes-em-conta-do-pai-diz-pf/": {
     "file": "www-poder360-com-br-poder-justica-daniel-vorcaro-ocultou-r-22-bilhoes-em-597144ff.pdf",
@@ -656,7 +648,7 @@
     "title": "G1 · delação encaminhada ao STF",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 2877966,
+    "bytes": 3221751,
     "capturedAt": "2026-09-12",
     "label": "G1 · delação encaminhada ao STF"
   },
@@ -665,7 +657,7 @@
     "title": "O Globo · PF: interlocutor direto",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3906673,
+    "bytes": 4797350,
     "capturedAt": "2026-09-12",
     "label": "O Globo · PF: interlocutor direto"
   },
@@ -674,7 +666,7 @@
     "title": "G1 · Eduardo admite assinatura",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3042732,
+    "bytes": 3223769,
     "capturedAt": "2026-09-12",
     "label": "G1 · Eduardo admite assinatura"
   },
@@ -687,14 +679,14 @@
     "bytes": 417531,
     "capturedAt": "2026-09-12",
     "label": "UOL · a investigação",
-    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: gotenberg 503; capturado via r.jina.ai reader"
+    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: timeout; capturado via r.jina.ai reader"
   },
   "https://g1.globo.com/politica/noticia/2026/09/10/dino-proibe-mario-frias-de-sair-do-pais-e-ter-contato-com-outros-investigados.ghtml": {
     "file": "g1-globo-com-politica-noticia-2026-09-10-dino-proibe-mario-frias-de-sair-3a12af2b.pdf",
     "title": "G1 · Dino proíbe saída do país",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 4620831,
+    "bytes": 4834606,
     "capturedAt": "2026-09-12",
     "label": "G1 · Dino proíbe saída do país"
   },
@@ -703,7 +695,7 @@
     "title": "Agência Brasil · alvos",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 2932036,
+    "bytes": 2932032,
     "capturedAt": "2026-09-12",
     "label": "Agência Brasil · alvos"
   },
@@ -712,7 +704,7 @@
     "title": "O Tempo · duas frentes no STF",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 19685366,
+    "bytes": 10215709,
     "capturedAt": "2026-09-12",
     "label": "O Tempo · duas frentes no STF"
   },
@@ -721,19 +713,19 @@
     "title": "G1 · contrato de wi-fi",
     "ok": true,
     "renderer": "gotenberg",
-    "bytes": 3454581,
+    "bytes": 3977784,
     "capturedAt": "2026-09-12",
     "label": "G1 · contrato de wi-fi"
   },
   "https://g1.globo.com/politica/noticia/2026/09/10/karina-gama-quem-e-a-produtora-de-dark-horse-alvo-de-operacao-da-policia-federal-em-sp.ghtml": {
     "file": "g1-globo-com-politica-noticia-2026-09-10-karina-gama-quem-e-a-produtora--b11180af.pdf",
     "title": "G1 · R$ 157 mi (10/9/2026)",
-    "ok": true,
+    "ok": false,
     "renderer": "gotenberg",
     "via": "reader",
     "bytes": 21603,
     "capturedAt": "2026-09-12",
     "label": "G1 · R$ 157 mi (10/9/2026)",
-    "note": "origem bloqueou acesso direto (gotenberg 409); wayback: sem snapshot no wayback; capturado via r.jina.ai reader"
+    "note": "gotenberg 409; wayback: sem snapshot no wayback; reader: origem retornou página de erro (\"Globo.com - Desculpe-nos, página não encontrada\")"
   }
 }

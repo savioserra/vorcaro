@@ -55,12 +55,3 @@ export interface EdgeData {
   [key: string]: unknown;
   fact: Fact;
 }
-
-export interface Thread {
-  id: string;
-  label: string;
-  color: string;
-  period: string;
-  status: string;
-  summary: string;
-}

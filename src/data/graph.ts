@@ -1,13 +1,11 @@
 
 import entitiesJson from "../../data/entities.json";
 import factsJson from "../../data/facts.json";
-import threadsJson from "../../data/threads.json";
-import type { EdgeData, Entity, Fact, Thread } from "../types";
+import type { EdgeData, Entity, Fact } from "../types";
 
-export type { EdgeData, Entity, Fact, Thread };
+export type { EdgeData, Entity, Fact };
 
 export const ENTITIES = entitiesJson as Entity[];
-export const THREADS = threadsJson as Thread[];
 export const FACTS = factsJson as Fact[];
 
 export const ENTITY_BY_ID: Record<string, Entity> = Object.fromEntries(
@@ -53,9 +51,15 @@ export interface ThreadStyle {
   color: string;
 }
 
-export const THREAD_STYLES: Record<string, ThreadStyle> = Object.fromEntries(
-  THREADS.map((t) => [t.id, { label: t.label, color: t.color }]),
-);
+export const THREAD_STYLES: Record<string, ThreadStyle> = {
+  "compliance-zero": { label: "Operação Compliance Zero", color: "#f87171" },
+  "dark-horse": { label: "Financiamento Dark Horse", color: "#2dd4bf" },
+  "make-up": { label: "Operação Make Up", color: "#fb923c" },
+  "stf-crisis": { label: "Crise no STF", color: "#a5b4fc" },
+  "campanha-2022": { label: "Campanha 2022", color: "#34d399" },
+  negocios: { label: "Negócios e histórico", color: "#fbbf24" },
+  pessoal: { label: "Vida pessoal", color: "#e879f9" },
+};
 
 export function threadStyle(thread: string): ThreadStyle {
   return THREAD_STYLES[thread] ?? { label: prettify(thread), color: "#71717a" };

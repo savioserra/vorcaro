@@ -18,30 +18,23 @@ const SIDES: [XYPosition, HandleType, string][] = [
 /** Nó-objeto (organizações, filmes, fundos) — dossiê com aba tracejada. */
 export function ArtifactNode({ data, selected }: { data: Entity; selected?: boolean }) {
   const g = groupStyle(data.group);
-  const { active, pinnedPair, litFor } = useBoard();
+  const { active, litFor } = useBoard();
 
-  const dimmed = useTransform(() => {
-    const pp = pinnedPair.get();
-    if (pp) return pp.a !== data.id && pp.b !== data.id;
-    const act = active.get();
-    return !!act && act !== data.id && !litFor(act).has(data.id);
-  });
+  const dimmed = useTransform(active, (act: string | null) =>
+    !!act && act !== data.id && !litFor(act).has(data.id)
+  );
   const opacity = useTransform(dimmed, (d): number => (d ? 0.18 : 1));
-  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0) brightness(.8)" : "saturate(1)"));
+  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0) brightness(.75)" : "saturate(1)"));
   const borderColor = useTransform(
     dimmed,
     (d): string => (d ? "rgba(39,39,42,.5)" : selected ? "rgba(45,212,191,.55)" : "rgba(20,83,45,.55)")
   );
 
-  const fade = { stiffness: 160, damping: 26 };
-  const opacityS = useSpring(opacity, fade);
-  const borderColorS = useSpring(borderColor, fade);
-
   return (
     <motion.div
       initial={{ scale: 0.92, y: 8 }}
       animate={{ scale: 1, y: 0 }}
-      style={{ opacity: opacityS, filter, borderColor: borderColorS }}
+      style={{ opacity, filter, borderColor }}
       transition={{ type: "spring", stiffness: 300, damping: 28 }}
       className={`relative flex w-[224px] gap-3 rounded-lg border border-dashed bg-zinc-900/90 p-2.5 pr-3 shadow-lg shadow-black/50 ${
         selected ? "border-teal-400/60" : ""

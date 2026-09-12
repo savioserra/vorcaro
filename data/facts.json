@@ -184,28 +184,6 @@
     "thread": "compliance-zero"
   },
   {
-    "id": "daniel-vorcaro__andre-valadao",
-    "category": "church",
-    "timestamp": "2025-11",
-    "title": "órbita Lagoinha",
-    "description": "Os dois circulam na órbita da Lagoinha — rede que ligou Vorcaro à política evangélica. Valadão confirmou que repassou a queixa do banqueiro a Nikolas e fez a ponte entre os dois; nega qualquer envolvimento com o Master.",
-    "entities": [
-      "daniel-vorcaro",
-      "andre-valadao"
-    ],
-    "evidence": [
-      {
-        "label": "O Globo · Valadão confirma",
-        "url": "https://oglobo.globo.com/politica/noticia/2026/09/04/andre-valadao-confirma-que-aproximou-nikolas-de-vorcaro-mas-nega-envolvimento-com-banco-master.ghtml"
-      },
-      {
-        "label": "G1 · vínculos com a Lagoinha",
-        "url": "https://g1.globo.com/mg/minas-gerais/noticia/2025/11/19/antes-de-virar-banqueiro-daniel-vorcaro-apresentou-programa-de-musica-gospel-de-igreja-de-bh.ghtml"
-      }
-    ],
-    "thread": "pessoal"
-  },
-  {
     "id": "daniel-vorcaro__marcio-valadao",
     "category": "church",
     "timestamp": "2025-11",
@@ -221,7 +199,7 @@
         "url": "https://www.infomoney.com.br/business/quem-e-daniel-vorcaro-dono-do-banco-master-que-foi-preso-pela-pf/"
       }
     ],
-    "thread": "pessoal"
+    "thread": "dark-horse"
   },
   {
     "id": "andre-valadao__nikolas-ferreira",
@@ -239,7 +217,7 @@
         "url": "https://oglobo.globo.com/politica/noticia/2026/09/04/andre-valadao-confirma-que-aproximou-nikolas-de-vorcaro-mas-nega-envolvimento-com-banco-master.ghtml"
       }
     ],
-    "thread": "pessoal"
+    "thread": "dark-horse"
   },
   {
     "id": "nikolas-ferreira__daniel-vorcaro",
