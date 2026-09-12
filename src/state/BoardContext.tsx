@@ -30,7 +30,9 @@ export function useActiveValue(
   hovered: MotionValue<string | null>,
   selected: MotionValue<string | null>
 ): MotionValue<string | null> {
-  const active: MotionValue<string | null> = useTransform(() => hovered.get() ?? selected.get() ?? null);
+  const active = useTransform<string | null>(
+    () => hovered.get() ?? selected.get() ?? (null as string | null)
+  );
   return active;
 }
 
