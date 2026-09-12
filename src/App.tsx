@@ -121,39 +121,19 @@ export function App() {
   const cursor = TIMELINE.stops[cursorIdx];
   const timelineEngaged = cursorIdx < TIMELINE.stops.length - 1;
 
-  const edgesRef = useRef(edges);
-  edgesRef.current = edges;
-
-  const connected = useCallback((id: string) => {
-    const MAX_DEPTH = 3;
-    const dist = new Map<string, number>([[id, 0]]);
-    const out: Record<string, string[]> = {};
-    const inc: Record<string, string[]> = {};
-    for (const e of edgesRef.current) {
-      (out[e.source] ??= []).push(e.target);
-      (inc[e.target] ??= []).push(e.source);
-    }
-    const queue: [string, number][] = [[id, 0]];
-    while (queue.length) {
-      const [cur, d] = queue.shift() as [string, number];
-      if (d >= MAX_DEPTH) continue;
-      for (const t of out[cur] || []) {
-        if (!dist.has(t)) {
-          dist.set(t, d + 1);
-          queue.push([t, d + 1]);
-        }
+  const litFor = useCallback(
+    (id: string) => {
+      const s = new Set<string>([id]);
+      for (const f of FACTS) {
+        if (!f.entities.includes(id)) continue;
+        for (const other of f.entities) s.add(other);
       }
-      for (const src of inc[cur] || []) {
-        if (!dist.has(src)) {
-          dist.set(src, d + 1);
-          queue.push([src, d + 1]);
-        }
-      }
-    }
-    return new Set(dist.keys());
-  }, []);
+      return s;
+    },
+    []
+  );
 
-  const board = useCreateBoard(connected);
+  const board = useCreateBoard(litFor);
 
   useEffect(() => {
     board.edgeBaseline.set(alwaysShow || timelineEngaged ? 0.5 : 0.09);

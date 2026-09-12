@@ -18,10 +18,10 @@ const SIDES: [XYPosition, HandleType, string][] = [
 /** Nó-objeto (organizações, filmes, fundos) — dossiê com aba tracejada. */
 export function ArtifactNode({ data, selected }: { data: Entity; selected?: boolean }) {
   const g = groupStyle(data.group);
-  const { active, connected } = useBoard();
+  const { active, litFor } = useBoard();
 
   const dimmed = useTransform(active, (act: string | null) =>
-    !!act && act !== data.id && !connected(act).has(data.id)
+    !!act && act !== data.id && !litFor(act).has(data.id)
   );
   const opacity = useTransform(dimmed, (d): number => (d ? 0.18 : 1));
   const filter = useTransform(dimmed, (d): string => (d ? "saturate(0) brightness(.75)" : "saturate(1)"));

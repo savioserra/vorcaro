@@ -9,7 +9,7 @@ export interface BoardController {
   labelFloor: MotionValue<number>;
   hover: (id: string) => void;
   select: (id: string) => void;
-  connected: (id: string) => Set<string>;
+  litFor: (id: string) => Set<string>;
 }
 
 const Ctx = createContext<BoardController | null>(null);
@@ -22,7 +22,7 @@ export function useBoard(): BoardController {
   return ctx;
 }
 
-export function useCreateBoard(connected: (id: string) => Set<string>) {
+export function useCreateBoard(litFor: (id: string) => Set<string>) {
   const hovered = useMotionValue("");
   const selected = useMotionValue("");
   const edgeBaseline = useMotionValue(0.09);
@@ -37,6 +37,6 @@ export function useCreateBoard(connected: (id: string) => Set<string>) {
     labelFloor,
     hover: (id: string) => hovered.set(id),
     select: (id: string) => selected.set(id),
-    connected,
+    litFor,
   };
 }

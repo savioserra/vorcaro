@@ -18,7 +18,7 @@ export function FactEdge(props: EdgeProps) {
     selected,
   } = props;
 
-  const { active, edgeBaseline, labelFloor, connected } = useBoard();
+  const { active, edgeBaseline, labelFloor } = useBoard();
   const fact = (data as EdgeData | undefined)?.fact;
   const meta = categoryStyle(fact?.category ?? "");
   const thread = threadStyle(fact?.thread ?? "");
@@ -41,9 +41,7 @@ export function FactEdge(props: EdgeProps) {
 
   const isLit = (): boolean => {
     const act = active.get();
-    if (!act) return false;
-    const lit = connected(act);
-    return lit.has(props.source) && lit.has(props.target);
+    return !!act && participants.includes(act);
   };
 
   const opacity = useTransform((): number => {
