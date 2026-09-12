@@ -18,7 +18,7 @@ export function FactEdge(props: EdgeProps) {
     selected,
   } = props;
 
-  const { active, edgeBaseline, labelFloor } = useBoard();
+  const { active, edgeBaseline, labelFloor, connected } = useBoard();
   const fact = (data as EdgeData | undefined)?.fact;
   const meta = categoryStyle(fact?.category ?? "");
   const isInv = fact?.category === "investigation";
@@ -38,30 +38,32 @@ export function FactEdge(props: EdgeProps) {
     selectedMV.set(selected ? 1 : 0);
   }, [selected, selectedMV]);
 
-  const opacity = useTransform((): number => {
+  const isLit = (): boolean => {
     const act = active.get();
+    if (!act) return false;
+    const lit = connected(act);
+    return lit.has(props.source) && lit.has(props.target);
+  };
+
+  const opacity = useTransform((): number => {
     const sel = selectedMV.get();
     const base = edgeBaseline.get();
     if (sel) return 1;
-    if (!act) return base;
-    return participants.includes(act) ? 1 : 0.04;
+    return isLit() ? 1 : 0.04;
   });
 
   const strokeWidth = useTransform((): number => {
     const sel = selectedMV.get();
-    const act = active.get();
     const base = isInv ? 2 : 1.4;
     if (sel) return base + 1.2;
-    return act && participants.includes(act) ? base + 0.8 : base;
+    return isLit() ? base + 0.8 : base;
   });
 
   const labelOpacity = useTransform((): number => {
-    const act = active.get();
     const sel = selectedMV.get();
     const floor = labelFloor.get();
     if (sel) return 1;
-    if (act && participants.includes(act)) return 1;
-    return floor;
+    return isLit() ? 1 : floor;
   });
 
   const edgeSpring = { stiffness: 400, damping: 40 };
