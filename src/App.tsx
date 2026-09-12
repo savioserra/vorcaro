@@ -25,6 +25,7 @@ import {
   TIMELINE,
   monthOf,
   THREADS,
+  type Fact,
   entityToNode,
   factToEdges,
   groupStyle,
@@ -32,6 +33,7 @@ import {
   threadStyle,
   type EdgeData,
   type Entity,
+  type Thread,
 } from "./data/graph";
 import { AnimatePresence } from "motion/react";
 import { BoardProvider, useCreateBoard } from "./state/BoardContext";
@@ -111,9 +113,6 @@ export function App() {
   const [selectedEdgeId, setSelectedEdgeId] = useState<string | null>(null);
   const [alwaysShow, setAlwaysShow] = useState(false);
   const [query, setQuery] = useState("");
-  const [hiddenCategories, setHiddenCategories] = useState<Record<string, boolean>>({});
-  const [hiddenThreads, setHiddenThreads] = useState<Record<string, boolean>>({});
-  const [hiddenGroups, setHiddenGroups] = useState<Record<string, boolean>>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [inspectorOpen, setInspectorOpen] = useState(false);
   const [activeThread, setActiveThread] = useState<string | null>(null);
@@ -168,10 +167,7 @@ export function App() {
     () => nodes.filter((n) => (TIMELINE.firstMonth[n.id] || TIMELINE.min) <= cursor),
     [nodes, cursor]
   );
-  const groupVisibleNodes = useMemo(
-    () => timeVisibleNodes.filter((n) => !hiddenGroups[n.data.group]),
-    [timeVisibleNodes, hiddenGroups]
-  );
+  const groupVisibleNodes = useMemo(() => timeVisibleNodes, [timeVisibleNodes]);
   const groupIdSet = useMemo(() => new Set(groupVisibleNodes.map((n) => n.id)), [groupVisibleNodes]);
 
   const baseEdges = useMemo(
@@ -179,13 +175,12 @@ export function App() {
       edges.filter(
         (e) =>
           !!e.data?.fact &&
-          !hiddenCategories[e.data.fact.category] &&
-          !hiddenThreads[e.data.fact.thread] &&
+          (!activeThread || e.data.fact.thread === activeThread) &&
           groupIdSet.has(e.source) &&
           groupIdSet.has(e.target) &&
           monthOf(e.data.fact.timestamp) <= cursor
       ),
-    [edges, hiddenCategories, hiddenThreads, groupIdSet, cursor]
+    [edges, activeThread, groupIdSet, cursor]
   );
 
   const selectedEdge = useMemo(
@@ -193,32 +188,26 @@ export function App() {
     [edges, selectedEdgeId]
   );
 
+  const routedEdges = useMemo(
+    () => baseEdges.map((e) => ({ ...e, selected: e.id === selectedEdgeId })),
+    [baseEdges, selectedEdgeId]
+  );
+
+  const threadEntityIds = useMemo(() => {
+    if (!activeThread) return null;
+    return new Set(
+      FACTS.filter((f) => f.thread === activeThread).flatMap((f) => f.entities)
+    );
+  }, [activeThread]);
+
   const filteredList = useMemo(() => {
     const q = query.trim().toLowerCase();
     return groupVisibleNodes
       .map((n) => n.data)
+      .filter((p) => !threadEntityIds || threadEntityIds.has(p.id))
       .filter((p) => !q || `${p.name} ${p.role} ${p.bio || ""}`.toLowerCase().includes(q));
-  }, [groupVisibleNodes, query]);
+  }, [groupVisibleNodes, query, threadEntityIds]);
 
-  function toggleCategory(c: string) {
-    setHiddenCategories((h) => ({ ...h, [c]: !h[c] }));
-  }
-  function toggleThread(t: string) {
-    setHiddenThreads((h) => ({ ...h, [t]: !h[t] }));
-  }
-  function toggleGroup(g: string) {
-    setHiddenGroups((h) => ({ ...h, [g]: !h[g] }));
-  }
-
-  const filtersDirty =
-    Object.values(hiddenCategories).some(Boolean) ||
-    Object.values(hiddenThreads).some(Boolean) ||
-    Object.values(hiddenGroups).some(Boolean);
-  function clearFilters() {
-    setHiddenCategories({});
-    setHiddenThreads({});
-    setHiddenGroups({});
-  }
 
   const categories = useMemo(() => [...new Set(FACTS.map((f) => f.category))], []);
   const threads = useMemo(() => [...new Set(FACTS.map((f) => f.thread))], []);
@@ -410,76 +399,6 @@ export function App() {
               </div>
 
               <div className="border-t border-zinc-800 p-3">
-                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Grupos</div>
-                <div className="mb-3 flex flex-wrap gap-1">
-                  {groups.map((g) => {
-                    const style = groupStyle(g);
-                    const total = nodes.filter((n) => n.data.group === g).length;
-                    if (!total) return null;
-                    const off = hiddenGroups[g];
-                    return (
-                      <button
-                        key={g}
-                        type="button"
-                        onClick={() => toggleGroup(g)}
-                        aria-pressed={!off}
-                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
-                        }`}
-                        style={!off ? { borderColor: style.ring, color: style.ring } : undefined}
-                      >
-                        {style.label} · {total}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Frentes</div>
-                <div className="mb-3 flex flex-wrap gap-1">
-                  {threads.map((t) => {
-                    const style = threadStyle(t);
-                    const total = FACTS.filter((f) => f.thread === t).length;
-                    const off = hiddenThreads[t];
-                    return (
-                      <button
-                        key={t}
-                        type="button"
-                        onClick={() => toggleThread(t)}
-                        aria-pressed={!off}
-                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
-                        }`}
-                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                      >
-                        {style.label} · {total}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Frentes</div>
-                <div className="mb-3 flex flex-wrap gap-1">
-                  {threads.map((t) => {
-                    const style = threadStyle(t);
-                    const total = FACTS.filter((f) => f.thread === t).length;
-                    const off = hiddenThreads[t];
-                    return (
-                      <button
-                        key={t}
-                        type="button"
-                        onClick={() => toggleThread(t)}
-                        aria-pressed={!off}
-                        className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                          off ? "border-zinc-800 text-zinc-600 line-through" : ""
-                        }`}
-                        style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                      >
-                        {style.label} · {total}
-                      </button>
-                    );
-                  })}
-                </div>
-
                 <div className="mb-2 flex items-center justify-between">
                   <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">Conexões</span>
                   <button
@@ -495,35 +414,6 @@ export function App() {
                     {alwaysShow ? "sempre visíveis" : "só no hover"}
                   </button>
                 </div>
-                <div className="flex flex-wrap gap-1">
-                  {categories.map((c) => {
-                        const style = categoryStyle(c);
-                        const off = hiddenCategories[c];
-                        return (
-                          <button
-                            key={c}
-                            type="button"
-                            onClick={() => toggleCategory(c)}
-                            aria-pressed={!off}
-                            className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
-                              off ? "border-zinc-800 text-zinc-600 line-through" : "border-zinc-700 text-zinc-200"
-                            }`}
-                            style={!off ? { borderColor: style.color, color: style.color } : undefined}
-                          >
-                            {style.label}
-                          </button>
-                        );
-                    })}
-                </div>
-                {filtersDirty && (
-                  <button
-                    type="button"
-                    onClick={clearFilters}
-                    className="mt-2 w-full rounded-lg border border-zinc-700 py-1 font-mono text-[10px] uppercase tracking-wide text-zinc-300 hover:border-zinc-500 hover:text-zinc-100"
-                  >
-                    limpar filtros
-                  </button>
-                )}
               </div>
             </aside>
           )}
@@ -546,7 +436,7 @@ export function App() {
           <div className="relative min-w-0 flex-1">
             <ReactFlow
               nodes={groupVisibleNodes}
-              edges={baseEdges}
+              edges={routedEdges}
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
               onNodeClick={(_, node) => {
@@ -616,9 +506,15 @@ export function App() {
             >
               <Inspector
                 entity={selected}
+                threads={THREADS}
                 facts={FACTS}
                 entityById={entityById}
                 onFocus={fitPerson}
+                onIsolateThread={(threadId) => {
+                  setActiveThread(threadId);
+                  setSelectedId(null);
+                  setSelectedEdgeId(null);
+                }}
                 onTrace={traceEdge}
                 onClose={() => {
                   setSelectedId(null);

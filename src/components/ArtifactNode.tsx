@@ -18,16 +18,19 @@ const SIDES: [XYPosition, HandleType, string][] = [
 /** Nó-objeto (organizações, filmes, fundos) — dossiê com aba tracejada. */
 export function ArtifactNode({ data, selected }: { data: Entity; selected?: boolean }) {
   const g = groupStyle(data.group);
-  const { active, litFor } = useBoard();
+  const { active, pinnedPair, litFor } = useBoard();
 
-  const dimmed = useTransform(active, (act: string | null) =>
-    !!act && act !== data.id && !litFor(act).has(data.id)
-  );
+  const dimmed = useTransform(() => {
+    const pp = pinnedPair.get();
+    if (pp) return pp.a !== data.id && pp.b !== data.id;
+    const act = active.get();
+    return !!act && act !== data.id && !litFor(act).has(data.id);
+  });
   const opacity = useTransform(dimmed, (d): number => (d ? 0.18 : 1));
-  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0) brightness(.75)" : "saturate(1)"));
+  const filter = useTransform(dimmed, (d): string => (d ? "saturate(0) brightness(.8)" : "saturate(1)"));
   const borderColor = useTransform(
     dimmed,
-    (d): string => (d ? "rgba(39,39,42,.5)" : selected ? "rgba(255,255,255,.4)" : "rgba(82,82,91,.6)")
+    (d): string => (d ? "rgba(39,39,42,.5)" : selected ? "rgba(45,212,191,.55)" : "rgba(20,83,45,.55)")
   );
 
   const fade = { stiffness: 160, damping: 26 };

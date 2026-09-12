@@ -4,7 +4,7 @@ import factsJson from "../../data/facts.json";
 import threadsJson from "../../data/threads.json";
 import type { EdgeData, Entity, Fact, Thread } from "../types";
 
-export type { EdgeData, Entity, Fact };
+export type { EdgeData, Entity, Fact, Thread };
 
 export const ENTITIES = entitiesJson as Entity[];
 export const THREADS = threadsJson as Thread[];
