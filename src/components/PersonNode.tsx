@@ -1,5 +1,5 @@
 import { Handle, Position, type HandleType, type Position as XYPosition } from "@xyflow/react";
-import { motion, useTransform } from "motion/react";
+import { motion, useSpring, useTransform } from "motion/react";
 import { useState } from "react";
 import type { Entity } from "../types";
 import { groupStyle } from "../data/graph";
@@ -25,17 +25,22 @@ export function PersonNode({ data, selected }: { data: Entity; selected?: boolea
   const dimmed = useTransform(active, (act: string | null) =>
     !!act && act !== data.id && !descendants(act).has(data.id)
   );
-  const opacity = useTransform(dimmed, (d) => (d ? 0.22 : 1));
+  const opacity = useTransform<number>(dimmed, (d) => (d ? 0.22 : 1));
   const filter = useTransform(dimmed, (d) => (d ? "saturate(0)" : "saturate(1)"));
   const borderColor = useTransform(dimmed, (d) => (d ? "rgba(63,63,70,.7)" : "rgba(255,255,255,.35)"));
+
+  const spring = { stiffness: 320, damping: 28 };
+  const opacityS = useSpring(opacity, spring);
+  
+  
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.85, y: 10 }}
       animate={{ scale: 1, y: 0 }}
-      style={{ opacity, filter, borderColor }}
+      style={{ opacity: opacityS, filter, borderColor }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
-      className={`group relative w-[188px] rounded-[22px] border bg-zinc-900/90 px-3 pb-3 pt-10 shadow-xl shadow-black/40 backdrop-blur-sm ${
+      className={`group relative w-[188px] rounded-[22px] border bg-zinc-900/90 px-3 pb-3 pt-10 shadow-xl shadow-black/40 backdrop-blur-sm transition-[border-color,filter] duration-300 ${
         selected ? "ring-2 ring-white/25" : ""
       }`}
     >

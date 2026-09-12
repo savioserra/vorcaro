@@ -1,5 +1,5 @@
 import { Handle, Position, type HandleType, type Position as XYPosition } from "@xyflow/react";
-import { motion, useTransform } from "motion/react";
+import { motion, useSpring, useTransform } from "motion/react";
 import type { Entity } from "../types";
 import { groupStyle } from "../data/graph";
 import { useBoard } from "../state/BoardContext";
@@ -22,17 +22,22 @@ export function ArtifactNode({ data, selected }: { data: Entity; selected?: bool
   const dimmed = useTransform(active, (act: string | null) =>
     !!act && act !== data.id && !descendants(act).has(data.id)
   );
-  const opacity = useTransform(dimmed, (d) => (d ? 0.22 : 1));
+  const opacity = useTransform<number>(dimmed, (d) => (d ? 0.22 : 1));
   const filter = useTransform(dimmed, (d) => (d ? "saturate(0)" : "saturate(1)"));
   const borderColor = useTransform(dimmed, (d) => (d ? "rgba(13,84,72,.6)" : "rgba(45,212,191,.7)"));
+
+  const spring = { stiffness: 320, damping: 28 };
+  const opacityS = useSpring(opacity, spring);
+  
+  
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.85, y: 10 }}
       animate={{ scale: 1, y: 0 }}
-      style={{ opacity, filter, borderColor }}
+      style={{ opacity: opacityS, filter, borderColor }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
-      className={`relative w-[188px] rounded-[22px] border border-dashed bg-zinc-900/70 px-3 pb-3 pt-8 shadow-xl shadow-black/40 backdrop-blur-sm ${
+      className={`relative w-[188px] rounded-[22px] border border-dashed bg-zinc-900/70 px-3 pb-3 pt-8 shadow-xl shadow-black/40 backdrop-blur-sm transition-[border-color,filter] duration-300 ${
         selected ? "ring-2 ring-teal-400/25" : ""
       }`}
     >

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { EdgeLabelRenderer, getBezierPath, type EdgeProps } from "@xyflow/react";
-import { motion, useMotionValue, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import type { EdgeData } from "../types";
 import { categoryStyle } from "../data/graph";
 import { useBoard } from "../state/BoardContext";
@@ -38,7 +38,7 @@ export function FactEdge(props: EdgeProps) {
     selectedMV.set(selected ? 1 : 0);
   }, [selected, selectedMV]);
 
-  const opacity = useTransform(() => {
+  const opacity = useTransform<number>(() => {
     const act = active.get();
     const sel = selectedMV.get();
     const base = edgeBaseline.get();
@@ -47,7 +47,7 @@ export function FactEdge(props: EdgeProps) {
     return participants.includes(act) ? 1 : 0.04;
   });
 
-  const strokeWidth = useTransform(() => {
+  const strokeWidth = useTransform<number>(() => {
     const sel = selectedMV.get();
     const act = active.get();
     const base = isInv ? 2 : 1.4;
@@ -55,7 +55,7 @@ export function FactEdge(props: EdgeProps) {
     return act && participants.includes(act) ? base + 0.8 : base;
   });
 
-  const labelOpacity = useTransform(() => {
+  const labelOpacity = useTransform<number>(() => {
     const act = active.get();
     const sel = selectedMV.get();
     const floor = labelFloor.get();
@@ -64,13 +64,18 @@ export function FactEdge(props: EdgeProps) {
     return floor;
   });
 
+  const edgeSpring = { stiffness: 400, damping: 40 };
+  const opacityS = useSpring(opacity, edgeSpring);
+  const strokeWidthS = useSpring(strokeWidth, edgeSpring);
+  const labelOpacityS = useSpring(labelOpacity, edgeSpring);
+
   return (
     <>
       <motion.path
         d={path}
         fill="none"
         stroke={meta.color}
-        style={{ opacity, strokeWidth }}
+        style={{ opacity: opacityS, strokeWidth: strokeWidthS }}
         strokeDasharray={isInv ? "7 5" : undefined}
         strokeLinecap="round"
       />
@@ -80,7 +85,7 @@ export function FactEdge(props: EdgeProps) {
         <motion.div
           initial={false}
           style={{
-            opacity: labelOpacity,
+            opacity: labelOpacityS,
             position: "absolute",
             transform: `translate(-50%,-50%) translate(${labelX}px,${labelY}px)`,
             pointerEvents: "none",
