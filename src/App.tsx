@@ -337,7 +337,7 @@ export function App() {
                         if (!isDesktop) setSidebarOpen(false);
                       }}
                       onMouseEnter={() => board.hover(p.id)}
-                      onMouseLeave={() => board.hover(null)}
+                      onMouseLeave={() => board.hover("")}
                       className={`mb-1 flex w-full items-center gap-2 rounded-xl px-2 py-1.5 text-left transition-colors ${
                         selectedId === p.id ? "bg-zinc-800" : "hover:bg-zinc-900"
                       }`}
@@ -461,12 +461,12 @@ export function App() {
               }}
               onEdgeClick={(_, edge) => setSelectedEdgeId((cur) => (cur === edge.id ? null : edge.id))}
               onPaneClick={() => {
-                board.select(null);
+                board.select("");
                 setSelectedId(null);
                 setSelectedEdgeId(null);
               }}
               onNodeMouseEnter={(_, node) => board.hover(node.id)}
-              onNodeMouseLeave={() => board.hover(null)}
+              onNodeMouseLeave={() => board.hover("")}
               nodeTypes={nodeTypes}
               edgeTypes={edgeTypes}
               onInit={(inst) => {

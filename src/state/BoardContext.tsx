@@ -2,17 +2,13 @@ import { createContext, useContext } from "react";
 import { useMotionValue, useTransform, type MotionValue } from "motion/react";
 
 export interface BoardController {
-  hovered: MotionValue<string | null>;
-  selected: MotionValue<string | null>;
-  
-  active: MotionValue<string | null>;
-  
+  hovered: MotionValue<string>;
+  selected: MotionValue<string>;
+  active: MotionValue<string>;
   edgeBaseline: MotionValue<number>;
-  
   labelFloor: MotionValue<number>;
-  hover: (id: string | null) => void;
-  select: (id: string | null) => void;
-  
+  hover: (id: string) => void;
+  select: (id: string) => void;
   descendants: (id: string) => Set<string>;
 }
 
@@ -26,30 +22,21 @@ export function useBoard(): BoardController {
   return ctx;
 }
 
-export function useActiveValue(
-  hovered: MotionValue<string | null>,
-  selected: MotionValue<string | null>
-): MotionValue<string | null> {
-  const active = useTransform<string | null>(
-    () => hovered.get() ?? selected.get() ?? (null as string | null)
-  );
-  return active;
-}
-
 export function useCreateBoard(descendants: (id: string) => Set<string>) {
-  const hovered = useMotionValue<string | null>(null);
-  const selected = useMotionValue<string | null>(null);
+  const hovered = useMotionValue("");
+  const selected = useMotionValue("");
   const edgeBaseline = useMotionValue(0.09);
   const labelFloor = useMotionValue(0);
-  const active = useActiveValue(hovered, selected);
+  const active = useTransform(() => hovered.get() || selected.get() || "");
+
   return {
     hovered,
     selected,
     active,
     edgeBaseline,
     labelFloor,
-    hover: (id: string | null) => hovered.set(id),
-    select: (id: string | null) => selected.set(id),
+    hover: (id: string) => hovered.set(id),
+    select: (id: string) => selected.set(id),
     descendants,
   };
 }
